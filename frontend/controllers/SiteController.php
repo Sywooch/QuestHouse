@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Quest;
+use common\models\Menu;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -8,10 +10,12 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
+use yii\base\Model;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use backend\controllers\QuestController;
 
 /**
  * Site controller
@@ -22,6 +26,7 @@ class SiteController extends Controller
      * @inheritdoc
      */
 
+    public $linkVaration;
     public function behaviors()
     {
         return [
@@ -68,7 +73,12 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $q = new Quest();
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->all();
+        $test = array('1'=>'123123','2'=>'fdsfsdfew');
+        return $this->render('index',['cust' => $test]);
+        //return $this->render('index');
     }
 
     public function actionLogin()

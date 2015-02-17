@@ -20,7 +20,7 @@ class m150216_172355_quests extends Migration
             'quest_description' => Schema::TYPE_TEXT . ' NOT NULL',
             'quest_price' => Schema::TYPE_INTEGER . ' NOT NULL',
             'quest_max_players' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'quest_logo' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'quest_logo' => Schema::TYPE_STRING . ' NOT NULL',
 
             /*'username' => Schema::TYPE_STRING . ' NOT NULL',
             'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',

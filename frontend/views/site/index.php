@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 $this->title = 'Quest House';
 ?>
+
 <!--<div class="site-index">
 
     <div class="jumbotron">

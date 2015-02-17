@@ -331,6 +331,9 @@ use yii\helpers\Html;
                         <span class="text">Maps</span>
                     </a>
                 </li>
+
+
+
                 <li class="openable">
                     <a href="javascript:void(0);">
                         <span class="menu-icon"><i class="fs fs-location fa-lg"></i></span>
@@ -339,6 +342,24 @@ use yii\helpers\Html;
                     <ul class="submenu">
                         <li>
                             <?php echo Html::a('New Quest',array('/quest/create')); ?>
+                        </li>
+                        <li>
+                            <?php echo Html::a('All Quests',array('/quest/index')); ?>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="openable">
+                    <a href="javascript:void(0);">
+                        <span class="menu-icon"><i class="fs fs-location fa-lg"></i></span>
+                        <span class="text">Blog Manager</span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <?php echo Html::a('Blog display',array('/quest/create')); ?>
+                        </li>
+                        <li>
+                            <?php echo Html::a('Create New Blog Post',array('/quest/index')); ?>
                         </li>
                     </ul>
                 </li>

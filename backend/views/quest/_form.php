@@ -22,7 +22,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'quest_max_players')->textInput() ?>
 
-    <?= $form->field($model, 'quest_logo')->textInput() ?>
+    <!-- <?= $form->field($model, 'quest_logo')->textInput() ?> -->
+    <?=  $form->field($model, 'quest_logo')->fileInput() ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 
