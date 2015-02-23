@@ -28,7 +28,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/modernizr.js',
-        'js/jquery.js',
+        /*'js/jquery.js',*/
         'js/bootstrap.js',
         'js/slimmenu.js',
 

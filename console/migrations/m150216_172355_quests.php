@@ -38,7 +38,7 @@ class m150216_172355_quests extends Migration
     public function down()
     {
         echo "m150216_172355_quests cannot be reverted.\n";
-
+        $this->dropTable('quests');
         return false;
     }
 }

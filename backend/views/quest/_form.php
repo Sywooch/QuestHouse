@@ -3,14 +3,16 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+
 /* @var $this yii\web\View */
 /* @var $model common\models\Quest */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
 
 <div class="quest-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'quest_en_name')->textInput(['maxlength' => 32]) ?>
 
@@ -22,8 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'quest_max_players')->textInput() ?>
 
-    <!-- <?= $form->field($model, 'quest_logo')->textInput() ?> -->
-    <?=  $form->field($model, 'quest_logo')->fileInput() ?>
+    <?= $form->field($model, 'quest_logo[]')->fileInput(['multiple' => true]) ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 

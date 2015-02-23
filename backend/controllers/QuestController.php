@@ -8,6 +8,7 @@ use common\models\SearchQuest;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * QuestController implements the CRUD actions for Quest model.
@@ -62,7 +63,28 @@ class QuestController extends Controller
     {
         $model = new Quest();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
+            //$model->file = UploadedFile::getInstances($model, 'quest_logo');
+            //return $this->redirect(['view', 'id' => $model->id]);
+            /*$model->file = UploadedFile::getInstances($model, 'file');
+
+            if ($model->file && $model->validate()) {
+                foreach ($model->file as $file) {
+                    $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
+                }
+            }*/
+            $filesArray = UploadedFile::getInstances($model, 'quest_logo');
+            //if ($model->validate()) {
+                foreach (UploadedFile::getInstances($model, 'quest_logo') as $file) {
+                    $file->saveAs('images/quest-images/' . $file->baseName . '.' . $file->extension);
+                }
+            //}
+            $model->quest_logo = $filesArray[0]->baseName . '.' . $filesArray[0]->extension;
+
+            //print_r(UploadedFile::getInstances($model, 'quest_logo'));
+            //echo $filesArray[0];
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

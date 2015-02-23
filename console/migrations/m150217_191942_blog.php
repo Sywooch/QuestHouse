@@ -13,7 +13,7 @@ class m150217_191942_blog extends Migration
     public function down()
     {
         echo "m150217_191942_blog cannot be reverted.\n";
-
+        $this->dropTable('blog');
         return false;
     }
 }

@@ -96,6 +96,9 @@ $this->title = 'Quest House';
                                 </div>
                                 <?php ActiveForm::end(); ?>
 
+                                <!--site/signup-->
+                                <?php echo Html::a('Quests',array('/site/signup')); ?>
+
                                 <!--<form>
                                     <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
                                         <label>Username or email</label>

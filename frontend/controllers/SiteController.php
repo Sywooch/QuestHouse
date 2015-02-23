@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Quest;
 use common\models\Menu;
+use common\models\SearchMenu;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -73,12 +74,30 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $sub_menu_array = null;
         $q = new Quest();
         $menuClass = new Menu();
-        Yii::$app->params['nav_array'] = $menuClass->find()->all();
+        $navigationPanel = $menuClass->find()->where('is_active = 1')->all();
+        //Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+
+//print_r($navigationPanel);
+        for ($i = 0; $i<count($navigationPanel);$i++){
+
+            //echo ( $navigationPanel[$i]['id']);
+            $sub_menu_array[$navigationPanel[$i]['id']] = array("Quest1","Quest2","Quest3", $navigationPanel[$i]["menu_title"]);
+
+          //  echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+
+          // array_push($navigationPanel->$i,array("test"=>"das"));
+        }
+        //print_r ($sub_menu_array);
+
+        $sub_menu_array[2] = array();
+        Yii::$app->params['nav_array'] = $navigationPanel;
+        Yii::$app->params['sub_menu_array'] = $sub_menu_array;
         $test = array('1'=>'123123','2'=>'fdsfsdfew');
-        return $this->render('index',['cust' => $test]);
-        //return $this->render('index');
+        //return $this->render('index',['cust' => $test]);
+        return $this->render('index');
     }
 
     public function actionLogin()
@@ -145,11 +164,18 @@ class SiteController extends Controller
 
     public function actionGames()
     {
-        return $this->render('games');
+        $q = new Quest();
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        $test = array('1'=>'123123','2'=>'fdsfsdfew');
+        //return $this->render('index',['cust' => $test]);
+        return $this->render('games',['cust' => $test]);
     }
 
     public function actionSignup()
     {
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {

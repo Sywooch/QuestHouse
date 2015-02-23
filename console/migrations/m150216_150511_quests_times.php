@@ -16,15 +16,7 @@ class m150216_150511_quests_times extends Migration
 
         $this->createTable('{{%quests_times}}', [
             'id' => Schema::TYPE_PK,
-            'time_value' => Schema::TYPE_STRING . ' NOT NULL',
-
-            /*'username' => Schema::TYPE_STRING . ' NOT NULL',
-            'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
-            'password_reset_token' => Schema::TYPE_STRING,
-            'email' => Schema::TYPE_STRING . ' NOT NULL',
-
-            'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',*/
+            'time_value' => Schema::TYPE_TIME . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
         ], $tableOptions);
@@ -45,7 +37,7 @@ class m150216_150511_quests_times extends Migration
     public function down()
     {
         echo "m150216_150511_quests_times cannot be reverted.\n";
-
+        $this->dropTable('quests_times');
         return false;
     }
 
