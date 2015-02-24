@@ -27,7 +27,6 @@ class SiteController extends Controller
      * @inheritdoc
      */
 
-    public $linkVaration;
     public function behaviors()
     {
         return [
@@ -74,28 +73,18 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $sub_menu_array = null;
+        /*$sub_menu_array = null;
         $q = new Quest();
         $menuClass = new Menu();
         $navigationPanel = $menuClass->find()->where('is_active = 1')->all();
-        //Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-
-//print_r($navigationPanel);
         for ($i = 0; $i<count($navigationPanel);$i++){
-
-            //echo ( $navigationPanel[$i]['id']);
             $sub_menu_array[$navigationPanel[$i]['id']] = array("Quest1","Quest2","Quest3", $navigationPanel[$i]["menu_title"]);
-
-          //  echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
-
-          // array_push($navigationPanel->$i,array("test"=>"das"));
         }
-        //print_r ($sub_menu_array);
-
         $sub_menu_array[2] = array();
         Yii::$app->params['nav_array'] = $navigationPanel;
-        Yii::$app->params['sub_menu_array'] = $sub_menu_array;
-        $test = array('1'=>'123123','2'=>'fdsfsdfew');
+        Yii::$app->params['sub_menu_array'] = $sub_menu_array;*/
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         //return $this->render('index',['cust' => $test]);
         return $this->render('index');
     }
@@ -129,9 +118,16 @@ class SiteController extends Controller
 
     public function actionQuest()
     {
-        //print_r(Yii::$app->request->get());
-        //print_r (Yii::$app->getRequest()->getQueryParam('0')['id']);
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         return $this->render('quest');
+    }
+
+    public function actionProfile()
+    {
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        return $this->render('profile');
     }
 
     public function actionContact()
@@ -146,6 +142,8 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
+            $menuClass = new Menu();
+            Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
             return $this->render('contact', [
                 'model' => $model,
             ]);
@@ -154,11 +152,15 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         return $this->render('about');
     }
 
     public function actionGamespace()
     {
+        $menuClass = new Menu();
+        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         return $this->render('game_space');
     }
 

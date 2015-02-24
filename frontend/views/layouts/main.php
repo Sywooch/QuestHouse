@@ -110,10 +110,19 @@ $this->title = 'Quest House';
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
                                     <li class="top-user-area-avatar">
-                                        <a href="user-profile.html">
+
+
+                                        <!--<a href="user-profile.html">
                                             <img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze" />
-                                            <?=Yii::$app->user->identity->username;?>
-                                        </a>
+                                            <?/*=Yii::$app->user->identity->username;*/?>
+                                        </a>-->
+
+                                        <?php
+                                        $imghtml=Html::img('img/40x40.png',array('class' =>"origin round",'alt'=>"Image Alternative text",'title'=>"AMaze"));
+                                        echo Html::a($imghtml, array('site/profile'));
+                                        ?>
+
+
                                     </li>
                                     <li>
                                         <!--<a href="#">Sign Out</a>-->

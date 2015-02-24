@@ -33,7 +33,7 @@ class Quest extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quest_en_name', 'quest_name', 'quest_description', 'quest_price', 'quest_max_players', 'quest_logo', 'created_at', 'updated_at'], 'required'],
+            [['quest_en_name', 'quest_name', 'quest_description', 'quest_price', 'quest_max_players', 'quest_logo'/*, 'created_at', 'updated_at'*/], 'required'],
             [['quest_description'], 'string'],
             [['quest_logo'], 'file', 'maxFiles' => 5], // <--- here!
             [['quest_price', 'quest_max_players', 'created_at', 'updated_at'], 'integer'],

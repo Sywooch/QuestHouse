@@ -21,14 +21,16 @@ use yii\bootstrap\NavBar;*/
             <li class="active">
             <li><?php echo Html::a(Yii::$app->params['nav_array'][$key]['menu_title'],array(Yii::$app->params['nav_array'][$key]['menu_link'])); ?>
 
-            <?php if (count(Yii::$app->params['sub_menu_array'][$key+1])>0): ?>
-                <ul>
-                    <?php /*print_r(Yii::$app->params['sub_menu_array'][$key+1]);*/?>
-                    <?php foreach(Yii::$app->params['sub_menu_array'][$key+1] as $sub_key=>$sub_value): ?>
-                        <?php echo $sub_value; ?>
-                    <?php endforeach; ?>
-                </ul>
-            <?php endif; ?>
+            <ul>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+            </ul>
 
             </li>
 

@@ -65,6 +65,8 @@ class QuestController extends Controller
 
         //if ($model->load(Yii::$app->request->post()) && $model->save()) {
         if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
+            $model->created_at = time();
+            $model->updated_at = time();
             //$model->file = UploadedFile::getInstances($model, 'quest_logo');
             //return $this->redirect(['view', 'id' => $model->id]);
             /*$model->file = UploadedFile::getInstances($model, 'file');
