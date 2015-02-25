@@ -18,11 +18,10 @@ use yii\bootstrap\NavBar;*/
             <td><?php /*print_r(Yii::$app->params['nav_array'][$key]['menu_title']); */?></td>
         </tr>-->
 
-            <li class="active">
-            <li><?php echo Html::a(Yii::$app->params['nav_array'][$key]['menu_title'],array(Yii::$app->params['nav_array'][$key]['menu_link'])); ?>
+            <li <?php if (Yii::$app->requestedRoute==Yii::$app->params['nav_array'][$key]['menu_link']) echo "class='active'" ?> ><?php echo Html::a(Yii::$app->params['nav_array'][$key]['menu_title'],array(Yii::$app->params['nav_array'][$key]['menu_link'])); ?>
 
             <ul>
-                <li><a href="success-payment.html">Success Payment</a>
+                <li><a href="132">Success Payment</a>
                 </li>
                 <li><a href="success-payment.html">Success Payment</a>
                 </li>

@@ -2447,7 +2447,8 @@ footer#main-footer .form-control:focus {
   text-decoration: underline;
 }
 header#main-header {
-  border-bottom: 2px solid #ed8323;
+  /*border-bottom: 2px solid #ed8323;*/
+  border-bottom: 2px solid darkmagenta;
 }
 .main-header-search {
   top: 4px;

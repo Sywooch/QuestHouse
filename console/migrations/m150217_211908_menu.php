@@ -26,11 +26,11 @@ class m150217_211908_menu extends Migration
         //$menus = ["Main Page","Quests","Our Games","Contact","About Us"];
         //$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43")
         $menus = array(
-            "Main Page"=>"/site/index",
-            "Quests"=>"/site/quests",
-            "Our Games"=>"/site/games",
-            "Contact"=>"/site/contact",
-            "About Us"=>"/site/about"
+            "Main Page"=>"site/index",
+            "Quests"=>"site/quests",
+            "Our Games"=>"site/games",
+            "Contact"=>"site/contact",
+            "About Us"=>"site/about"
         );
 
         foreach($menus as $x => $x_value) {
