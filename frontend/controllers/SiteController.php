@@ -73,19 +73,11 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        /*$sub_menu_array = null;
         $q = new Quest();
         $menuClass = new Menu();
-        $navigationPanel = $menuClass->find()->where('is_active = 1')->all();
-        for ($i = 0; $i<count($navigationPanel);$i++){
-            $sub_menu_array[$navigationPanel[$i]['id']] = array("Quest1","Quest2","Quest3", $navigationPanel[$i]["menu_title"]);
-        }
-        $sub_menu_array[2] = array();
-        Yii::$app->params['nav_array'] = $navigationPanel;
-        Yii::$app->params['sub_menu_array'] = $sub_menu_array;*/
-        $menuClass = new Menu();
-        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-        //return $this->render('index',['cust' => $test]);
+        $menu_array = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['nav_array'] = $menu_array;
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('index');
     }
 
@@ -116,17 +108,23 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionQuest()
+    public function actionQuest($name)
     {
+        $q = new Quest();
         $menuClass = new Menu();
-        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        $menu_array = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['nav_array'] = $menu_array;
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('quest');
     }
 
     public function actionProfile()
     {
+        $q = new Quest();
         $menuClass = new Menu();
-        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        $menu_array = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['nav_array'] = $menu_array;
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('profile');
     }
 
@@ -143,7 +141,9 @@ class SiteController extends Controller
             return $this->refresh();
         } else {
             $menuClass = new Menu();
+            $q = new Quest();
             Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+            Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
             return $this->render('contact', [
                 'model' => $model,
             ]);
@@ -152,15 +152,19 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
+        $q = new Quest();
         $menuClass = new Menu();
         Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('about');
     }
 
     public function actionGamespace()
     {
+        $q = new Quest();
         $menuClass = new Menu();
         Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('game_space');
     }
 
@@ -171,6 +175,7 @@ class SiteController extends Controller
         Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         $test = array('1'=>'123123','2'=>'fdsfsdfew');
         //return $this->render('index',['cust' => $test]);
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('games',['cust' => $test]);
     }
 
