@@ -43,26 +43,26 @@
 <?php for ($i=0; $i<12;$i++): ?>
 
     <div style="color: #ffffff; background-color: #5e3893; height: 60px; margin-top: 2px;">
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
-        <div style="display: inline-block; margin: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
+        <div style="display: inline-block; padding: 10px;">00:00</div>
     </div>
 <?php endfor; ?>
 

@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Quest;
 use common\models\Menu;
+use common\models\User;
 use common\models\SearchMenu;
 use Yii;
 use common\models\LoginForm;
@@ -27,7 +28,7 @@ class SiteController extends Controller
      * @inheritdoc
      */
 
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'access' => [
@@ -43,6 +44,42 @@ class SiteController extends Controller
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
+    }*/
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout', 'signup', 'about','contact'],
+                'rules' => [
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['about','contact'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return User::isUserAdmin(Yii::$app->user->identity->username);
+                        }
                     ],
                 ],
             ],
