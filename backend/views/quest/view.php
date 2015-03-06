@@ -25,6 +25,24 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+    <?php /*echo Html::img(Yii::$app->request->baseUrl.'/images/quest-images/test_new_quest/Screenshot from 2015-02-28 22:18:54.png') */?>
+
+
+    <?php
+    for($i = 0; $i < count($quest_time); $i++){
+        echo $quest_time[$i]['time_value']." ";
+    }
+    ?>
+
+
+    <br><br><br><br>
+    <?php
+        for ($i = 0; $i<count($quest_images);$i++){
+            echo Html::img(Yii::$app->request->baseUrl.'/'.$quest_images[$i],array('width'=>'150px;','style'=>'margin : 10px;'));
+        }
+    ?>
+    <br><br><br><br>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [

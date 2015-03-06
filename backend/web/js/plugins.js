@@ -69,7 +69,7 @@ var LaddaSpinner = function (){
 }();    // Handel Ladda Spinner
 
 var FormWizard = function (){
-    
+
     var handelFormWizard = function() {
         var $wizard = $('#fuelux-wizard'),
                 $btnPrev = $('.wizard-actions .btn-prev'),

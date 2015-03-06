@@ -16,14 +16,15 @@ class m150216_150511_quests_times extends Migration
 
         $this->createTable('{{%quests_times}}', [
             'id' => Schema::TYPE_PK,
-            'time_value' => Schema::TYPE_TIME . ' NOT NULL',
+            'time_value' => Schema::TYPE_FLOAT . ' NOT NULL',
+            'quest_id' => Schema::TYPE_INTEGER . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
         ], $tableOptions);
 
-        $times = ["16:35","16:33","16:34"];
+        //$times = ["16:35","16:33","16:34"];
 
-        for ($i=0;$i<count($times);$i++){
+        /*for ($i=0;$i<count($times);$i++){
             $this->insert('{{%quests_times}}',
                 [
                     'time_value' => $times[$i],
@@ -31,7 +32,7 @@ class m150216_150511_quests_times extends Migration
                     'updated_at' => time()
                 ]
             );
-        }
+        }*/
     }
 
     public function down()

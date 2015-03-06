@@ -21,16 +21,20 @@ class AppAsset extends AssetBundle
         'plugins/bootstrap/css/bootstrap.min.css',
         'plugins/jquery-ui/jquery-ui-1.10.3.custom.css',
         'plugins/daterangepicker/daterangepicker-bs3.css',
+        'plugins/form-wizard/form-wizard.css',
+        'plugins/select2/select2.css',
+        'plugins/jquery-file-upload/css/jquery.fileupload-ui.css',
+        'plugins/jquery-file-upload/css/jquery.fileupload-ui-noscript.css',
         'css/main.css',
         'css/style-default.css',
     ];
     public $js = [
+        'plugins/common/jquery.blockUI.js',
         'plugins/common/modernizr.js',
-        /*'js/jquery.js',*/
         'plugins/bootstrap/js/bootstrap.min.js',
         'plugins/jquery-ui/jquery-ui-1.10.3.custom.js',
         'plugins/slimScroll/jquery.slimscroll.js',
-        'plugins/common/jquery.blockUI.js',
+        'plugins/form-wizard/fuelux.wizard.js',
         'plugins/daterangepicker/moment.min.js',
         'plugins/daterangepicker/daterangepicker.js',
         'plugins/common/jquery.sparkline.min.js',
@@ -38,8 +42,10 @@ class AppAsset extends AssetBundle
         'plugins/flot/jquery.flot.min.js',
         'plugins/flot/jquery.flot.resize.min.js',
         'plugins/flot/jquery.flot.tooltip.js',
+        'plugins/select2/select2.min.js',
         'js/app.js',
-        'js/dashboard.js'
+        'js/plugins.js',
+        'js/dashboard.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -100,10 +100,10 @@ AppAsset::register($this);
         <!--<script src='assets/plugins/common/modernizr.js'></script>-->
 
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <link href="assets/plugins/jquery-ui/jquery.ui.1.10.2.ie.css" rel="stylesheet">
-        <![endif]-->
+        <link href="assets/plugins/jquery-ui/jquery.ui.1.10.2.ie.css" rel="stylesheet">-->
+        <!--<![endif]-->
 
         <!--<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.css" rel="stylesheet">
@@ -124,7 +124,7 @@ AppAsset::register($this);
         <!-----------------------------------------PANEL END----------------------------------------------------->
 
         <div id="main-container">
-
+            <div class="inner-continer">
             <!-----------------------------------------BREADCRUMBS BEGIN----------------------------------------------------->
             <?php echo $this->render('//layouts/breadcrumbs');  ?>
             <!-----------------------------------------BREADCRUMBS END----------------------------------------------------->
@@ -132,6 +132,7 @@ AppAsset::register($this);
             <!-----------------------------------------CONTENT BEGIN----------------------------------------------------->
                 <?= $content ?>
             <!-----------------------------------------CONTENT END----------------------------------------------------->
+            </div>
         </div><!-- /main-container -->
 
         <footer>
@@ -144,6 +145,7 @@ AppAsset::register($this);
     <a href="#" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
     <?php $this->endBody(); ?>
     <!-- Jquery -->
+
     <script>
         $(function() {
             $(document).ready(function () {

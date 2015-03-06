@@ -27,7 +27,8 @@ use yii\helpers\Html;
 
                 <li>
                     <a class="clearfix" href="#">
-                        <img src="images/demo/avatar-2.jpg" alt="User Avatar">
+                        <!--<img src="../../web/images/demo/avatar-2.jpg" alt="User Avatar">-->
+                        <?php Html::img("/images/demo/avatar-2.jpg"); ?>
                         <div class="detail">
                             <strong>Veronica Lake</strong>
                             <p class="no-margin">Lorem ipsum dolor sit amet...</p>
@@ -38,7 +39,7 @@ use yii\helpers\Html;
 
                 <li>
                     <a class="clearfix" href="#">
-                        <img src="images/demo/avatar-3.jpg" alt="User Avatar">
+                        <?php Html::img("/images/demo/avatar-3.jpg"); ?>
                         <div class="detail">
                             <strong>Jane Doe</strong>
                             <p class="no-margin">Lorem ipsum dolor sit amet...</p>
@@ -49,7 +50,7 @@ use yii\helpers\Html;
 
                 <li>
                     <a class="clearfix" href="#">
-                        <img src="images/demo/avatar-4.jpg" alt="User Avatar">
+                        <?php Html::img("/images/demo/avatar-4.jpg"); ?>
                         <div class="detail">
                             <strong>Bill Doe</strong>
                             <p class="no-margin">Lorem ipsum dolor sit amet...</p>
@@ -60,7 +61,7 @@ use yii\helpers\Html;
 
                 <li>
                     <a class="clearfix" href="#">
-                        <img src="images/demo/avatar-5.jpg" alt="User Avatar">
+                        <?php Html::img("/images/demo/avatar-5.jpg"); ?>
                         <div class="detail">
                             <strong>Baby Doe</strong>
                             <p class="no-margin">Lorem ipsum dolor sit amet...</p>
@@ -197,7 +198,7 @@ use yii\helpers\Html;
             <ul class="dropdown-menu">
                 <li>
                     <a class="clearfix" href="javascript:void(0);">
-                        <img src="images/demo/avatar-1.jpg" alt="User Avatar">
+                        <?php Html::img("/images/demo/avatar-1.jpg"); ?>
                         <div class="detail">
                             <strong>Prakasam</strong>
                             <p class="grey">prakasam@email.com</p>
@@ -241,7 +242,7 @@ use yii\helpers\Html;
         <div class="main-menu">
             <ul>
 
-                <li class="active">
+                <!--<li class="active">
                     <a href="index-2.html">
                         <span class="menu-icon"><i class="di di-performance fa-lg"></i></span>
                         <span class="text">Dashboard</span>
@@ -330,7 +331,7 @@ use yii\helpers\Html;
                         <span class="menu-icon"><i class="fs fs-location fa-lg"></i></span>
                         <span class="text">Maps</span>
                     </a>
-                </li>
+                </li>-->
 
 
 

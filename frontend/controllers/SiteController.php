@@ -152,7 +152,10 @@ class SiteController extends Controller
         $menu_array = $menuClass->find()->where('is_active = 1')->all();
         Yii::$app->params['nav_array'] = $menu_array;
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        return $this->render('quest');
+        return $this->render('quest', [
+            'model' => $this->findModel($name),
+        ]);
+        //return $this->render('quest');
     }
 
     public function actionProfile()
@@ -163,6 +166,20 @@ class SiteController extends Controller
         Yii::$app->params['nav_array'] = $menu_array;
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('profile');
+    }
+
+    public function actionQuests()
+    {
+        $q = new Quest();
+        $menuClass = new Menu();
+        $menu_array = $menuClass->find()->where('is_active = 1')->all();
+        $questsArray = $q->find()->all();
+        Yii::$app->params['nav_array'] = $menu_array;
+        Yii::$app->params['quests_direct_link'] = [[],$questsArray,[],[],[]];
+
+        return $this->render('quests',[
+            'quest_model' => $questsArray
+        ]);
     }
 
     public function actionContact()
@@ -269,5 +286,14 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    protected function findModel($name)
+    {
+        if (($model = Quest::find()->where('quest_en_name = "'.$name . '"')->asArray()->one()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }

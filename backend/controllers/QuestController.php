@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\QuestsTimes;
 use Yii;
 use common\models\Quest;
 use common\models\SearchQuest;
@@ -49,8 +50,11 @@ class QuestController extends Controller
      */
     public function actionView($id)
     {
+        $questTimes = new QuestsTimes();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'quest_time'  => $questTimes->getTimeLineForQuest($id),
+            'quest_images'  => $questImages =$this->findImages($id)
         ]);
     }
 
@@ -65,29 +69,53 @@ class QuestController extends Controller
 
         //if ($model->load(Yii::$app->request->post()) && $model->save()) {
         if ($model->load(Yii::$app->request->post()) /*&& $model->save()*/) {
-            $model->created_at = time();
+            /*$model->created_at = time();
             $model->updated_at = time();
-            //$model->file = UploadedFile::getInstances($model, 'quest_logo');
-            //return $this->redirect(['view', 'id' => $model->id]);
-            /*$model->file = UploadedFile::getInstances($model, 'file');
 
-            if ($model->file && $model->validate()) {
-                foreach ($model->file as $file) {
-                    $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
-                }
-            }*/
             $filesArray = UploadedFile::getInstances($model, 'quest_logo');
-            //if ($model->validate()) {
+
                 foreach (UploadedFile::getInstances($model, 'quest_logo') as $file) {
                     $file->saveAs('images/quest-images/' . $file->baseName . '.' . $file->extension);
                 }
-            //}
+
             $model->quest_logo = $filesArray[0]->baseName . '.' . $filesArray[0]->extension;
 
-            //print_r(UploadedFile::getInstances($model, 'quest_logo'));
-            //echo $filesArray[0];
+
             $model->save();
+            return $this->redirect(['view', 'id' => $model->id]);*/
+
+            //print_r($model);
+            $filesArray = UploadedFile::getInstances($model, 'quest_logo');
+
+            $questImagesDir = "images/quest-images/".$model->quest_en_name."/";
+            mkdir($questImagesDir);
+            foreach (UploadedFile::getInstances($model, 'quest_logo') as $file) {
+                $file->saveAs($questImagesDir . $file->baseName . '.' . $file->extension);
+            }
+
+            $model->quest_logo = $filesArray[0]->baseName . '.' . $filesArray[0]->extension;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->quest_logo = "testName";
+            $quest_times = new QuestsTimes();
+            $quest_times->load(Yii::$app->request->post());
+            $model->save();
+            $timesArray = explode(' ',$quest_times->time_value);
+            for ($i=0;$i<count($timesArray);$i++){
+                $quest_times->id = null;
+                $quest_times->time_value =  $timesArray[$i];
+                $quest_times->quest_id = $model->id;
+                $quest_times->created_at = time();
+                $quest_times->updated_at = time();
+                $quest_times->isNewRecord = true;
+                $quest_times->save();
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
+            //print_r($_POST);
+
+            //print_r($quest_times->time_value);
+            //print_r(explode(' ',$quest_times->time_value));
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -138,6 +166,17 @@ class QuestController extends Controller
     {
         if (($model = Quest::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function findImages($questId)
+    {
+        $model = new Quest();
+        if (Quest::find()->where('id = '.$questId)->one())
+        {
+            return $model->getAllQuestImages($questId);
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

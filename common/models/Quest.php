@@ -63,4 +63,13 @@ class Quest extends \yii\db\ActiveRecord
     {
         return "quest model";
     }
+
+    public function getAllQuestImages($id)
+    {
+        $questModel = new Quest();
+        $questModel->find()->where($questModel->id == $id);
+        $questEnglishName = $questModel->find()->where('id = '.$id)->one()['quest_en_name'];
+        $dir = 'images/quest-images/'.$questEnglishName;
+        return glob($dir.'/*.{jpeg,jpg,png}', GLOB_BRACE);
+    }
 }

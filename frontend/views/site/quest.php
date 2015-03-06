@@ -1,4 +1,6 @@
 <!-- TOP AREA -->
+
+<?php echo( $model['quest_name'] );?>
 <div class="top-area show-onload">
     <div class="bg-holder full">
         <div class="bg-front bg-front-mob-rel">
@@ -29,7 +31,6 @@
 <!--<div class="gap"></div>-->
 
 <div id="sidebar" style="background-color: darkmagenta; float: left; height: auto; width: 150px;">
-
     <?php for ($i=0; $i<12;$i++): ?>
     <div style="color: #ffffff; background-color: magenta; height: 60px; margin-top: 2px;">
         <div>dsareg reg re gre</div>
