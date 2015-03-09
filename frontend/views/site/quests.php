@@ -9,19 +9,25 @@
     <div id="popup-gallery">
         <div class="row row-col-gap">
 
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="Gaviota en el Top" />
-                    <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                    <div style="top: 10%; left: 10%; position: absolute; color: red;">dasdasdasd<br>asdasdasdas<br></div>
-                    <div style="top: 10%; left: 50%; position: absolute; color: red;">123123<br>654849654<br></div>
-                    <div style="top: 70%; left: 40%; position: absolute;">
-                        <img src="img/logo-white.png" alt="Image Alternative text" title="Gaviota en el Top" />
-                    </div>
-                </a>
-            </div>
 
-            <div class="col-md-6">
+            <?php foreach($quest_model as $key): ?>
+                <?php /*print_r($key)*/?>
+                <div class="col-md-6">
+                    <a class="hover-img popup-gallery-image" href="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> data-effect="mfp-zoom-out">
+                        <img src="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
+                        <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
+                        <div style="top: 10%; left: 10%; position: absolute; color: red;"><?=$key['quest_description']?></div>
+                        <div style="top: 10%; left: 50%; position: absolute; color: red;"><?=$key['quest_logo']?></div>
+                        <div style="top: 70%; left: 40%; position: absolute;">
+                            <img src="img/logo-white.png" alt="Image Alternative text" title="Gaviota en el Top" />
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach ?>
+
+
+
+            <!--<div class="col-md-6">
                 <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
                     <img src="img/800x600.png" alt="Image Alternative text" title="Sydney Harbour" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
                 </a>
@@ -75,7 +81,7 @@
                 <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
                     <img src="img/800x600.png" alt="Image Alternative text" title="196_365" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
                 </a>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
