@@ -39,11 +39,13 @@ class SiteController extends Controller
                         'allow' => true,
                         //'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
-                            if (!User::isUserAdmin(Yii::$app->user->identity->username)) {
-                                //return $this->redirect('../');
-                                //return $this->redirect(Yii::$app->homeUrl.'../404');
-                                throw new HttpException(404,"dsa");
-                            } else return User::isUserAdmin(Yii::$app->user->identity->username);
+                            if (Yii::$app->user->isGuest){
+                                throw new HttpException(404, "dsa");
+                            } else {
+                                if (!User::isUserAdmin(Yii::$app->user->identity->username)) {
+                                    throw new HttpException(404, "dsa");
+                                } else return User::isUserAdmin(Yii::$app->user->identity->username);
+                            }
                         }
                     ],
                 ],

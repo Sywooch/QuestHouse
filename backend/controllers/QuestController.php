@@ -9,6 +9,7 @@ use yii\filters\AccessControl;
 use common\models\User;
 use common\models\SearchQuest;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -29,9 +30,13 @@ class QuestController extends Controller
                         'allow' => true,
                         //'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
-                            if (!User::isUserAdmin(Yii::$app->user->identity->username)) {
-                                return $this->redirect(Yii::$app->homeUrl.'../error');
-                            } else return User::isUserAdmin(Yii::$app->user->identity->username);
+                            if (Yii::$app->user->isGuest){
+                                throw new HttpException(404, "dsa");
+                            } else {
+                                if (!User::isUserAdmin(Yii::$app->user->identity->username)) {
+                                    throw new HttpException(404, "dsa");
+                                } else return User::isUserAdmin(Yii::$app->user->identity->username);
+                            }
                         }
                     ],
                 ],
