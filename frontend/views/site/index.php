@@ -205,7 +205,7 @@ $this->title = 'Quest House';
 
 
 
-<div style="min-height: 50px; margin-bottom: 50px;">
+<div style="min-height: 50px; margin-bottom: 50px; ">
     <!-- Jssor Slider Begin -->
     <!-- You can move inline styles to css file or css block. -->
     <!-- ================================================== -->
@@ -223,6 +223,14 @@ $this->title = 'Quest House';
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 500px; overflow: hidden;">
             <div>
+                <div id ='tt' style="position: absolute; color: white; z-index: 1; top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px; background-color: red; ">
+                    dasdas
+                </div>
                 <img u="image" src2="img/1.jpg" />
             </div>
             <div>
