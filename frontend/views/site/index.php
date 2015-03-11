@@ -79,10 +79,6 @@ $this->title = 'Quest House';
 <script>
     $(document).ready(function() {
 
-        /*$(window).scroll(function(e){
-            alert ($(window).height());
-        });*/
-
         (function($) {
             $.fn.resizeToParent = function(opts) {
                 var defaults = {
