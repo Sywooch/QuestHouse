@@ -63,27 +63,24 @@ $this->title = 'Quest House';
                 </a>-->
 <?php
                 $imghtml=Html::img('img/logo-white.png');
-                echo Html::a($imghtml, array('site/index'),array('class' =>"logo-holder"));
+                echo Html::a($imghtml, array('/'),array('class' =>"logo-holder"));
 ?>
 
                 <div class="full-center">
                     <div class="container">
                         <div class="row row-wrap" data-gutter="60">
-                            <div class="col-md-4">
+                            <!--<div class="col-md-4">
                                 <div class="visible-lg">
                                     <h3 class="mb15">Welcome to Traveler</h3>
                                     <p>Ultrices lacus erat mattis nam sem porta nascetur luctus nunc litora diam ornare maecenas et phasellus molestie lorem habitant ultricies condimentum dignissim interdum erat sit praesent penatibus mattis pharetra penatibus</p>
                                     <p>Sodales amet consectetur consectetur curae placerat consectetur penatibus fusce sagittis</p>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-md-4">
 
                                 <h3 class="mb15">Login</h3>
 
-
-
                                 <?php $form = ActiveForm::begin(['id' => 'login-form',
-                                 //   'options' => ['class' => 'form-horizontal']
                                 ]); ?>
                                 <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
                                 <?= $form->field($model, 'username') ?>
@@ -115,7 +112,33 @@ $this->title = 'Quest House';
 
                             </div>
                             <div class="col-md-4">
-                                <h3 class="mb15">New To Traveler?</h3>
+
+                                <div class="site-signup">
+
+                                    <p>Please fill out the following fields to signup:</p>
+
+                                    <div class="row">
+
+                                            <?php $form = ActiveForm::begin(['id' => 'form-signup',
+                                                'action' => ['site/signup']]); ?>
+                                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                                                <?= $form->field($signup, 'username') ?>
+                                                </div>
+                                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                                            <?= $form->field($signup, 'email') ?>
+                                                </div>
+                                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                                            <?= $form->field($signup, 'password')->passwordInput() ?>
+                                                </div>
+                                            <div class="form-group">
+                                                <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                                            </div>
+                                            <?php ActiveForm::end(); ?>
+
+                                    </div>
+                                </div>
+
+                                <!--<h3 class="mb15">New To Traveler?</h3>
                                 <form>
                                     <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
                                         <label>Full Name</label>
@@ -130,7 +153,7 @@ $this->title = 'Quest House';
                                         <input class="form-control" type="password" placeholder="my secret password" />
                                     </div>
                                     <input class="btn btn-primary" type="submit" value="Sign up for Traveler" />
-                                </form>
+                                </form>-->
                             </div>
                         </div>
                     </div>

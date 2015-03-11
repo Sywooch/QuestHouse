@@ -1,4 +1,4 @@
-<footer id="main-footer">
+<footer id="main-footer" style="background-image: url(img/patterns/food.png);">
     <div class="container">
 
         <div class="row row-wrap">

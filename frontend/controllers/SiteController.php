@@ -98,9 +98,9 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
+            /*'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
+            ],*/
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
@@ -125,12 +125,14 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        $signupModel = new SignupForm();
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
             return $this->render('login', [
                 'model' => $model,
+                'signup' => $signupModel
             ]);
             /*return $this->renderPartial('login', [
                 'model' => $model,
@@ -235,20 +237,29 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
+        $this->layout = false;
         $menuClass = new Menu();
         Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+
         $model = new SignupForm();
+        //print_r(Yii::$app->request->post());
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+            if ($model->validate()) {
+                if ($user = $model->signup()) {
+                    if (Yii::$app->getUser()->login($user)) {
+                        return $this->goHome();
+                    }
                 }
             }
         }
 
-        return $this->render('signup', [
+        $this->redirect('login');
+        /*$signupModel = new SignupForm();
+        $model = new LoginForm();
+        return $this->render('login', [
             'model' => $model,
-        ]);
+            'signupModel' => $signupModel
+        ]);*/
     }
 
     public function actionRequestPasswordReset()
@@ -296,4 +307,18 @@ class SiteController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionError()
+    {
+        /*$error = Yii::$app->errorHandler->error;
+        if ($error)
+            $this->render('error', array('error'=>$error));
+        else
+            throw new CHttpException(404, 'Page not found.');*/
+
+
+        $this->layout = false;
+        return $this->render('error', array('error'=>'dsadas'));
+    }
+
 }

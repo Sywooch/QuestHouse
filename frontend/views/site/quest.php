@@ -25,7 +25,7 @@
 </style>
 
 
-<?php echo( $model['quest_name'] );?>
+<?php /*echo( $model['quest_name'] );*/?>
 <div class="top-area show-onload">
     <div class="bg-holder full">
         <div class="bg-front bg-front-mob-rel">
@@ -112,27 +112,19 @@
 
 
 <?php
+echo '<div class="news-list-container">';
 for ($i=0; $i<12;$i++):
-    echo '<div class="news-list-container">';
+
             echo "<div id=container>";
                 for ($j=0; $j<24;$j++):
                     echo "<div class='news-list-item'>00:00</div>";
                 endfor;
 
             echo "</div>";
-echo '</div>';
+
 endfor;
+echo '</div>';
 ?>
-
-
-
-
-
-
-
-
-
-
 
     <div class="bg-darken">
         <br><br><br><br><br>
@@ -147,7 +139,6 @@ endfor;
     $finish = new DateTime('23:59');
 
     while ($finish > $start){
-
         echo ($start->format('H:i'));
         date_add($start, date_interval_create_from_date_string('1 hour 15 min'));
         echo "<br>";

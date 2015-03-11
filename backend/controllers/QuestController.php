@@ -5,6 +5,8 @@ namespace backend\controllers;
 use common\models\QuestsTimes;
 use Yii;
 use common\models\Quest;
+use yii\filters\AccessControl;
+use common\models\User;
 use common\models\SearchQuest;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -19,6 +21,21 @@ class QuestController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        //'actions' => ['*'],
+                        'allow' => true,
+                        //'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            if (!User::isUserAdmin(Yii::$app->user->identity->username)) {
+                                return $this->redirect(Yii::$app->homeUrl.'../error');
+                            } else return User::isUserAdmin(Yii::$app->user->identity->username);
+                        }
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

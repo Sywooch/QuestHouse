@@ -1,0 +1,542 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<html>
+
+<head>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="keywords" content="Template, html, premium, themeforest" />
+    <meta name="description" content="Traveler - Premium template for travel companies">
+    <meta name="author" content="Tsoy">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="TENYRlhCWWkEBi91YBAACiYwDzJrFjYnNHRuHj0ADRk2Kh00IAsjGA==">
+    <title>Quest House</title>
+    <link href="/QuestHouse/frontend/web/assets/cfee561f/css/bootstrap.css" rel="stylesheet">
+<link href="/QuestHouse/frontend/web/css/bootstrap.css" rel="stylesheet">
+<link href="/QuestHouse/frontend/web/css/font-awesome.css" rel="stylesheet">
+<link href="/QuestHouse/frontend/web/css/icomoon.css" rel="stylesheet">
+<link href="/QuestHouse/frontend/web/css/styles.css" rel="stylesheet">
+<link href="/QuestHouse/frontend/web/css/mystyles.css" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
+    <!-- /GOOGLE FONTS -->
+    <!--<link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <script src="js/modernizr.js"></script>-->
+
+
+</head>
+
+<body>
+
+<!-- FACEBOOK WIDGET -->
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- /FACEBOOK WIDGET -->
+<div class="global-wrap">
+    <header id="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <!--<a class="logo" href="site/index">
+                            <img src="img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
+                        </a>-->
+
+                    </div>
+                    <div class="col-md-3 col-md-offset-2">
+                        <form class="main-header-search">
+                            <div class="form-group form-group-icon-left">
+                                <i class="fa fa-search input-icon"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+
+
+                    
+                        <!------------------------------------------- SING IN FORM START ---------------------------------->
+
+                        <div class="col-md-4">
+                            <div class="top-user-area clearfix">
+                                <ul class="top-user-area-list list list-horizontal list-border">
+                                    <li class="top-user-area-avatar">
+
+
+                                        <!--<a href="user-profile.html">
+                                            <img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze" />
+                                            <?/*=Yii::$app->user->identity->username;*/?>
+                                        </a>-->
+
+                                        <a href="/QuestHouse/frontend/web/site/profile"><img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze"></a>
+
+                                    </li>
+                                    <li>
+                                        <!--<a href="#">Sign Out</a>-->
+                                        <a href="/QuestHouse/frontend/web/site/logout" data-method="post">Sign Out</a>                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!------------------------------------------- SING IN FORM START ---------------------------------->
+
+                    
+
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+
+            <!-----------------------------------------NAV BAR BEGIN----------------------------------------------------->
+            
+
+<div class="nav">
+    <ul class="slimmenu" id="slimmenu">
+        </ul>
+</div>
+
+
+<!--<div class="nav">
+    <ul class="slimmenu" id="slimmenu">
+        <li class="active"><li>        </li>
+        <li><li>            <ul>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+                <li><a href="success-payment.html">Success Payment</a>
+                </li>
+            </ul>
+
+        </li>
+        <li><li>            <ul>
+                <li>                </li>
+                <li><a href="hotel-details.html">Квест 2</a>
+                </li>
+                <li><a href="hotel-details.html">Квест 3</a>
+                </li>
+                <li><a href="hotel-details.html">Квест 4</a>
+                </li>
+            </ul>
+        </li>
+        <li>        <li>
+    </ul>
+</div>
+-->            <!-----------------------------------------NAV BAR END----------------------------------------------------->
+        </div>
+
+    </header>
+
+    
+    
+
+<html class="full">
+
+
+<body class="full">
+
+<div class="global-wrap">
+
+    <div class="full-page">
+        <div class="bg-holder full">
+            <div class="bg-mask"></div>
+            <div class="bg-blur" style="background-image:url(img/1300x900.png);"></div>
+            <div class="bg-holder-content full text-white">
+                <a class="logo-holder" href="/QuestHouse/frontend/web/site/index"><img src="img/logo-white.png" alt=""></a>                <div class="full-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <p class="text-hero">404</p>
+                                <h1>Page is not found</h1>
+                                <p>Aptent vulputate gravida curae lacinia imperdiet tempus erat vulputate posuere mollis quisque magna facilisi sagittis ridiculus consequat a nisl tincidunt</p>
+
+                                <a class="btn btn-white btn-ghost btn-lg mt5" href="/QuestHouse/frontend/web/site/index"><i class="fa fa-long-arrow-left"></i> to Homepage</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                <ul class="footer-links">
+                    <li><a href="#">About</a>
+                    </li>
+                    <li><a href="#">Help</a>
+                    </li>
+                    <li><a href="#">Hot Deals</a>
+                    </li>
+                    <li><a href="#">Popular Locations</a>
+                    </li>
+                    <li><a href="#">Cheap Flights</a>
+                    </li>
+                    <li><a href="#">Business</a>
+                    </li>
+                    <li><a href="#">Media</a>
+                    </li>
+                    <li><a href="#">Developers</a>
+                    </li>
+                    <li><a href="#">Advertise</a>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
+
+
+
+    <div id="yii-debug-toolbar" data-url="/QuestHouse/frontend/web/debug/default/toolbar?tag=54edd3280f74f" style="display:none"></div><style>#yii-debug-toolbar {
+    padding: 0;
+    font: 11px Verdana, Arial, sans-serif;
+    text-align: left;
+    min-height: 40px;
+    overflow: auto;
+    background: rgb(246,246,246);
+    background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(53%,rgba(246,246,246,1)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=0 );
+    background: rgb(246,246,246) url(data:image/svg+xml;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA/tpB3AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB94BBQwuINct3v0AAAAjSURBVAjXY3j79u1/JgYGBgYkgpGRkYEYMSpKUGLK+/fvGQAaDAb6F86IsAAAAABJRU5ErkJggg==); /* generated using "cat assets/bg.png | base64" */
+}
+
+.yii-debug-toolbar-top {
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.yii-debug-toolbar-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 1000000;
+    border-top: 1px solid #ccc;
+}
+
+.yii-debug-toolbar-block {
+    float: left;
+    margin: 0;
+    border-right: 1px solid #e4e4e4;
+    padding: 4px 8px;
+    line-height: 32px;
+    white-space: nowrap;
+}
+
+.yii-debug-toolbar-block a {
+    text-decoration: none;
+    color: black;
+}
+
+.yii-debug-toolbar-block span {
+}
+
+.yii-debug-toolbar-block img {
+    vertical-align: middle;
+}
+
+#yii-debug-toolbar .label {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 11.844px;
+    font-weight: normal;
+    line-height: 14px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #999999;
+}
+
+#yii-debug-toolbar .label {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#yii-debug-toolbar .label:empty {
+    display: none;
+}
+
+#yii-debug-toolbar a.label:hover,
+#yii-debug-toolbar a.label:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#yii-debug-toolbar .label-important {
+    background-color: #b94a48;
+}
+
+#yii-debug-toolbar .label-important[href] {
+    background-color: #953b39;
+}
+
+#yii-debug-toolbar .label-warning,
+#yii-debug-toolbar .badge-warning {
+    background-color: #f89406;
+}
+
+#yii-debug-toolbar .label-warning[href] {
+    background-color: #c67605;
+}
+
+#yii-debug-toolbar .label-success {
+    background-color: #468847;
+}
+
+#yii-debug-toolbar .label-success[href] {
+    background-color: #356635;
+}
+
+#yii-debug-toolbar .label-info {
+    background-color: #3a87ad;
+}
+
+#yii-debug-toolbar .label-info[href] {
+    background-color: #2d6987;
+}
+
+#yii-debug-toolbar .label-inverse,
+#yii-debug-toolbar .badge-inverse {
+    background-color: #333333;
+}
+
+#yii-debug-toolbar .label-inverse[href],
+#yii-debug-toolbar .badge-inverse[href] {
+    background-color: #1a1a1a;
+}
+
+.yii-debug-toolbar-toggler {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 4px;
+    width: 15px;
+    height: 30px;
+    font-size: 25px;
+    font-weight: 100;
+    line-height: 28px;
+    color: #ffffff;
+    text-align: center;
+    background: #666666;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.yii-debug-toolbar-toggler:hover,
+.yii-debug-toolbar-toggler:focus {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+#yii-debug-toolbar-min {
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1000000;
+    font: 11px Verdana, Arial, sans-serif;
+    text-align: left;
+    width: 63px;
+    height: 38px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+    background: rgb(237,237,237);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUzJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(53%,rgba(246,246,246,1)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom,  rgba(237,237,237,1) 0%,rgba(246,246,246,1) 53%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=0 );
+}
+
+#yii-debug-toolbar-logo {
+    position: fixed;
+    right: 31px;
+    bottom: 4px;
+}
+</style><script>(function () {
+    var ajax = function (url, settings) {
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        settings = settings || {};
+        xhr.open(settings.method || 'GET', url, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.setRequestHeader('Accept', 'text/html');
+        xhr.onreadystatechange = function (state) {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200 && settings.success) {
+                    settings.success(xhr);
+                } else if (xhr.status != 200 && settings.error) {
+                    settings.error(xhr);
+                }
+            }
+        };
+        xhr.send(settings.data || '');
+    };
+
+    var e = document.getElementById('yii-debug-toolbar');
+    if (e) {
+        e.style.display = 'block';
+        var url = e.getAttribute('data-url');
+        ajax(url, {
+            success: function (xhr) {
+                var div = document.createElement('div');
+                div.innerHTML = xhr.responseText;
+                e.parentNode.replaceChild(div, e);
+                if (window.localStorage) {
+                    var pref = localStorage.getItem('yii-debug-toolbar');
+                    if (pref == 'minimized') {
+                        document.getElementById('yii-debug-toolbar').style.display = 'none';
+                        document.getElementById('yii-debug-toolbar-min').style.display = 'block';
+                    }
+                }
+            },
+            error: function (xhr) {
+                e.innerHTML = xhr.responseText;
+            }
+        });
+    }
+})();
+</script><script src="/QuestHouse/frontend/web/assets/b0b80296/jquery.js"></script>
+<script src="/QuestHouse/frontend/web/assets/36c46d1f/yii.js"></script>
+<script src="/QuestHouse/frontend/web/js/modernizr.js"></script>
+<script src="/QuestHouse/frontend/web/js/bootstrap.js"></script>
+<script src="/QuestHouse/frontend/web/js/slimmenu.js"></script>
+<script src="/QuestHouse/frontend/web/js/bootstrap-datepicker.js"></script>
+<script src="/QuestHouse/frontend/web/js/bootstrap-timepicker.js"></script>
+<script src="/QuestHouse/frontend/web/js/nicescroll.js"></script>
+<script src="/QuestHouse/frontend/web/js/dropit.js"></script>
+<script src="/QuestHouse/frontend/web/js/ionrangeslider.js"></script>
+<script src="/QuestHouse/frontend/web/js/icheck.js"></script>
+<script src="/QuestHouse/frontend/web/js/fotorama.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="/QuestHouse/frontend/web/js/typeahead.js"></script>
+<script src="/QuestHouse/frontend/web/js/card-payment.js"></script>
+<script src="/QuestHouse/frontend/web/js/magnific.js"></script>
+<script src="/QuestHouse/frontend/web/js/owl-carousel.js"></script>
+<script src="/QuestHouse/frontend/web/js/fitvids.js"></script>
+<script src="/QuestHouse/frontend/web/js/tweet.js"></script>
+<script src="/QuestHouse/frontend/web/js/countdown.js"></script>
+<script src="/QuestHouse/frontend/web/js/gridrotator.js"></script>
+<script src="/QuestHouse/frontend/web/js/custom.js"></script>
+
+
+    <!-----------------------------------------FOOTER BEGIN ----------------------------------------------------->
+    <footer id="main-footer">
+    <div class="container">
+
+        <div class="row row-wrap">
+            <div class="col-md-3">
+            <!--    <a class="logo" href="index.html">
+                    <img src="img/logo-invert.png" alt="Image Alternative text" title="Image Title" />
+                </a>
+                <p class="mb20">Booking, reviews and advices on hotels, resorts, flights, vacation rentals, travel packages, and lots more!</p>
+                <ul class="list list-horizontal list-space">
+                    <li>
+                        <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-twitter box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-google-plus box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-linkedin box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-pinterest box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                </ul>-->
+            </div>
+
+            <div class="col-md-3">
+                <!--<h4>Newsletter</h4>
+                <form>
+                    <label>Enter your E-mail Address</label>
+                    <input type="text" class="form-control">
+                    <p class="mt5"><small>*We Never Send Spam</small>
+                    </p>
+                    <input type="submit" class="btn btn-primary" value="Subscribe">
+                </form>-->
+            </div>
+            <div class="col-md-2">
+                <!--<ul class="list list-footer">
+                    <li><a href="#">About US</a>
+                    </li>
+                    <li><a href="#">Press Centre</a>
+                    </li>
+                    <li><a href="#">Best Price Guarantee</a>
+                    </li>
+                    <li><a href="#">Travel News</a>
+                    </li>
+                    <li><a href="#">Jobs</a>
+                    </li>
+                    <li><a href="#">Privacy Policy</a>
+                    </li>
+                    <li><a href="#">Terms of Use</a>
+                    </li>
+                    <li><a href="#">Feedback</a>
+                    </li>
+                </ul>-->
+            </div>
+            <div class="col-md-4">
+                <!--<h4>Have Questions?</h4>
+                <h4 class="text-color">+1-202-555-0173</h4>
+                <h4><a href="#" class="text-color">support@traveler.com</a></h4>
+                <p>24/7 Dedicated Customer Support</p>-->
+            </div>
+
+        </div>
+    </div>
+</footer>    <!-----------------------------------------FOOTER END ----------------------------------------------------->
+
+</div>
+</body>
+
+</html>
+
+

@@ -3,8 +3,11 @@ namespace backend\controllers;
 
 use common\models\User;
 use Yii;
+use yii\base\ErrorException;
+use yii\base\Exception;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\HttpException;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
 
@@ -27,9 +30,21 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        //'actions' => ['index'],
+                        'allow' => true,
+                        //'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            if (!User::isUserAdmin(Yii::$app->user->identity->username)) {
+                                //return $this->redirect('../');
+                                //return $this->redirect(Yii::$app->homeUrl.'../404');
+                                throw new HttpException(404,"dsa");
+                            } else return User::isUserAdmin(Yii::$app->user->identity->username);
+                        }
                     ],
                 ],
             ],
@@ -48,9 +63,9 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
+            /*'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
+            ],*/
         ];
     }
 
@@ -97,4 +112,17 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+    public function actionError()
+    {
+
+        $this->layout = false;
+        return $this->render('error', array('error'=>'dsadas'));
+        /*$error = Yii::$app->errorHandler->error;
+        if ($error)
+            $this->render('error', array('error'=>$error));
+        else
+            throw new CHttpException(404, 'Page not found.');*/
+    }
+
 }

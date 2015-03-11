@@ -16,9 +16,9 @@
                     <a class="hover-img popup-gallery-image" href="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> data-effect="mfp-zoom-out">
                         <img src="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
                         <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                        <div style="top: 10%; left: 10%; position: absolute; color: red;"><?=$key['quest_description']?></div>
-                        <div style="top: 10%; left: 50%; position: absolute; color: red;"><?=$key['quest_logo']?></div>
-                        <div style="top: 70%; left: 40%; position: absolute;">
+                        <div style="bottom: 5%; width: 30%; left: 5%; position: absolute; color: #ffffff;"><?=$key['quest_description']?></div>
+                        <div style="bottom: 15%; right: 5%; position: absolute; color: #ffffff;"><?=$key['quest_logo']?></div>
+                        <div style="top: 10%; left: 10%; position: absolute;">
                             <img src="img/logo-white.png" alt="Image Alternative text" title="Gaviota en el Top" />
                         </div>
                     </a>
