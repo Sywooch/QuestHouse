@@ -205,12 +205,12 @@ $this->title = 'Quest House';
 
 
 
-<div style="min-height: 50px; margin-bottom: 50px; ">
+<div style="min-height: 50px;">
     <!-- Jssor Slider Begin -->
     <!-- You can move inline styles to css file or css block. -->
     <!-- ================================================== -->
     <div id="slider1_container" style="display: none; position: relative; margin: 0 auto;
-        top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+        top: 0px; left: 0px; width: 1300px; height: 550px; overflow: hidden;">
         <!-- Loading Screen -->
         <div u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block;
@@ -221,7 +221,7 @@ $this->title = 'Quest House';
             </div>
         </div>
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 500px; overflow: hidden;">
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px; height: 550px; overflow: hidden;">
             <div>
                 <div id ='tt' style="position: absolute; color: white; z-index: 1; top: 50%;
     left: 50%;
