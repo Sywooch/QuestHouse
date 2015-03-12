@@ -93,10 +93,11 @@
     </div>
 --><?php /*endfor; */?>
 
+<div id="tableholder">
 <div id="sidebar" style="background-color: darkmagenta; float: left; height: auto; width: 150px;">
     <?php $start = new DateTime();
     for ($i=0; $i<12;$i++): ?>
-    <div style="color: #ffffff; background-color: magenta; height: 60px; border: white solid 1px; display: block; position: relative;">
+    <div style="color: #ffffff; background-color: rgba(13, 0, 120, 0.68); height: 60px; border: white solid 1px; display: block; position: relative;">
 
         <?=Date('d',$start->getTimestamp());?>
         <?=Date('F',$start->getTimestamp());?>
@@ -117,7 +118,12 @@ for ($i=0; $i<12;$i++):
 
             echo "<div id=container>";
                 for ($j=0; $j<24;$j++):
-                    echo "<div class='news-list-item'>00:00</div>";
+                    ?>
+                    <div class='news-list-item' style='padding-top:0; padding-bottom: 0; height: 60px;'>
+                        <div>00:00</div>
+                        <div>300$</div>
+                    </div>
+                    <?php
                 endfor;
 
             echo "</div>";
@@ -125,7 +131,7 @@ for ($i=0; $i<12;$i++):
 endfor;
 echo '</div>';
 ?>
-
+</div>
     <div class="bg-darken">
         <br><br><br><br><br>
         dsadsa
