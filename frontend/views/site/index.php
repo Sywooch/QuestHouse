@@ -160,21 +160,11 @@ $this->title = 'Quest House';
         })( jQuery );
 
 
-
-        /*$('.bg-img').height( $( window ).height() - 120 );
-        $('#owl-carousel-slider').height( $( window ).height() - 120 );*/
-
-        if ($( window ).width() > $( window ).height()){
-            //$('#owl-carousel-slider').height( $( window ).height() - 120 );
-
+        /*if ($( window ).width() > $( window ).height()){
             $('.bg-img').height( $( window ).height() - 120 );
             $('#owl-carousel-slider').height( $( window ).height() - 120 );
             $('.owl-item').height( $( window ).height() - 120 );
             $('.bg-holder.full.text-center.text-white').height( $( window ).height() - 120 );
-
-            /*$('#myImage').resizeToParent();
-            $('#test').height( $( window ).height() - 120 );*/
-
         } else  {
             $('.bg-img').height( $( window ).width() - 120 );
             $('#owl-carousel-slider').height( $( window ).width() - 120 );
@@ -182,30 +172,71 @@ $this->title = 'Quest House';
             $('.bg-holder.full.text-center.text-white').height( $( window ).width() - 120 );
         }
 
-        //alert ($( window ).height());
-        //$('#test').height( $( window ).height() - 120 );
-        //$('#myImage').resizeToParent();
-
         $( window ).resize(function() {
             if ($( window ).width() > $( window ).height()){
-              //  $('#owl-carousel-slider').height( $( window ).height() - 120 );
                 $('.bg-img').height( $( window ).height() - 120 );
                 $('#owl-carousel-slider').height( $( window ).height() - 120 );
                 $('.owl-item').height( $( window ).height() - 120 );
                 $('.bg-holder.full.text-center.text-white').height( $( window ).height() - 120 );
-                /*$('#test').height( $( window ).height() - 120 );
-                $('#myImage').resizeToParent();*/
             } else  {
                 $('.bg-img').height( $( window ).width() - 120 );
                 $('#owl-carousel-slider').height( $( window ).width() - 120 );
                 $('.owl-item').height( $( window ).width() - 120 );
                 $('.bg-holder.full.text-center.text-white').height( $( window ).width() - 120 );
             }
-            /*$('#test').height( $( window ).height() - 120 );
-            $('#myImage').resizeToParent();*/
+        });*/
+
+
+        $( window).load(function(){
+
+            var x = ($(window).height() - 120) / 5;
+
+            $('.owl-cap-title.fittext').css('font-size',x + 'px');
+
+            if ($( window ).width() > $( window ).height()) {
+                $('.owl-wrapper-outer').height($(window).height() - 120);
+                $('.top-area.show-onload').height($(window).height() - 120);
+                $('.owl-item').height($(window).height() - 120);
+
+
+            } else {
+                /*$('.owl-wrapper-outer').height($(window).width() - 120);
+                $('.top-area.show-onload').height($(window).width() - 120);
+                $('.owl-item').height($(window).width() - 120);*/
+
+                $('.owl-wrapper-outer').height($(window).width() / 4 * 3);
+                $('.top-area.show-onload').height($(window).width() / 4 * 3);
+                $('.owl-item').height($(window).width() / 4 * 3);
+
+
+            }
         });
 
+        $( window ).resize(function() {
+
+            var x = ($(window).height() - 120) / 2;
+            $('.owl-cap-title.fittext').css('font-size',x + 'px');
+
+            if ($( window ).width() > $( window ).height()) {
+                $('.owl-wrapper-outer').height($(window).height() - 120);
+                $('.top-area.show-onload').height($(window).height() - 120);
+                $('.owl-item').height($(window).height() - 120);
+
+
+
+            } else {
+                $('.owl-wrapper-outer').height($(window).width() - 120);
+                $('.top-area.show-onload').height($(window).width() - 120);
+                $('.owl-item').height($(window).width() - 120);
+
+
+            }
+        });
+
+
+
     });
+
 </script>
 
 <!--<div id="test" style="overflow: hidden; width: 100%; position: relative; display: block; max-height: 1000px; box-shadow: 0px 0px 10px #000000;">
@@ -213,7 +244,7 @@ $this->title = 'Quest House';
 </div>-->
 
 
-<div class="top-area show-onload" id="test" style="height: auto; ">
+<!--<div class="top-area show-onload" id="test" style="height: auto; ">
 
     <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
 
@@ -229,7 +260,57 @@ $this->title = 'Quest House';
         </div>
 
     </div>
+</div>-->
+
+<!-- TOP AREA -->
+<div class="top-area show-onload">
+    <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
+        <div class="bg-holder full text-center text-white">
+
+            <div class="bg-img" style="background-image:url(img/1.jpg);"></div>
+            <div class="bg-front full-center" style="width: 100%; height: 100%;">
+                <div class="owl-cap" style="">
+                    <div style="position: absolute; bottom: 5%; left:10%;"><p style="200px;">TETET</p></div>
+                    <!--<div class="owl-cap-weather"><span>+25</span><i class="im im-cloudy"></i>
+                    </div>
+                    <h1 class="owl-cap-title fittext">Las Vegas</h1>
+                    <div class="owl-cap-price"><small>from</small>
+                        <h5>$2600</h5>
+                    </div><a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>-->
+                </div>
+            </div>
+        </div>
+        <div class="bg-holder full text-center text-white">
+
+            <div class="bg-img" style="background-image:url(img/2.jpg);"></div>
+            <div class="bg-front full-center">
+                <div class="owl-cap">
+                    <div class="owl-cap-weather"><span>+22</span><i class="im im-rain"></i>
+                    </div>
+                    <h1 class="owl-cap-title fittext">Paris</h1>
+                    <div class="owl-cap-price"><small>from</small>
+                        <h5>$2000</h5>
+                    </div><a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-holder full text-center text-white">
+
+            <div class="bg-img" style="background-image:url(img/3.jpg);"></div>
+            <div class="bg-front full-center">
+                <div class="owl-cap">
+                    <div class="owl-cap-weather"><span>+31</span><i class="im im-cloudy"></i>
+                    </div>
+                    <h1 class="owl-cap-title fittext">Budapest</h1>
+                    <div class="owl-cap-price"><small>from</small>
+                        <h5>$2800</h5>
+                    </div><a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- END TOP AREA  -->
 
 <!-- END TOP AREA PHOTORAMA-->
 
