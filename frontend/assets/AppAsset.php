@@ -38,7 +38,7 @@ class AppAsset extends AssetBundle
         'js/dropit.js',
         'js/ionrangeslider.js',
         'js/icheck.js',
-
+'js/jssor.slider.mini.js',
         'js/fotorama.js',
         'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false',
         'js/typeahead.js',

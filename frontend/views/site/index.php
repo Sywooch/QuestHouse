@@ -216,7 +216,7 @@ $this->title = 'Quest House';
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block;
                 top: 0px; left: 0px; width: 100%; height: 100%;">
             </div>
-            <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;
+            <div style="position: absolute; display: block; background: url(img/loading.gif) no-repeat center center;
                 top: 0px; left: 0px; width: 100%; height: 100%;">
             </div>
         </div>
@@ -294,7 +294,7 @@ $this->title = 'Quest House';
                 position: absolute;
                 cursor: pointer;
                 display: block;
-                background: url(http://localhost:8080/QuestHouse/img/a21.png) center center no-repeat;
+                background: url(img/a21.png) center center no-repeat;
                 overflow: hidden;
             }
 
@@ -334,7 +334,7 @@ $this->title = 'Quest House';
     <!-- Jssor Slider End -->
 </div>
 
-<script type="text/javascript" src="http://localhost:8080/QuestHouse/js/jssor.slider.mini.js"></script>
+<!--<script type="text/javascript" src="http://localhost:8080/QuestHouse/js/jssor.slider.mini.js"></script>-->
 <script>
     jQuery(document).ready(function ($) {
 
