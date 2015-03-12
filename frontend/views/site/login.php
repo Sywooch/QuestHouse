@@ -15,19 +15,9 @@ $this->title = 'Quest House';
 <html class="full">
 
 <head>
-    <title>Traveler - Login register</title>
+    <title>Traveler - Login </title>
 
 
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta name="keywords" content="Template, html, premium, themeforest" />
-    <meta name="description" content="Traveler - Premium template for travel companies">
-    <meta name="author" content="Tsoy">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- GOOGLE FONTS -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
-    <!-- /GOOGLE FONTS -->
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -37,19 +27,6 @@ $this->title = 'Quest House';
 
 <body class="full">
 
-<!-- FACEBOOK WIDGET -->
-<!--<div id="fb-root"></div>
-<script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>-->
-<!-- /FACEBOOK WIDGET -->
 <div class="global-wrap">
 
     <div class="full-page">
@@ -58,103 +35,44 @@ $this->title = 'Quest House';
             <div class="bg-img" style="background-image:url(img/1280x852.png);"></div>
             <div class="bg-holder-content full text-white">
 
-                <!--<a class="logo-holder" href="site/index">
-                    <img src="img/logo-white.png" alt="Image Alternative text" title="Image Title" />
-                </a>-->
 <?php
                 $imghtml=Html::img('img/logo-white.png');
                 echo Html::a($imghtml, array('/'),array('class' =>"logo-holder"));
 ?>
 
+                <style>
+                    p.help-block.help-block-error {
+                        color: red;
+                        font-size: 16px;
+                    }
+                </style>
                 <div class="full-center">
                     <div class="container">
-                        <div class="row row-wrap" data-gutter="60">
-                            <!--<div class="col-md-4">
-                                <div class="visible-lg">
-                                    <h3 class="mb15">Welcome to Traveler</h3>
-                                    <p>Ultrices lacus erat mattis nam sem porta nascetur luctus nunc litora diam ornare maecenas et phasellus molestie lorem habitant ultricies condimentum dignissim interdum erat sit praesent penatibus mattis pharetra penatibus</p>
-                                    <p>Sodales amet consectetur consectetur curae placerat consectetur penatibus fusce sagittis</p>
-                                </div>
-                            </div>-->
-                            <div class="col-md-4">
+                        <div class="row row-wrap" data-gutter="60" style="width:300px; margin: auto;">
+
+                            <!--<div class="col-md-4">-->
 
                                 <h3 class="mb15">Login</h3>
 
                                 <?php $form = ActiveForm::begin(['id' => 'login-form',
                                 ]); ?>
-                                <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                <?= $form->field($model, 'username') ?>
+                                <input style="display:none">
+                                <input type="password" style="display:none">
+
+                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                                <?= $form->field($model, 'username')->input('text',array('value'=>'', 'placeholder'=>"Enter UserName", 'autocomplete'=>"off")) ?>
                                 </div>
                                 <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
-                                <?= $form->field($model, 'password')->passwordInput() ?>
+                                <?= $form->field($model, 'password')->passwordInput()->input('password',array('value'=>'', 'placeholder'=>"Enter Password", 'autocomplete'=>"off")) ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                                    <?= Html::submitButton('Login', ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
+                                    <?= Html::a('Register Page',array('/site/signup'),['class' => 'btn btn-info', 'name' => 'login-button']); ?>
                                 </div>
                                 <?php ActiveForm::end(); ?>
 
-                                <!--site/signup-->
-                                <?php echo Html::a('Quests',array('/site/signup')); ?>
+                            <!--</div>-->
 
-                                <!--<form>
-                                    <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                        <label>Username or email</label>
-                                        <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
-                                    </div>
-                                    <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
-                                        <label>Password</label>
-                                        <input class="form-control" type="password" placeholder="my secret password" />
-                                    </div>
-                                    <input class="btn btn-primary" type="submit" value="Sign in" />
-                                </form>-->
-
-
-
-                            </div>
-                            <div class="col-md-4">
-
-                                <div class="site-signup">
-
-                                    <p>Please fill out the following fields to signup:</p>
-
-                                    <div class="row">
-
-                                            <?php $form = ActiveForm::begin(['id' => 'form-signup',
-                                                'action' => ['site/signup']]); ?>
-                                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                                <?= $form->field($signup, 'username') ?>
-                                                </div>
-                                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                            <?= $form->field($signup, 'email') ?>
-                                                </div>
-                                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                            <?= $form->field($signup, 'password')->passwordInput() ?>
-                                                </div>
-                                            <div class="form-group">
-                                                <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                                            </div>
-                                            <?php ActiveForm::end(); ?>
-
-                                    </div>
-                                </div>
-
-                                <!--<h3 class="mb15">New To Traveler?</h3>
-                                <form>
-                                    <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                                        <label>Full Name</label>
-                                        <input class="form-control" placeholder="e.g. John Doe" type="text" />
-                                    </div>
-                                    <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
-                                        <label>Emai</label>
-                                        <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
-                                    </div>
-                                    <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
-                                        <label>Password</label>
-                                        <input class="form-control" type="password" placeholder="my secret password" />
-                                    </div>
-                                    <input class="btn btn-primary" type="submit" value="Sign up for Traveler" />
-                                </form>-->
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -125,14 +125,15 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $signupModel = new SignupForm();
+        //$signupModel = new SignupForm();
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
+
             return $this->render('login', [
                 'model' => $model,
-                'signup' => $signupModel
+                //'signup' => $signupModel
             ]);
             /*return $this->renderPartial('login', [
                 'model' => $model,
@@ -239,27 +240,22 @@ class SiteController extends Controller
     {
         $this->layout = false;
         $menuClass = new Menu();
+        $q = new Quest();
         Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         $model = new SignupForm();
-        //print_r(Yii::$app->request->post());
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
-                if ($user = $model->signup()) {
-                    if (Yii::$app->getUser()->login($user)) {
-                        return $this->goHome();
-                    }
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
                 }
             }
         }
 
-        $this->redirect('login');
-        /*$signupModel = new SignupForm();
-        $model = new LoginForm();
-        return $this->render('login', [
+        return $this->render('signup', [
             'model' => $model,
-            'signupModel' => $signupModel
-        ]);*/
+        ]);
+
     }
 
     public function actionRequestPasswordReset()
