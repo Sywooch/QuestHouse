@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Quest;
 use common\models\Menu;
+use common\models\QuestsTimes;
 use common\models\User;
 use common\models\SearchMenu;
 use Yii;
@@ -155,10 +156,12 @@ class SiteController extends Controller
         $menu_array = $menuClass->find()->where('is_active = 1')->all();
         Yii::$app->params['nav_array'] = $menu_array;
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
+        $questTimes = new QuestsTimes();
         return $this->render('quest', [
             'model' => $this->findModel($name),
+            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name))
         ]);
-        //return $this->render('quest');
+        //print_r($questTimes->getTimeLineForQuest($q->getQuestIdByName($name)));
     }
 
     public function actionProfile()
