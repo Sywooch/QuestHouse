@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $(".timeContainer").click(function() {
+    /*$(".timeContainer").click(function() {
 
         var r = confirm("Бронировать ?");
         if (r == true) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
                 });
         }
 
-    });
+    });*/
 
     $( window).load(function(){
 
