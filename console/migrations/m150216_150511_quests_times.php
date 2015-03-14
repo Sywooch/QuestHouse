@@ -16,7 +16,7 @@ class m150216_150511_quests_times extends Migration
 
         $this->createTable('{{%quests_times}}', [
             'id' => Schema::TYPE_PK,
-            'time_value' => Schema::TYPE_FLOAT . ' NOT NULL',
+            'time_value' => Schema::TYPE_DECIMAL . '(6.2) NOT NULL',
             'quest_id' => Schema::TYPE_INTEGER . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',

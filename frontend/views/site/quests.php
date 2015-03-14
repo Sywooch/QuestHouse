@@ -1,9 +1,6 @@
 <div class="container">
-    <h1 class="page-title">Gallery 2 Columns</h1>
+    <h1 class="page-title">Наши квесты</h1>
 </div>
-
-
-
 
 <div class="container">
     <div id="popup-gallery">
@@ -13,7 +10,9 @@
             <?php foreach($quest_model as $key): ?>
                 <?php /*print_r($key)*/?>
                 <div class="col-md-6">
-                    <a class="hover-img popup-gallery-image" href="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> data-effect="mfp-zoom-out">
+                    <a  href="quest?name=tets+Quest" data-effect="mfp-zoom-out">
+
+
                         <img src="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
                         <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
                         <div style="bottom: 5%; width: 30%; left: 5%; position: absolute; color: #ffffff;"><?=$key['quest_description']?></div>

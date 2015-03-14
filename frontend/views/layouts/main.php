@@ -39,14 +39,10 @@ $this->title = 'Quest House';
     <!-- GOOGLE FONTS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
-    <!-- /GOOGLE FONTS -->
-    <!--<link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mystyles.css">
-    <script src="js/modernizr.js"></script>-->
 
+    <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -66,9 +62,65 @@ $this->title = 'Quest House';
 </script>
 <!-- /FACEBOOK WIDGET -->
 <div class="global-wrap">
-    <header id="main-header">
+    <header id="main-header" style="height: 152px;">
         <div class="header-top">
+
             <div class="container">
+
+                <?php
+                if (Yii::$app->user->isGuest) { ?>
+                <div class="col-md-4" style="float: right;">
+                    <div class="top-user-area clearfix">
+                        <ul class="top-user-area-list list list-horizontal list-border">
+                            <li class="top-user-area-avatar">
+                                <?php echo Html::a('Login to account',array('/site/login')); ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    <?php } else {?>
+
+                    <div class="col-md-4" style="float: right;">
+                        <div class="top-user-area clearfix">
+                            <ul class="top-user-area-list list list-horizontal list-border">
+                                <li class="top-user-area-avatar">
+
+                                    <!--<a href="user-profile.html">
+                                            <img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze" />
+                                            <?/*=Yii::$app->user->identity->username;*/?>
+                                        </a>-->
+
+                                    <?php
+                                    $imghtml=Html::img('img/40x40.png',array('class' =>"origin round",'alt'=>"Image Alternative text",'title'=>"AMaze"));
+                                    echo Html::a($imghtml, array('site/profile'));
+                                    ?>
+
+
+                                </li>
+                                <li>
+                                    <!--<a href="#">Sign Out</a>-->
+                                    <?=Html::a('Sign Out', ['site/logout'],
+                                        [
+                                            //                                          'class' => 'btn btn-danger',
+                                            'data' => [
+//                                                'confirm' => 'Are you sure you want to delete this item?',
+                                                'method' => 'post',
+                                            ],
+                                        ])
+                                    ?>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <?php }?>
+
+                <div style="width: 300px; height: 100px;
+
+                display: block;
+                margin: auto;">
+                <img src="http://questhouse.com.ua/images/logo.png"  >
+                    </div>
                 <div class="row">
 
 
@@ -87,92 +139,65 @@ $this->title = 'Quest House';
                         </form>
                     </div>-->
 
-                    <div class="col-md-8">
-                        <div class="nav">
-                        <ul class="slimmenu" id="slimmenu">
-                            <?php foreach(Yii::$app->params['nav_array'] as $key=>$value): ?>
-                                <!--<tr>
-            <td><?php /*print_r(Yii::$app->params['nav_array'][$key]['menu_title']); */?></td>
-        </tr>-->
+                    <style>
 
-                                <li <?php if (Yii::$app->requestedRoute==Yii::$app->params['nav_array'][$key]['menu_link']) echo "class='active'" ?> ><?php echo Html::a(Yii::$app->params['nav_array'][$key]['menu_title'],array(Yii::$app->params['nav_array'][$key]['menu_link'])); ?>
+                        ul.slimmenu li.active > a, ul.slimmenu li:hover > a {
+                            font-family: 'Poiret One', cursive;
+                            font-size: 25px;
+                            margin: 15px;
 
-                                    <?php
-                                    if (count(Yii::$app->params['quests_direct_link'][$key])>0){ ?>
-                                        <ul>
-                                            <?php for ($i=0;$i<count(Yii::$app->params['quests_direct_link'][$key]);$i++): ?>
-                                                <li><a href="<?=Url::to(['quest','name'=>Yii::$app->params['quests_direct_link'][$key][$i]['quest_en_name']]);?>">
-                                                        <?=Yii::$app->params['quests_direct_link'][$key][$i]['quest_name']; ?>
-                                                    </a>
-                                                </li>
-                                            <?php endfor; ?>
-                                        </ul>
-                                    <?php }
-                                    ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-</div>
+                            padding:0;
+                            font-weight:300;
+                            color: #f5f5f5;
+                        }
 
-                    <?php
+                    </style>
 
-                    if (Yii::$app->user->isGuest) { ?>
-
-                    <!------------------------------------------- SING IN FORM START ---------------------------------->
-                    <div class="col-md-4">
-                            <div class="top-user-area clearfix">
-                                <ul class="top-user-area-list list list-horizontal list-border">
-                                    <li class="top-user-area-avatar">
-                                        <?php echo Html::a('Login to account',array('/site/login')); ?>
-                                    </li>
-                                </ul>
-                            </div>
-                    </div>
-                    <!------------------------------------------- SING IN FORM END ---------------------------------->
-
-                    <?php } else { ?>
-
-                        <!------------------------------------------- SING IN FORM START ---------------------------------->
-
-                        <div class="col-md-4">
-                            <div class="top-user-area clearfix">
-                                <ul class="top-user-area-list list list-horizontal list-border">
-                                    <li class="top-user-area-avatar">
-
-
-                                        <!--<a href="user-profile.html">
-                                            <img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze" />
-                                            <?/*=Yii::$app->user->identity->username;*/?>
-                                        </a>-->
-
+                    <div class="col-md-20">
+                        <div class="nav" style="margin-top: -15px; width: 100%">
+                            <div style="float: left;">
+                                <ul class="slimmenu" id="slimmenu">
+                                    <li class="active">
                                         <?php
-                                        $imghtml=Html::img('img/40x40.png',array('class' =>"origin round",'alt'=>"Image Alternative text",'title'=>"AMaze"));
-                                        echo Html::a($imghtml, array('site/profile'));
-                                        ?>
-
-
-                                    </li>
-                                    <li>
-                                        <!--<a href="#">Sign Out</a>-->
-                                        <?=Html::a('Sign Out', ['site/logout'],
-                                            [
-  //                                          'class' => 'btn btn-danger',
-                                            'data' => [
-//                                                'confirm' => 'Are you sure you want to delete this item?',
-                                                'method' => 'post',
-                                            ],
-                                        ])
+                                        echo Html::a("Главная",array('/'));
                                         ?>
                                     </li>
+                                    <li class="active">
+                                        <?php
+                                            echo Html::a("Квесты",array('/site/quests'));
+                                        ?>
 
+                                    </li>
+                                    <li class="active">
+                                        <?php
+                                            echo Html::a("Антикафе",array('/site/gamespace'))
+                                        ?>
+                                    </li>
                                 </ul>
+
                             </div>
+                                <div style="float: right;">
+                                    <ul class="slimmenu" id="slimmenu">
+                                        <li class="active">
+                                            <?php
+                                                echo Html::a("Сертификат",array('/site/gift'))
+                                            ?>
+                                        </li>
+                                        <li class="active">
+                                            <?php
+                                                echo Html::a("Франшиза",array('/site/franchize'));
+                                            ?>
+                                        </li>
+                                        <li class="active">
+                                            <?php
+                                            echo Html::a("Контакты",array('/site/contact'));
+                                            ?>
+                                        </li>
+                                    </ul>
+
+                                </div>
                         </div>
-                        <!------------------------------------------- SING IN FORM START ---------------------------------->
-
-                    <?php } ?>
-
+                    </div>
 
 
                 </div>
