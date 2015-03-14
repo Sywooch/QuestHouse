@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <div class="container">
     <h1 class="page-title">Наши квесты</h1>
 </div>
@@ -10,10 +13,9 @@
             <?php foreach($quest_model as $key): ?>
                 <?php /*print_r($key)*/?>
                 <div class="col-md-6">
-                    <a  href="quest?name=tets+Quest" data-effect="mfp-zoom-out">
+                    <a  href="<?=Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name'])?>" data-effect="mfp-zoom-out">
 
-
-                        <img src="test/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
+                        <img src="<?=Yii::$app->urlManager->createUrl('backend/web/images/quest-images/tets Quest').'/'.$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
                         <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
                         <div style="bottom: 5%; width: 30%; left: 5%; position: absolute; color: #ffffff;"><?=$key['quest_description']?></div>
                         <div style="bottom: 15%; right: 5%; position: absolute; color: #ffffff;"><?=$key['quest_logo']?></div>
