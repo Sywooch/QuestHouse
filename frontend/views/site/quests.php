@@ -13,7 +13,10 @@ use yii\helpers\Url;
             <?php foreach($quest_model as $key): ?>
                 <?php /*print_r($key)*/?>
                 <div class="col-md-6">
-                    <a  href="<?=Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name'])?>" >
+                    <?php if ($key['quest_price']>0) $url = Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name']);
+                            else $url = Yii::$app->urlManager->createUrl('/quests');
+                        ?>
+                    <a  href="<?=$url?>">
 
                         <img src="<?=Yii::$app->urlManager->createUrl('backend/web/images/quest-images/tets Quest').'/'.$key['quest_logo'].'"' ?> />
                         <!--<i class="fa fa-plus round box-icon-small hover-icon i round"></i>-->
