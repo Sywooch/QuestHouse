@@ -13,15 +13,15 @@ use yii\helpers\Url;
             <?php foreach($quest_model as $key): ?>
                 <?php /*print_r($key)*/?>
                 <div class="col-md-6">
-                    <a  href="<?=Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name'])?>" data-effect="mfp-zoom-out">
+                    <a  href="<?=Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name'])?>" >
 
-                        <img src="<?=Yii::$app->urlManager->createUrl('backend/web/images/quest-images/tets Quest').'/'.$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
-                        <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                        <div style="bottom: 5%; width: 30%; left: 5%; position: absolute; color: #ffffff;"><?=$key['quest_description']?></div>
-                        <div style="bottom: 15%; right: 5%; position: absolute; color: #ffffff;"><?=$key['quest_logo']?></div>
-                        <div style="top: 10%; left: 10%; position: absolute;">
+                        <img src="<?=Yii::$app->urlManager->createUrl('backend/web/images/quest-images/tets Quest').'/'.$key['quest_logo'].'"' ?> />
+                        <!--<i class="fa fa-plus round box-icon-small hover-icon i round"></i>-->
+                        <!--<div style="bottom: 5%; width: 30%; left: 5%; position: absolute; color: #ffffff;"><?/*=$key['quest_description']*/?></div>
+                        <div style="bottom: 15%; right: 5%; position: absolute; color: #ffffff;"><?/*=$key['quest_logo']*/?></div>-->
+                        <!--<div style="top: 10%; left: 10%; position: absolute;">
                             <img src="img/logo-white.png" alt="Image Alternative text" title="Gaviota en el Top" />
-                        </div>
+                        </div>-->
                     </a>
                 </div>
             <?php endforeach ?>
