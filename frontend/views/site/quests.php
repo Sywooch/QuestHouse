@@ -13,7 +13,7 @@
                     <a  href="quest?name=tets+Quest" data-effect="mfp-zoom-out">
 
 
-                        <img src="/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
+                        <img src="test/QuestHouse/backend/web/images/quest-images/tets Quest/<?=$key['quest_logo'].'"' ?> alt="Image Alternative text" title="Gaviota en el Top" />
                         <i class="fa fa-plus round box-icon-small hover-icon i round"></i>
                         <div style="bottom: 5%; width: 30%; left: 5%; position: absolute; color: #ffffff;"><?=$key['quest_description']?></div>
                         <div style="bottom: 15%; right: 5%; position: absolute; color: #ffffff;"><?=$key['quest_logo']?></div>
