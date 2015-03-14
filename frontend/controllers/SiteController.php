@@ -19,6 +19,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use backend\controllers\QuestController;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
