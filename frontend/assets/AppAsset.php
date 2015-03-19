@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'css/icomoon.css',
         'css/styles.css',
         'css/mystyles.css',
+        'css/schemes/horizon.css',
 
     ];
     public $js = [
@@ -48,9 +49,9 @@ class AppAsset extends AssetBundle
         'js/magnific.js',
         'js/owl-carousel.js',
 
-        'js/nicescroll.js',
+/*        'js/nicescroll.js',
         'js/owl-carousel.js',
-        'js/slimmenu.js',
+        'js/slimmenu.js',*/
 
         'js/fitvids.js',
         'js/tweet.js',

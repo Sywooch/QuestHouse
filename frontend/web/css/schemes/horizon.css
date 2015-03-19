@@ -104,7 +104,7 @@ ul.slimmenu li:hover > a,
 .booking-item-raiting-list > li > div.booking-item-raiting-list-bar > div,
 .booking-item-raiting-summary-list > li > div.booking-item-raiting-list-bar > div,
 ::selection {
-  background-color: #5b84aa;
+  /*background-color: #5b84aa;*/
 }
 header#main-header,
 .booking-item:hover,
