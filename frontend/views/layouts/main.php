@@ -49,15 +49,15 @@ $this->title = 'Quest House';
 
 <?php $this->beginBody() ?>
 
-<?php echo $this->render('//layouts/header');  ?>
+
 
     <div class="global-wrap" style="background: none;">
+        <?php echo $this->render('//layouts/header');  ?>
+        <?=$content ?>
 
-        <?= $content ?>
 
-        <?php echo $this->render('//layouts/foot');  ?>
     </div>
-
+<?php echo $this->render('//layouts/foot');  ?>
 <?php $this->endBody() ?>
 </body>
 

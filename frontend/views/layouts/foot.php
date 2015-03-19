@@ -1,25 +1,66 @@
 <footer id="main-footer">
     <div class="container">
         <div class="row row-wrap">
-
-            <div style="float: left;">
-                <i class="fa fa-comments-o box-icon-large box-icon-left box-icon-info box-icon-to-inverse-red box-icon-border-dashed animate-icon-tada round" style="color: white;"></i>
-
-
-                <i class="fa fa-info box-icon-large box-icon-left box-icon-info box-icon-to-inverse-red box-icon-border-dashed animate-icon-tada round" style="color: white;"></i>
-
+            <div class="col-md-3">
+                <a class="logo" href="index.html">
+                    <img src="img/logo-invert.png" alt="Image Alternative text" title="Image Title">
+                </a>
+                <p class="mb20">© Квестхаус, квесты в реальности в Одессе.!</p>
+                <ul class="list list-horizontal list-space">
+                    <li>
+                        <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-twitter box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-google-plus box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-linkedin box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-pinterest box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                </ul>
             </div>
 
-            <div style="width: 250px; height: 100px; margin-left: 450px;position: absolute;">
-                <img src="http://questhouse.com.ua/images/logo.png" />
+            <div class="col-md-3">
+                <h4>Рассылка</h4>
+                <form>
+                    <label>Введите ваш E-mail адрес</label>
+                    <input type="text" class="form-control">
+                    <p class="mt5"><small>*Мы не спамим</small>
+                    </p>
+                    <input type="submit" class="btn btn-primary" value="Подписаться">
+                </form>
             </div>
-
-
-            <div style="float: right;">
-
-                <i class="fa fa-users box-icon-large box-icon-left box-icon-info box-icon-to-inverse-red box-icon-border-dashed animate-icon-tada round" style="color: white;"></i>
-
-                <i class="fa fa-gift box-icon-large box-icon-left box-icon-info box-icon-to-inverse-red box-icon-border-dashed animate-icon-tada round" style="color: white;"></i>
+            <div class="col-md-2">
+                <ul class="list list-footer">
+                    <li><a href="#">О нас</a>
+                    </li>
+                    <li><a href="#">Пресс центр</a>
+                    </li>
+                    <li><a href="#">Квесты</a>
+                    </li>
+                    <li><a href="#">Антикафе</a>
+                    </li>
+                    <li><a href="#">Франшиза</a>
+                    </li>
+                    <li><a href="#">Подарочный сертификат</a>
+                    </li>
+                    <li><a href="#">Terms of Use</a>
+                    </li>
+                    <li><a href="#">Обратная связь</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Есть вопросы?</h4>
+                <h4 class="text-color">+38-093-148-13-92</h4>
+                <h4 class="text-color">+38-067-600-36-76</h4>
+                <h4><a href="#" class="text-color">info@questhouse.com.ua</a></h4>
+                <p></p>
             </div>
 
         </div>

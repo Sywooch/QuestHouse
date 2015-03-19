@@ -46,19 +46,19 @@
         <h2 style="text-align: center; color: #ffffff;">Наши квесты</h2>
         <div class="gap"></div>
 
-        <?php for ($j=0;$j<3;$j++): ?>
+        <?php /*for ($j=0;$j<3;$j++): */?><!--
 
         <div class="demo-grid1" >
             <div class="row" style="margin-bottom: 0;">
                 <div class="col-md-2">
-                    <div style="height: 40px; text-align: center; color: #ffffff;">Убийство моих снов</div>
+                    <div style="height: 40px; padding: 10px; text-align: center; color: #ffffff;">Убийство моих снов</div>
                 </div>
 
-                <?php for ($i=0;$i<10;$i++): ?>
+                <?php /*for ($i=0;$i<10;$i++): */?>
                 <div class="col-md-1" style="background: rgba(180, 160, 180, .6); margin-left: 5px;">
-                    <div style="height: 45px; color: #ffffff;">12:52</div>
+                    <div style="height: 45px; color: #ffffff; text-align: center; padding: 10px;">12:52</div>
                 </div>
-                <?php endfor; ?>
+                <?php /*endfor; */?>
 
 
             </div>
@@ -69,16 +69,104 @@
                     <div></div>
                 </div>
 
-                    <?php for ($i=0;$i<10;$i++): ?>
+                    <?php /*for ($i=0;$i<10;$i++): */?>
                         <div class="col-md-1" style=" margin-top: 10px;">
                             <div style="height: 25px;"></div>
                         </div>
-                    <?php endfor; ?>
+                    <?php /*endfor; */?>
 
             </div>
 
-        <?php endfor; ?>
+        --><?php /*endfor; */?>
 
+
+        <style >
+            .news-list-container {
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+
+            #container {
+                /*height: 187px;*/
+                height: 60px;
+                min-width: 1176px;
+                /*width: auto;*/
+            }
+
+            .news-list-item {
+                /*border: 1px solid #E5E5E5;*/
+                float: left;
+                /*height: 175px;*/
+                color: white;
+                padding: 5px;
+                /*width: 184px;*/
+            }
+        </style>
+
+
+        <div id="tableholder" style="width: auto; margin-left: 15px;">
+            <div id="sidebar" style="float: left; height: auto; width: 100px;">
+                <?php $start = new DateTime();
+                for ($i=0; $i<count($questTimeModel);$i++): ?>
+                    <div style="color: #ffffff; height: 60px; display: block; position: relative;">
+
+                        <?=Date('d',$start->getTimestamp());?>
+                        <?=Date('F',$start->getTimestamp());?>
+                        <br>
+                        <?=Date('l',$start->getTimestamp());?>
+                        <?php date_add($start, date_interval_create_from_date_string('1 day')); ?>
+
+                    </div>
+                <?php endfor; ?>
+
+
+            </div>
+
+
+            <?php
+            echo '<div class="news-list-container">';
+
+            foreach ($questTimeModel as $key=>$item):
+                echo '<div id=container class="quest_booking" name='.$model['id'].' >';
+
+                usort($item, function ($item1, $item2) {
+                    return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
+                });
+
+
+                for ($j = 0; $j < count($item); $j++): ?>
+
+                    <div style="width: 7.66666663%; float: left; background: rgba(180, 160, 180, .6); margin-left: 5px;" id='<?=array_values($item)[$j]['d'] ?>' style='padding-top:0; padding-bottom: 0; height: 60px;'>
+                        <?php if (array_values($item)[$j]['id']){
+                            ?>
+                            <div style="width: 50px; text-align: center; background-color: #d3d3d3; margin-right: 10px;  border: 1px solid;
+    border-radius: 5px; color: #808080; font-weight: bolder;">
+                                <p style="padding: 0; color: #808080; margin: 0;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
+                            </div>
+                        <?php
+                        } else {
+
+                            ?>
+                            <!--<div class="timeContainer" style="width: 50px; text-align: center; background-color: #d3d3d3; margin-right: 10px;  border: 1px solid;
+    border-radius: 5px; color: #a9a9a9; font-weight: bolder;">-->
+                                <p style="padding: 0; color: #000000; margin: 0;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
+                            <!--</div>-->
+                            <div style="width: 50px;font-size: 12px; text-align: center;"><?=array_values($item)[$j]['price']?> UAH</div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                <?php
+                endfor;
+                echo "</div>";
+            endforeach;
+            ?>
+        </div>
+
+
+
+
+    </div>
     </div>
 
 
@@ -99,7 +187,11 @@
 </div>
 
 
+
 <div class="gap"></div>
+
+
+
 <div class="container">
     <div class="row" data-gutter="80">
 
@@ -156,5 +248,7 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="gap"></div>

@@ -112,12 +112,23 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $q = new Quest();
+        /*$q = new Quest();
         $menuClass = new Menu();
         $menu_array = $menuClass->find()->where('is_active = 1')->all();
         Yii::$app->params['nav_array'] = $menu_array;
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        return $this->render('index');
+        return $this->render('index');*/
+        $q = new Quest();
+        $name = "tets Quest";
+        $menuClass = new Menu();
+        $menu_array = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['nav_array'] = $menu_array;
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
+        $questTimes = new QuestsTimes();
+        return $this->render('index', [
+            'model' => $this->findModel($name),
+            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name))
+        ]);
     }
 
     public function actionLogin()
