@@ -7,6 +7,11 @@
  */
 ?>
 
+<?php
+use yii\helpers\Url;
+?>
+<!--<a href="<?/*= Url::to(['site/logout'])*/?>" data-method="post">Logout</a>-->
+
 
 <header id="main-header" style="border: 0;">
 
@@ -39,9 +44,9 @@
                     <div class="col-sm-4 col-md-4">
                             <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
                                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
-                                    <li><a href="index.html">Главная</a></li>
+                                    <li><a href="<?= Url::to(['/'])?>">Антикафе</a></li>
                                     <li><a href="index.html">Квесты</a></li>
-                                    <li><a href="index.html">Антикафе</a></li>
+                                    <li><a href="<?= Url::to(['site/gamespace'])?>">Антикафе</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -52,9 +57,9 @@
                 <!--<div class="nav">-->
                 <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
-                        <li><a href="index.html">Сертификат</a></li>
-                        <li><a href="index.html">Франшиза</a></li>
-                        <li><a href="index.html">Контакты</a></li>
+                        <li><a href="<?= Url::to(['site/gift'])?>">Сертификат</a></li>
+                        <li><a href="<?= Url::to(['site/franchize'])?>">Франшиза</a></li>
+                        <li><a href="<?= Url::to(['site/contact'])?>">Контакты</a></li>
                     </ul>
                 </div>
             </div>

@@ -15,7 +15,6 @@ $this->title = 'Quest House';
     <html class="full">
 
     <head>
-        <title>Traveler - Login </title>
 
 
         <?= Html::csrfMetaTags() ?>
@@ -32,11 +31,15 @@ $this->title = 'Quest House';
         <div class="full-page">
             <div class="bg-holder full">
                 <div class="bg-mask"></div>
-                <div class="bg-img" style="background-image:url(img/1024x487.png);"></div>
+                <div class="bg-img" style="background: url('img/backgrounds/bg2.png') no-repeat; -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;"></div>
                 <div class="bg-holder-content full text-white text-center">
-                    <a class="logo-holder" href="index.html">
+                    <!--<a class="logo-holder" href="index.html">
                         <img src="img/logo-white.png" alt="Image Alternative text" title="Image Title" />
-                    </a>
+                    </a>-->
                     <div class="full-center">
                         <div class="container">
                             <div class="spinner-clock">
