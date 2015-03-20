@@ -41,7 +41,7 @@ use yii\helpers\Url;
 
         <div class="row inline-block-row">
 
-                    <div class="col-sm-4 col-md-4">
+                    <div class="col-sm-4 col-md-4" style="z-index: 1;">
                             <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
                                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
                                     <li><a href="<?= Url::to(['/'])?>">Главная</a></li>
