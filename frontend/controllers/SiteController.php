@@ -112,22 +112,18 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        /*$q = new Quest();
-        $menuClass = new Menu();
-        $menu_array = $menuClass->find()->where('is_active = 1')->all();
-        Yii::$app->params['nav_array'] = $menu_array;
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        return $this->render('index');*/
         $q = new Quest();
-        $name = "tets Quest";
         $menuClass = new Menu();
         $menu_array = $menuClass->find()->where('is_active = 1')->all();
         Yii::$app->params['nav_array'] = $menu_array;
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         $questTimes = new QuestsTimes();
+
+        $partialWithData = $this->renderPartial('//partials/_index_form',[
+            'questTimeModel' => $questTimes->getTimeOneLineForQuest('all',false),
+        ]);
         return $this->render('index', [
-            'model' => $this->findModel($name),
-            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name))
+            'partial' => $partialWithData
         ]);
     }
 
@@ -138,8 +134,17 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        //$signupModel = new SignupForm();
         $model = new LoginForm();
+        if (Yii::$app->request->isAjax){
+            $model->username = Yii::$app->request->post('username');
+            $model->password = Yii::$app->request->post('password');
+
+            if ($model->validate() && $model->login()) return 'true';
+            else return 'false';
+        }
+
+            //$signupModel = new SignupForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
@@ -262,6 +267,11 @@ class SiteController extends Controller
         return $this->render('games',['cust' => $test]);
     }
 
+    public function actionIsLoggedIn()
+    {
+        return \Yii::$app->user->isGuest;
+    }
+
     public function actionSignup()
     {
         $this->layout = false;
@@ -270,6 +280,16 @@ class SiteController extends Controller
         Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         $model = new SignupForm();
+
+        if (Yii::$app->request->isAjax){
+            $model->username = Yii::$app->request->post('username');
+            $model->password = Yii::$app->request->post('password');
+            $model->email = Yii::$app->request->post('email');
+
+            if ($model->validate() && $model->signup()) return 'true';
+            else return $model->validate();
+        }
+
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {

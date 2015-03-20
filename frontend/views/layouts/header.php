@@ -10,17 +10,38 @@
 
 <header id="main-header" style="border: 0;">
 
+    <style>
+
+        #top-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #top-nav  li {
+            display: inline;
+            margin: auto;
+        }
+
+        #top-nav ul li a {
+            color: #ffffff;
+            font-size: 16px;
+            padding: 5px;
+
+        }
+
+    </style>
 
     <div class="container-fluid">
 
         <div class="row inline-block-row">
 
                     <div class="col-sm-4 col-md-4">
-                            <div class="nav" style="float: right; margin-top: 15%;">
-                                <ul class="slimmenu" id="slimmenu" style="width: auto;">
-                                    <li class="active"><a href="index.html">Home1</a></li>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li class="active"><a href="index.html">Home</a></li>
+                            <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
+                                <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
+                                    <li><a href="index.html">Главная</a></li>
+                                    <li><a href="index.html">Квесты</a></li>
+                                    <li><a href="index.html">Антикафе</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -28,11 +49,12 @@
                         <img class="img-responsive" src="http://questhouse.com.ua/images/logo.png"/>
                     </div>
             <div class="col-sm-4 col-md-4">
-                <div class="nav">
-                    <ul class="slimmenu" id="slimmenu" style="margin-top: 15%;">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li class="active"><a href="index.html">Home</a></li>
+                <!--<div class="nav">-->
+                <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
+                <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
+                        <li><a href="index.html">Сертификат</a></li>
+                        <li><a href="index.html">Франшиза</a></li>
+                        <li><a href="index.html">Контакты</a></li>
                     </ul>
                 </div>
             </div>

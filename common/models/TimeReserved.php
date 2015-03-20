@@ -58,7 +58,12 @@ class TimeReserved extends \yii\db\ActiveRecord
 
     public function isTimeReserved($questTime,$questDate,$questId)
     {
-        return $this->find()->where(['time_value'=>$questTime,'date'=>$questDate,'quest_id'=>$questId])
+        /*var_dump($this->find()->where(['time_value'=>$questTime,'date'=>$questDate,'quest_id'=>$questId])
+                            ->asArray()->exists());*/
+
+        return $this->find()->where('time_value='.$questTime)
+                            ->andWhere('date='.$questDate)
+                            ->andWhere('quest_id='.$questId)
                             ->asArray()->exists();
     }
 

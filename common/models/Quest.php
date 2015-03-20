@@ -62,7 +62,7 @@ class Quest extends \yii\db\ActiveRecord
     public function getQuestIdByName($name)
     {
         $questModel = new Quest();
-        return $questModel->find()->where($questModel->quest_en_name == $name)->one()['id'];
+        return $questModel->find()->where("quest_en_name = '".$name."'")->one()['id'];
     }
 
     public function getAllQuestImages($id)

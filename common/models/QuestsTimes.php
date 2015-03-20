@@ -24,9 +24,29 @@ class QuestsTimes extends \yii\db\ActiveRecord
         return 'quests_times';
     }
 
+    public function getTimeOneLineForQuest($param,$tableDate)
+    {
+        if (!$tableDate) $tableDate = date("Y-m-d", time());
+        if ($param == 'all'){
+            $questTimeModel = $this->findBySql("SELECT quests.quest_name as qn,tr.id,qt.time_value,qt.price FROM quests
+            join quests_times as qt on qt.quest_id = quests.id
+            left join time_reserved as tr on tr.time_value = qt.time_value and qt.quest_id = tr.quest_id
+            and date(tr.date) = date('$tableDate')
+            where qt.quest_id = quests.id
+            order by quests.id, qt.time_value")->asArray()->all();
+            $arr = array();
+            foreach($questTimeModel as $key => $item)
+            {
+                $arr[$item['qn']][$key] = $item;
+            }
+            return $arr;
+        }
+    }
+
     public function getTimeLineForQuest($questId)
     {
         //return $this->find()->where('quest_id = '.$questId)->asArray()->all();
+        $arr = array();
         $questTimeModel = $this->findBySql("SELECT CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date) d,qt.price,qt.time_value,tr.id,tr.date as TD,date
 FROM ( SELECT 0 H
     UNION ALL SELECT 100 UNION ALL SELECT 200 UNION ALL SELECT 300

@@ -1000,7 +1000,7 @@ ul.slimmenu li {
 }
 ul.slimmenu li a {
   display: block;
-  padding: 12px 20px;
+  padding: 12px 5px;
   font-size: 15px;
   text-transform: uppercase;
   font-family: 'Roboto', arial, helvetica, sans-serif;
@@ -1018,7 +1018,7 @@ ul.slimmenu li.slimmenu-sub-menu a {
 ul.slimmenu li.active > a,
 ul.slimmenu li:hover > a {
   /*background: #ed8323;*/
-    /*background: darkmagenta;*/
+    background: #5b84aa;
   color: #fff;
 }
 ul.slimmenu li.active .slimmenu-sub-collapser > i,
