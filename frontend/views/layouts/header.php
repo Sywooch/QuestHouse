@@ -44,9 +44,9 @@ use yii\helpers\Url;
                     <div class="col-sm-4 col-md-4">
                             <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
                                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
-                                    <li><a href="<?= Url::to(['/'])?>">Антикафе</a></li>
-                                    <li><a href="index.html">Квесты</a></li>
-                                    <li><a href="<?= Url::to(['site/gamespace'])?>">Антикафе</a></li>
+                                    <li><a href="<?= Url::to(['/'])?>">Главная</a></li>
+                                    <li><a href="<?= Url::to(['/quests'])?>">Квесты</a></li>
+                                    <li><a href="<?= Url::to(['gamespace'])?>">Антикафе</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,9 +57,9 @@ use yii\helpers\Url;
                 <!--<div class="nav">-->
                 <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
-                        <li><a href="<?= Url::to(['site/gift'])?>">Сертификат</a></li>
-                        <li><a href="<?= Url::to(['site/franchize'])?>">Франшиза</a></li>
-                        <li><a href="<?= Url::to(['site/contact'])?>">Контакты</a></li>
+                        <li><a href="<?= Url::to(['gift'])?>">Сертификат</a></li>
+                        <li><a href="<?= Url::to(['franchize'])?>">Франшиза</a></li>
+                        <li><a href="<?= Url::to(['contact'])?>">Контакты</a></li>
                     </ul>
                 </div>
             </div>

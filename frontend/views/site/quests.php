@@ -1,11 +1,10 @@
 <?php
 use yii\helpers\Url;
 ?>
-<div class="container">
-    <h1 class="page-title">Наши квесты</h1>
-</div>
 
-<div class="container">
+<h1 style="text-align: center; color: #ffffff;">Наши квесты</h1>
+
+<div style="width: 80%; margin: auto; background: rgba(54, 25, 25, .2); padding: 15px; color: #ffffff;">
     <div id="popup-gallery">
         <div class="row row-col-gap">
 
@@ -28,64 +27,7 @@ use yii\helpers\Url;
                     </a>
                 </div>
             <?php endforeach ?>
-
-
-
-            <!--<div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="Sydney Harbour" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="Street" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/400x300.png" data-effect="mfp-zoom-out">
-                    <img src="img/400x300.png" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="waipio valley" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="the best mode of transport here in maldives" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="Viva Las Vegas" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="El inevitable paso del tiempo" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="new york at an angle" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                    <img src="img/800x600.png" alt="Image Alternative text" title="196_365" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                </a>
-            </div>-->
         </div>
     </div>
 </div>
+<div class="gap-small"></div>
