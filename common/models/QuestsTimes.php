@@ -29,6 +29,8 @@ class QuestsTimes extends \yii\db\ActiveRecord
     {
         date_default_timezone_set('Europe/Kiev');
         if (!$tableDate) $tableDate = date("Y-m-d", time());
+        else $tableDate = date("Y-m-d", strtotime($tableDate));
+
         if ($param == 'all'){
             $questTimeModel = $this->findBySql("SELECT quests.quest_name as qn,tr.id,qt.time_value,qt.price FROM quests
             join quests_times as qt on qt.quest_id = quests.id
@@ -39,7 +41,11 @@ class QuestsTimes extends \yii\db\ActiveRecord
             $arr = array();
             foreach($questTimeModel as $key => $item)
             {
+                if (strtotime($item['time_value'])<time() &&
+                    strtotime($tableDate)<time()) $item['active']='0';
+                else $item['active']='1';
                 $arr[$item['qn']][$key] = $item;
+
             }
             return $arr;
         }

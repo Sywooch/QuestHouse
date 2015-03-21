@@ -30,13 +30,14 @@ class QuestController extends Controller
             $questId = $questModel->getQuestIdByName($quest);
 
             if ($questId) {
-                if ($timeReserved->isTimeReserved($time, $newDate, $questId)) {
-                    return "Данное время занято";
+                if ($timeReserved->isTimeReserved($time, $newDate, $questId) ||
+                    (strtotime($time)<time() && strtotime($date)<time())) {
+                    return "Данное время недоступно";
                 } else {
                     if ($this->Booking($time, $newDate, $questId)) {
                         $questTimes = new QuestsTimes();
                         return $this->renderPartial('//partials/_index_form', [
-                            'questTimeModel' => $questTimes->getTimeOneLineForQuest('all', false),
+                            'questTimeModel' => $questTimes->getTimeOneLineForQuest('all', $date),
                         ], true, true);
                     } else {
                         return "error during gathering page data";

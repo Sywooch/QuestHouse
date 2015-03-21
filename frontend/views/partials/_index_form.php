@@ -55,10 +55,10 @@
             for ($j = 0; $j < count($item); $j++): ?>
 
                 <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['qn'] ?>' style='padding-top:0; padding-bottom: 0; height: 60px;'>
-                    <?php if (array_values($item)[$j]['id']){
+                    <?php if (array_values($item)[$j]['id'] || array_values($item)[$j]['active']==0){
                         ?>
                         <div style="width: 50px; height: 44px; color: #ffffff; margin: auto;">
-                            <p style="padding: 0; color: #000000; size: 12px; text-align: center;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
+                            <p style="padding: 0; color: #000000; text-align: center;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
                         </div>
                     <?php
                     } else {

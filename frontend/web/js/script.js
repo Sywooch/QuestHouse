@@ -84,7 +84,8 @@ $(document).ready(function() {
     });
 
     ////////////////////////////////////////////////////////////
-    $("#modal-login-form").submit(function() {
+    //$("#modal-login-form").submit(function(event) {
+    $(document.body).on('submit', '#modal-login-form' ,function(event){
         var url = "login"; // the script where you handle the form input.
 
         $.ajax({
@@ -108,12 +109,13 @@ $(document).ready(function() {
                 }
             }
         });
-
-        return false; // avoid to execute the actual submit of the form.
+        event.preventDefault();
+        //return false; // avoid to execute the actual submit of the form.
     });
 
 
-    $("#modal-register-form").submit(function() {
+    //$("#modal-register-form").submit(function() {
+    $(document.body).on('submit', '#modal-register-form' ,function(event){
         var url = "signup"; // the script where you handle the form input.
         $.ajax({
             type: "POST",
@@ -131,7 +133,7 @@ $(document).ready(function() {
             }
         });
 
-        return false; // avoid to execute the actual submit of the form.
+        event.preventDefault();
     });
     ////////////////////////////////////////////////////////////
 
