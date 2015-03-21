@@ -296,7 +296,10 @@ class SiteController extends Controller
             $model->password = Yii::$app->request->post('password');
             $model->email = Yii::$app->request->post('email');
 
-            if ($model->validate() && $model->signup()) return 'true';
+            if ($model->validate() && $user = $model->signup()) {
+                Yii::$app->getUser()->login($user);
+                return 'true';
+            }
             else return $model->validate();
         }
 

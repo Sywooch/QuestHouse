@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         'css/style-default.css',
     ];
     public $js = [
+        'js/jquery.js',
         'plugins/common/jquery.blockUI.js',
         'plugins/common/modernizr.js',
         'plugins/bootstrap/js/bootstrap.min.js',

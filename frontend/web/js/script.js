@@ -124,7 +124,11 @@ $(document).ready(function() {
             success: function(data)
             {
                 if (data) {
-                    alert (data);
+                    alert ("успешная регистрация");
+                    $('#b-date').text($.cookie('date'));
+                    $('#b-time').text($.cookie('time'));
+                    $('#b-price').text($.cookie('price'));
+                    $('#b-quest-name').text($.cookie('quest-name'));
                     $('#login-register-modal').modal('hide');
                     $('#booking-modal').modal('show');
                 } else {
