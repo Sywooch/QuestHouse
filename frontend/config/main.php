@@ -12,6 +12,10 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        //'timeZone' => 'Europe/Kiev',
+        'localtime'=> [
+            'class'=>'LocalTime',
+        ],
         'request' => [
             'baseUrl' => '/QuestHouse',
         ],

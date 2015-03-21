@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <footer id="main-footer">
     <div class="container">
         <div class="row row-wrap">
@@ -37,21 +40,12 @@
             </div>
             <div class="col-md-2">
                 <ul class="list list-footer">
-                    <li><a href="#">О нас</a>
-                    </li>
-                    <li><a href="#">Пресс центр</a>
-                    </li>
-                    <li><a href="#">Квесты</a>
-                    </li>
-                    <li><a href="#">Антикафе</a>
-                    </li>
-                    <li><a href="#">Франшиза</a>
-                    </li>
-                    <li><a href="#">Подарочный сертификат</a>
-                    </li>
-                    <li><a href="#">Terms of Use</a>
-                    </li>
-                    <li><a href="#">Обратная связь</a>
+                    <li><a href="<?= Url::to(['/'])?>">Главная</a></li>
+                    <li><a href="<?= Url::to(['/quests'])?>">Квесты</a></li>
+                    <li><a href="<?= Url::to(['/gamespace'])?>">Антикафе</a></li>
+                    <li><a href="<?= Url::to(['/gift'])?>">Сертификат</a></li>
+                    <li><a href="<?= Url::to(['/franchize'])?>">Франшиза</a></li>
+                    <li><a href="<?= Url::to(['/contact'])?>">Контакты</a></li>
                     </li>
                 </ul>
             </div>

@@ -33,7 +33,7 @@
 
             <?php foreach ($questTimeModel as $key=>$item): ?>
                 <div style="color: #ffffff; height: 60px; display: block; position: relative;">
-                    <div style="margin-top: 5px;"><?=$key?></div>
+                    <div style="margin-top: 10px;"><?=$key?></div>
                 </div>
             <?php endforeach; ?>
 
@@ -44,17 +44,17 @@
         echo '<div class="news-list-container">';
 
         foreach ($questTimeModel as $key=>$item):
-
-            echo '<div id=container class="quest_booking" name="'.$key.'" >';
+            echo '<div id=container class="quest_booking" name='.$model['id'].' >';
 
             usort($item, function ($item1, $item2) {
                 return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
             });
 
 
+
             for ($j = 0; $j < count($item); $j++): ?>
 
-                <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['qn'] ?>' style='padding-top:0; padding-bottom: 0; height: 60px;'>
+                <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>' style='padding-top:0; padding-bottom: 0; height: 60px;'>
                     <?php if (array_values($item)[$j]['id']){
                         ?>
                         <div style="width: 50px; height: 44px; color: #ffffff; margin: auto;">
@@ -114,28 +114,28 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="tab-1">
 
-                                        <form id = "modal-login-form">
-                                            <input style="display:none">
-                                            <input type="password" style="display:none">
-                                            <div class="form-group form-group-lg">
-                                                <label>Login</label>
-                                                <input name="username" class="form-control" type="text" placeholder="Enter email" />
-                                            </div>
+                                    <form id = "modal-login-form">
+                                        <input style="display:none">
+                                        <input type="password" style="display:none">
+                                        <div class="form-group form-group-lg">
+                                            <label>Login</label>
+                                            <input name="username" class="form-control" type="text" placeholder="Enter email" />
+                                        </div>
 
-                                            <div id="login-fail" class="form-group form-group-lg">
-                                                <label>Password</label>
-                                                <input name="password" class="form-control" type="password" placeholder="Password" />
-                                            </div>
+                                        <div id="login-fail" class="form-group form-group-lg">
+                                            <label>Password</label>
+                                            <input name="password" class="form-control" type="password" placeholder="Password" />
+                                        </div>
 
-                                            <!--<div id="login-fail" class="alert alert-danger" style="margin-top: 15px; visibility: hidden;">
-                                                <p class="text-small">Неверный логин или пароль</p>
-                                            </div>
+                                        <!--<div id="login-fail" class="alert alert-danger" style="margin-top: 15px; visibility: hidden;">
+                                            <p class="text-small">Неверный логин или пароль</p>
+                                        </div>
 
-                                            <div id="login-success" class="alert alert-success" style="margin-top: 15px;">
-                                                <p class="text-small">Успешная авторизация</p>
-                                            </div>-->
-                                            <input class="btn btn-primary" type="submit" value="Log In" />
-                                        </form>
+                                        <div id="login-success" class="alert alert-success" style="margin-top: 15px;">
+                                            <p class="text-small">Успешная авторизация</p>
+                                        </div>-->
+                                        <input class="btn btn-primary" type="submit" value="Log In" />
+                                    </form>
 
                                 </div>
                                 <div class="tab-pane fade" id="tab-2">

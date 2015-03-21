@@ -173,12 +173,22 @@ class SiteController extends Controller
         $menu_array = $menuClass->find()->where('is_active = 1')->all();
         Yii::$app->params['nav_array'] = $menu_array;
         Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        $questTimes = new QuestsTimes();
+        /*$questTimes = new QuestsTimes();
         return $this->render('quest', [
             'model' => $this->findModel($name),
             'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name))
+        ]);*/
+
+        $questTimes = new QuestsTimes();
+
+        $partialWithData = $this->renderPartial('//partials/_quest_time',[
+            'model' => $this->findModel($name),
+            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
         ]);
-        //print_r($questTimes->getTimeLineForQuest($q->getQuestIdByName($name)));
+        return $this->render('quest', [
+            'partial' => $partialWithData
+        ]);
+
     }
 
     public function actionProfile()

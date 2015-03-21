@@ -95,13 +95,6 @@ $(document).ready(function() {
             {
                 if (data!== 'false') {
                     alert ("успешная авторизация");
-                    //alert ($.cookie("name"));
-
-/*                    $.cookie('date', $('#quest-date').val());
-                    $.cookie('time', $(this).children('#time-value').text());
-                    $.cookie('price', $(this).children('#quest-price').text());
-                    $.cookie('quest-name', $(this).parents('.quest_booking').attr('name'));*/
-
                     $('#b-date').text($.cookie('date'));
                     $('#b-time').text($.cookie('time'));
                     $('#b-price').text($.cookie('price'));
@@ -159,17 +152,23 @@ $(document).ready(function() {
     }
 
     $(document.body).on('click', '#confirm-booking' ,function(){
+
         makeBooking($('#b-time').text(),$('#b-date').text(),$('#b-quest-name').text());
     });
 
     function makeBooking(time,date,quest){
 
+        /*alert (time);
+        alert (date);
+        alert (quest);*/
         $.post( "quest/checktime",
             {
                 time: time,
                 date: date,
                 quest: quest
+
             }, function(data) {
+                //alert (data);
                 if (data) {
                     $('#booking-modal').modal('hide');
                     $('#booking-modal').on('hidden.bs.modal', function () {

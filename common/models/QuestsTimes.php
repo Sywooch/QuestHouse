@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use Faker\Provider\cs_CZ\DateTime;
 use Yii;
 
 /**
@@ -26,6 +27,7 @@ class QuestsTimes extends \yii\db\ActiveRecord
 
     public function getTimeOneLineForQuest($param,$tableDate)
     {
+        date_default_timezone_set('Europe/Kiev');
         if (!$tableDate) $tableDate = date("Y-m-d", time());
         if ($param == 'all'){
             $questTimeModel = $this->findBySql("SELECT quests.quest_name as qn,tr.id,qt.time_value,qt.price FROM quests
@@ -47,7 +49,7 @@ class QuestsTimes extends \yii\db\ActiveRecord
     {
         //return $this->find()->where('quest_id = '.$questId)->asArray()->all();
         $arr = array();
-        $questTimeModel = $this->findBySql("SELECT CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date) d,qt.price,qt.time_value,tr.id,tr.date as TD,date
+        $questTimeModel = $this->findBySql("SELECT CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date) d,qt.price,qt.time_value,tr.id,tr.date as TD,date,qe.quest_en_name
 FROM ( SELECT 0 H
     UNION ALL SELECT 100 UNION ALL SELECT 200 UNION ALL SELECT 300
   ) H CROSS JOIN ( SELECT 0 T
@@ -60,10 +62,11 @@ FROM ( SELECT 0 H
     UNION ALL SELECT   7 UNION ALL SELECT   8 UNION ALL SELECT   9
   ) U
 join quests_times as qt
+join quests as qe
 left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date)
 WHERE
   (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 1 WEEk)
-order by d")->asArray()->all();
+  and qe.id = '$questId' order by d")->asArray()->all();
 
         foreach($questTimeModel as $key => $item)
         {
