@@ -7,10 +7,10 @@ Options -Indexes
 </IfModule>
 
 # Deny accessing below extensions
-<Files ~ "(.json|.lock|.git)">
+#<Files ~ "(.json|.lock|.git)">
 #Order allow,deny
 #Deny from all
-</Files>
+#</Files>
 
 # Deny accessing dot files
-RewriteRule (^\.|/\.) - [F]
+#RewriteRule (^\.|/\.) - [F]

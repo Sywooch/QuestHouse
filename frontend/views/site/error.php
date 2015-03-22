@@ -51,13 +51,13 @@ $this->title = 'Quest House';
 
     <div class="full-page">
         <div class="bg-holder full">
-            <div class="bg-mask" style="background: url('img/backgrounds/bg2.png') no-repeat; -webkit-background-size: cover;
+
+
+            <div class="bg-blur" style="background: url('img/backgrounds/bg2.png') no-repeat; -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
   background-size: cover;"></div>
-
-            <div class="bg-blur" style="background-image:url(<?=$x?>);"></div>
             <div class="bg-holder-content full text-white">
                 <div class="full-center">
                     <div class="container">

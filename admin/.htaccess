@@ -1,7 +1,12 @@
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
 RewriteEngine on
-# Если это папка или файл, открываем его
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)index\.php([^\s]*) [NC]
+RewriteRule ^ /%1%2 [R=301,L,NE]
+# if a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# В противном случае перенаправляем на index.php
+# otherwise forward it to index.php
 RewriteRule . index.php
+</IfModule>

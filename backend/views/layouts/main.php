@@ -1,160 +1,69 @@
 <?php
-use backend\assets\AppAsset;
 use yii\helpers\Html;
-/*use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;*/
-
-/* @var $this \yii\web\View */
-/* @var $content string */
+use backend\assets\AppAsset;
 
 AppAsset::register($this);
+$this->title = 'Quest House';
+
 ?>
-
-<?php /*$this->beginPage() */?><!--
-<!DOCTYPE html>
-<html lang="<?/*= Yii::$app->language */?>">
-<head>
-    <meta charset="<?/*= Yii::$app->charset */?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?/*= Html::csrfMetaTags() */?>
-    <title><?/*= Html::encode($this->title) */?></title>
-    <?php /*$this->head() */?>
-</head>
-<body>
-    <?php /*$this->beginBody() */?>
-    <div class="wrap">
-        <?php
-/*            NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-            ];
+<?php $this->beginPage() ?>
 
 
 
-                                $menuItems = [
-                                    ['label' => 'Home', 'url' => ['/site/index']],
-                                    ['label' => 'About', 'url' => ['/site/about']],
-                                    ['label' => 'Contact', 'items' =>[
-                                        ['label' => 'User', 'url' => ['/user/index']],
-                                    ]]
-                                ];
+    <!DOCTYPE HTML>
+    <html lang="<?= Yii::$app->language ?>">
 
-
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-        */?>
-
-        <div class="container">
-        <?/*= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) */?>
-        <?/*= $content */?>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-        <p class="pull-left">&copy; My Company <?/*= date('Y') */?></p>
-        <p class="pull-right"><?/*= Yii::powered() */?></p>
-        </div>
-    </footer>
-
-    <?php /*$this->endBody() */?>
-</body>
-</html>
---><?php /*$this->endPage() */?>
-
-
-<?php $this->beginPage(); ?>
-
-    <!DOCTYPE html>
-    <html lang="en">
     <head>
+
         <meta charset="utf-8">
-        <title>Index | Vaigasai Admin</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <title>Black Label Admin</title>
+        <meta name="author" content="Srinu Basava">
+        <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+        <meta name="description" content="Black Label Admin Admin UI">
+        <meta name="keywords" content="Black Label Admin, Admin UI, Admin Dashboard, Srinu Basava">
 
+        <meta charset="<?= Yii::$app->charset ?>"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <!--<script src='assets/plugins/common/modernizr.js'></script>-->
 
-        <!--[if lt IE 9]>
-        <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <link href="assets/plugins/jquery-ui/jquery.ui.1.10.2.ie.css" rel="stylesheet">-->
-        <!--<![endif]-->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        <!--<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.css" rel="stylesheet">
-        <link href="assets/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">-->
+            ga('create', 'UA-40301843-2', 'iamsrinu.com');
+            ga('send', 'pageview');
 
-        <!--<link href="assets/css/main.css" rel="stylesheet">
-        <link href="assets/css/style-default.css" rel="stylesheet"> -->
+        </script>
 
     </head>
 
     <body>
+
+    <?php echo $this->render('//layouts/header');  ?>
+
     <?php $this->beginBody() ?>
-    <div id="wrapper">
 
 
-        <!-----------------------------------------PANEL BEGIN----------------------------------------------------->
+
+    <div class="container-fluid">
         <?php echo $this->render('//layouts/panel');  ?>
-        <!-----------------------------------------PANEL END----------------------------------------------------->
+        <?=$content ?>
 
-        <div id="main-container">
-            <div class="inner-continer">
-            <!-----------------------------------------BREADCRUMBS BEGIN----------------------------------------------------->
-            <?php echo $this->render('//layouts/breadcrumbs');  ?>
-            <!-----------------------------------------BREADCRUMBS END----------------------------------------------------->
+    </div>
 
-            <!-----------------------------------------CONTENT BEGIN----------------------------------------------------->
-                <?= $content ?>
-            <!-----------------------------------------CONTENT END----------------------------------------------------->
-            </div>
-        </div><!-- /main-container -->
 
-        <footer>
-            <!-----------------------------------------FOOTER BEGIN----------------------------------------------------->
-            <?php echo $this->render('//layouts/footer');  ?>
-            <!-----------------------------------------FOOTER END----------------------------------------------------->
-        </footer>
-    </div><!-- /wrapper -->
 
-    <a href="#" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
-    <?php $this->endBody(); ?>
-    <!-- Jquery -->
+    <?php echo $this->render('//layouts/footer');  ?>
 
-    <script>
-        $(function() {
-            $(document).ready(function () {
-                App.init();
-                Dashboard.init();
-            });
-        });
-    </script>
 
+    <?php $this->endBody() ?>
     </body>
-</html>
-<?php $this->endPage(); ?>
+
+    </html>
+
+
+<?php $this->endPage() ?>
