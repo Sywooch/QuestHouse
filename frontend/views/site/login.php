@@ -31,21 +31,16 @@ $this->title = 'Quest House';
 
     <div class="full-page">
         <div class="bg-holder full">
-            <div class="bg-mask"></div>
-            <div class="bg-img" style="background-image:url(img/1280x852.png);"></div>
+
+            <div class="bg-img" style="background: url('img/backgrounds/bg2.png') no-repeat; -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;"></div>
+
             <div class="bg-holder-content full text-white">
 
-<?php
-                $imghtml=Html::img('img/logo-white.png');
-                echo Html::a($imghtml, array('/'),array('class' =>"logo-holder"));
-?>
 
-                <style>
-                    p.help-block.help-block-error {
-                        color: red;
-                        font-size: 16px;
-                    }
-                </style>
                 <div class="full-center">
                     <div class="container">
                         <div class="row row-wrap" data-gutter="60" style="width:300px; margin: auto;">

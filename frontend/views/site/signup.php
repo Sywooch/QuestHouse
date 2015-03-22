@@ -45,17 +45,12 @@ $this->title = 'Quest House';
 
     <div class="full-page">
         <div class="bg-holder full">
-            <div class="bg-mask"></div>
-            <div class="bg-img" style="background-image:url(img/1280x852.png);"></div>
+            <div class="bg-img" style="background: url('img/backgrounds/bg2.png') no-repeat; -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;"></div>
             <div class="bg-holder-content full text-white">
-
-                <!--<a class="logo-holder" href="site/index">
-                    <img src="img/logo-white.png" alt="Image Alternative text" title="Image Title" />
-                </a>-->
-<?php
-$imghtml=Html::img('img/logo-white.png');
-echo Html::a($imghtml, array('/'),array('class' =>"logo-holder"));
-?>
 
                 <div class="full-center">
                     <div class="container">
