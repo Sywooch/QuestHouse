@@ -19,13 +19,20 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
 
-        'css/icomoon/style.css',
+        /*'css/icomoon/style.css',*/
+        'css/font-awesome.min.css',
         'css/main.css',
         'css/fullcalendar.css'
 
     ];
     public $js = [
-        'js/html5-trunk.js'
+        'js/html5-trunk.js',
+        'js/jquery.min.js',
+        'js/bootstrap.js',
+        'js/jquery.dataTables.js',
+        'js/jquery.sparkline.js',
+        'js/custom-tables.js',
+        'js/custom.js'
 
 
     ];

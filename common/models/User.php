@@ -199,4 +199,9 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
     }
+
+    public function getAllUsers()
+    {
+        return $this->find()->where(true)->asArray()->all();
+    }
 }

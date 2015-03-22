@@ -3,13 +3,13 @@
     <div id="mini-nav">
         <ul class="hidden-phone">
             <li><a href="timeline.html" >Tasks</a></li>
-            <li><a href="#">Signup's <span id="newSignup">06</span></a></li>
+            <li><a href="#">Signup's</a></li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    Messages <span id="messagesCountDown">21</span>
-                    <b class="caret icon-white"></b>
+                    Messages
+                    <!--<b class="caret icon-white"></b>-->
                 </a>
-                <ul class="dropdown-menu pull-right">
+                <!--<ul class="dropdown-menu pull-right">
                     <li class="quick-messages">
                         <img src="images/avatar-1.png" class="avatar" alt="Avatar">
                         <div class="message-date text-info">
@@ -70,7 +70,7 @@
                             </p>
                         </div>
                     </li>
-                </ul>
+                </ul>-->
             </li>
             <li><a href="login.html">Logout</a></li>
         </ul>

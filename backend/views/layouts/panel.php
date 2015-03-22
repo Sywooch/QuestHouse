@@ -1,99 +1,48 @@
+<?php
+use yii\helpers\Url;
+?>
+
+<style>
+    #mainnav ul li {
+        padding-bottom: 20px;
+    }
+    #mainnav ul li a {
+        color: #ffffff;
+    }
+</style>
+
 <div id="mainnav" class="hidden-phone hidden-tablet">
     <ul>
         <li>
-            <a href="index.html">
+            <a href="<?=Url::toRoute('/')?>">
                 <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe0a1;"></span>
+                    <i class="fa fa-home fa-3x"></i>
                 </div>
-                Dashboard
+                <p>Home</p>
             </a>
         </li>
         <li>
-            <a href="charts.html">
+            <a href="<?=Url::toRoute('/quests')?>">
                 <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe097;"></span>
+                    <i class="fa fa-key fa-3x"></i>
                 </div>
-                Charts
+                <p>Quests</p>
             </a>
         </li>
         <li>
-            <a href="timeline.html">
+            <a href="<?=Url::toRoute('/user')?>">
                 <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe047;"></span>
+                    <i class="fa fa-users fa-3x"></i>
                 </div>
-                Timeline
+                <p>Users</p>
             </a>
         </li>
         <li>
-            <a href="tables.html">
+            <a href="<?=Url::toRoute('/booking')?>">
                 <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span>
+                    <i class="fa fa-calendar fa-3x"></i>
                 </div>
-                Tables
-            </a>
-        </li>
-        <li>
-            <a href="forms.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe0b8;"></span>
-                </div>
-                Forms
-            </a>
-        </li>
-        <li>
-            <a href="ui-elements.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe0d2;"></span>
-                </div>
-                UI Elements
-            </a>
-        </li>
-        <li>
-            <a href="grid.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe14c;"></span>
-                </div>
-                Grid
-            </a>
-        </li>
-        <li>
-            <a href="gallery.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe00d;"></span>
-                </div>
-                Gallery
-            </a>
-        </li>
-        <li>
-            <a href="typography.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe100;"></span>
-                </div>
-                Typography
-            </a>
-        </li>
-        <li>
-            <a href="icons.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe0a9;"></span>
-                </div>
-                Icons
-            </a>
-        </li>
-        <li>
-            <a href="error.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe0f4;"></span>
-                </div>
-                404
-            </a>
-        </li>
-        <li>
-            <a href="login.html">
-                <div class="icon">
-                    <span class="fs1" aria-hidden="true" data-icon="&#xe088;"></span>
-                </div>
-                Login
+                <p>Booking</p>
             </a>
         </li>
     </ul>

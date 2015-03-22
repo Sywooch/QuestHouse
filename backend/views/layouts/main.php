@@ -51,7 +51,11 @@ $this->title = 'Quest House';
 
     <div class="container-fluid">
         <?php echo $this->render('//layouts/panel');  ?>
-        <?=$content ?>
+        <div class="dashboard-wrapper">
+            <div class="main-container">
+                <?=$content ?>
+            </div>
+        </div>
 
     </div>
 
