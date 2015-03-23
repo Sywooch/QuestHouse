@@ -39,12 +39,16 @@ class QuestsTimes extends \yii\db\ActiveRecord
             where qt.quest_id = quests.id
             order by quests.id,qt.time_value")->asArray()->all();
             $arr = array();
-            $d = date_create("now");
+
             foreach($questTimeModel as $key => $item)
             {
-                if (strtotime($item['time_value'])<time()
-                    || date_diff(date_create($tableDate),$d)->format('%a')!='0'
-                ) $item['active']='0';
+                $questTime = explode('.',$item['time_value']);
+                $date1 = date('Y-m-d H:i:s');
+                $date2 = date_create($tableDate);
+                date_time_set($date2,$questTime[0],$questTime[1]);
+                $date1 = strtotime($date1);
+
+                if ( $date1>strtotime($date2->format('Y-m-d H:i:s'))) $item['active']='0';
                 else $item['active']='1';
                 $arr[$item['qn']][$key] = $item;
             }
@@ -54,7 +58,7 @@ class QuestsTimes extends \yii\db\ActiveRecord
 
     public function getTimeLineForQuest($questId)
     {
-        //return $this->find()->where('quest_id = '.$questId)->asArray()->all();
+        date_default_timezone_set('Europe/Kiev');
         $arr = array();
         $questTimeModel = $this->findBySql("SELECT CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date) d,qt.price,qt.time_value,tr.id,tr.date as TD,date,qe.quest_en_name
         FROM ( SELECT 0 H
@@ -72,13 +76,18 @@ class QuestsTimes extends \yii\db\ActiveRecord
         join quests as qe
         left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date)
         WHERE
-          (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 1 WEEk)
-          and qe.id = '$questId' order by qt.time_value")->asArray()->all();
+          (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 3 DAY )
+          and qe.id = '$questId' order by qt.time_value, d")->asArray()->all();
 
         foreach($questTimeModel as $key => $item)
         {
-            //$arr[$item['d']][$key] = $item;
-            if (strtotime($item['time_value'])<time()) $item['active']='0';
+            $questTime = explode('.',$item['time_value']);
+            $date1 = date('Y-m-d H:i:s');
+            $date2 = date_create($item['d']);
+            date_time_set($date2,$questTime[0],$questTime[1]);
+            $date1 = strtotime($date1);
+
+            if ( $date1>strtotime($date2->format('Y-m-d H:i:s'))) $item['active']='0';
             else $item['active']='1';
             $arr[$item['d']][$key] = $item;
         }
