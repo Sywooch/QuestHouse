@@ -33,7 +33,7 @@
 
             <?php foreach ($questTimeModel as $key=>$item): ?>
                 <div style="color: #ffffff; height: 60px; display: block; position: relative;">
-                    <div style="margin-top: 10px;"><?=$key?></div>
+                    <div style="margin-top: 5px;"><?=$key?></div>
                 </div>
             <?php endforeach; ?>
 
@@ -46,16 +46,17 @@
         foreach ($questTimeModel as $key=>$item):
             echo '<div id=container class="quest_booking" name='.$model['id'].' >';
 
-            usort($item, function ($item1, $item2) {
-                return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
-            });
+            /*usort($item, function ($item1, $item2) {
+                //return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
+                return floatval($item1['time_value']) - floatval($item2['time_value']);
+            });*/
 
 
 
             for ($j = 0; $j < count($item); $j++): ?>
 
                 <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>' style='padding-top:0; padding-bottom: 0; height: 60px;'>
-                    <?php if (array_values($item)[$j]['id']){
+                    <?php if (array_values($item)[$j]['id'] || array_values($item)[$j]['active']==0){
                         ?>
                         <div style="width: 50px; height: 44px; color: #ffffff; margin: auto;">
                             <p style="padding: 0; color: #000000; size: 12px; text-align: center;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>

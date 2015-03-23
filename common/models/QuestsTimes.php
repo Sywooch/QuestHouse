@@ -37,15 +37,16 @@ class QuestsTimes extends \yii\db\ActiveRecord
             left join time_reserved as tr on tr.time_value = qt.time_value and qt.quest_id = tr.quest_id
             and date(tr.date) = date('$tableDate')
             where qt.quest_id = quests.id
-            order by quests.id, qt.time_value")->asArray()->all();
+            order by quests.id,qt.time_value")->asArray()->all();
             $arr = array();
+            $d = date_create("now");
             foreach($questTimeModel as $key => $item)
             {
-                if (strtotime($item['time_value'])<time() &&
-                    strtotime($tableDate)<time()) $item['active']='0';
+                if (strtotime($item['time_value'])<time()
+                    || date_diff(date_create($tableDate),$d)->format('%a')!='0'
+                ) $item['active']='0';
                 else $item['active']='1';
                 $arr[$item['qn']][$key] = $item;
-
             }
             return $arr;
         }
@@ -56,26 +57,29 @@ class QuestsTimes extends \yii\db\ActiveRecord
         //return $this->find()->where('quest_id = '.$questId)->asArray()->all();
         $arr = array();
         $questTimeModel = $this->findBySql("SELECT CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date) d,qt.price,qt.time_value,tr.id,tr.date as TD,date,qe.quest_en_name
-FROM ( SELECT 0 H
-    UNION ALL SELECT 100 UNION ALL SELECT 200 UNION ALL SELECT 300
-  ) H CROSS JOIN ( SELECT 0 T
-    UNION ALL SELECT  10 UNION ALL SELECT  20 UNION ALL SELECT  30
-    UNION ALL SELECT  40 UNION ALL SELECT  50 UNION ALL SELECT  60
-    UNION ALL SELECT  70 UNION ALL SELECT  80 UNION ALL SELECT  90
-  ) T CROSS JOIN ( SELECT 0 U
-    UNION ALL SELECT   1 UNION ALL SELECT   2 UNION ALL SELECT   3
-    UNION ALL SELECT   4 UNION ALL SELECT   5 UNION ALL SELECT   6
-    UNION ALL SELECT   7 UNION ALL SELECT   8 UNION ALL SELECT   9
-  ) U
-join quests_times as qt
-join quests as qe
-left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date)
-WHERE
-  (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 1 WEEk)
-  and qe.id = '$questId' order by d")->asArray()->all();
+        FROM ( SELECT 0 H
+            UNION ALL SELECT 100 UNION ALL SELECT 200 UNION ALL SELECT 300
+          ) H CROSS JOIN ( SELECT 0 T
+            UNION ALL SELECT  10 UNION ALL SELECT  20 UNION ALL SELECT  30
+            UNION ALL SELECT  40 UNION ALL SELECT  50 UNION ALL SELECT  60
+            UNION ALL SELECT  70 UNION ALL SELECT  80 UNION ALL SELECT  90
+          ) T CROSS JOIN ( SELECT 0 U
+            UNION ALL SELECT   1 UNION ALL SELECT   2 UNION ALL SELECT   3
+            UNION ALL SELECT   4 UNION ALL SELECT   5 UNION ALL SELECT   6
+            UNION ALL SELECT   7 UNION ALL SELECT   8 UNION ALL SELECT   9
+          ) U
+        join quests_times as qt
+        join quests as qe
+        left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date)
+        WHERE
+          (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 1 WEEk)
+          and qe.id = '$questId' order by qt.time_value")->asArray()->all();
 
         foreach($questTimeModel as $key => $item)
         {
+            //$arr[$item['d']][$key] = $item;
+            if (strtotime($item['time_value'])<time()) $item['active']='0';
+            else $item['active']='1';
             $arr[$item['d']][$key] = $item;
         }
         return $arr;

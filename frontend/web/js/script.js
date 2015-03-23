@@ -4,7 +4,6 @@ $(document).ready(function() {
         $.post('quest/update-main-table', {
             datePickerDate:$('#quest-date').val()
             }, function(data) {
-
             if (data){
                 $("#booking-table").html(data);
             }

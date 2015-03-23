@@ -47,9 +47,9 @@
 
             echo '<div id=container class="quest_booking" name="'.$key.'" >';
 
-            usort($item, function ($item1, $item2) {
+            /*usort($item, function ($item1, $item2) {
                 return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
-            });
+            });*/
 
 
             for ($j = 0; $j < count($item); $j++): ?>
