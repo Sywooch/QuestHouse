@@ -48,4 +48,16 @@ class QuestsImages extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getQuestImages($questId,$questEnName)
+    {
+        $imagesArray = $this->find()->where('quests_image_quest_id='.$questId)->asArray()->all();
+        $imagesPathArray = [];
+        //for ($i=0;$i<count($imagesArray);$i++){
+        foreach($imagesArray as $item){
+            array_push($imagesPathArray,'img/quest-images/'.$questEnName.'/'.$item['quests_image_path']);
+        }
+        return $imagesPathArray;
+        //return $this->find()->where('quests_image_quest_id='.$questId)->asArray()->all();
+    }
 }

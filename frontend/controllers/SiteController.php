@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\Quest;
 use common\models\Menu;
 use common\models\QuestsTimes;
+use backend\models\QuestsImages;
 use common\models\User;
 use common\models\SearchMenu;
 use Yii;
@@ -168,15 +169,18 @@ class SiteController extends Controller
     public function actionQuest($name)
     {
         $q = new Quest();
+        $questImages = new QuestsImages();
 
         $questTimes = new QuestsTimes();
 
+        $questDataModel = $this->findModel($name);
         $partialWithData = $this->renderPartial('//partials/_quest_time',[
-            'model' => $this->findModel($name),
+            'model' => $questDataModel,
             'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
         ]);
         return $this->render('quest', [
-            'partial' => $partialWithData
+            'partial' => $partialWithData,
+            'imagesModel' => $questImages->getQuestImages($questDataModel['id'],$questDataModel['quest_en_name'])
         ]);
 
     }

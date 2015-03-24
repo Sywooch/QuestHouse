@@ -1,5 +1,6 @@
-
-<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<?php
+/*print_r($imagesModel);
+*/?>
 <style >
     .news-list-container {
         overflow-x: auto;
@@ -40,35 +41,14 @@
 
     <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
 
-        <div class="bg-holder full text-center text-white">
+        <?php for ($i=0;$i<count($imagesModel);$i++): ?>
+            <div class="bg-holder full text-center text-white">
 
-            <div class="bg-img" style="background-image:url(img/1.jpg);"></div>
+                <div class="bg-img" style="background-image:url(<?=$imagesModel[$i]?>);"></div>
 
+            </div>
+        <?php endfor; ?>
 
-            <!--<div class="bg-front full-center">
-                <div class="owl-cap">
-                    <div class="owl-cap-weather"><span>+25</span><i class="im im-cloudy"></i>
-                    </div>
-                    <h1 class="owl-cap-title fittext">Las Vegas</h1>
-                    <div class="owl-cap-price"><small>from</small>
-                        <h5>$2600</h5>
-                    </div><a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
-                    <i class="fa fa-clock-o"></i>
-                    <i class="fa fa-user"></i><i class="fa fa-user"></i><i class="fa fa-user"></i><i class="fa fa-user"></i>
-                </div>
-            </div>-->
-
-        </div>
-        <div class="bg-holder full text-center text-white">
-
-            <div class="bg-img" style="background-image:url(img/2.jpg);"></div>
-
-        </div>
-        <div class="bg-holder full text-center text-white">
-
-            <div class="bg-img" style="background-image:url(img/3.jpg);"></div>
-
-        </div>
     </div>
 
 </div>
