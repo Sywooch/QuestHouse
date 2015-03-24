@@ -21,6 +21,8 @@ class QuestController extends Controller
             $time = Yii::$app->request->post('time');
             $date = Yii::$app->request->post('date');
             $quest = Yii::$app->request->post('quest');
+            $tableType = false;
+            if (Yii::$app->request->post('table_type')) $tableType = Yii::$app->request->post('table_type');
 
             $questModel = new Quest();
 
@@ -36,9 +38,22 @@ class QuestController extends Controller
                 } else {
                     if ($this->Booking($time, $newDate, $questId)) {
                         $questTimes = new QuestsTimes();
-                        return $this->renderPartial('//partials/_index_form', [
-                            'questTimeModel' => $questTimes->getTimeOneLineForQuest('all', $date),
-                        ], true, true);
+
+                        /*$partialWithData = $this->renderPartial('//partials/_quest_time',[
+                            'model' => $this->findModel($name),
+                            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
+                        ]);*/
+                        if ($tableType){
+                            return $this->renderPartial('//partials/_quest_time',[
+                                'model' => $this->findModel($quest),
+                                'questTimeModel' => $questTimes->getTimeLineForQuest($questId),
+                            ]);
+                        } else {
+                            return $this->renderPartial('//partials/_index_form', [
+                                'questTimeModel' => $questTimes->getTimeOneLineForQuest('all', $date),
+                            ], true, true);
+                        }
+
                     } else {
                         return "error during gathering page data";
                     }
@@ -62,6 +77,15 @@ class QuestController extends Controller
     {
         $reservingObject = new TimeReserved();
         return $reservingObject->bookQuest($time,$date,$quest);
+    }
+
+    protected function findModel($name)
+    {
+        if (($model = Quest::find()->where('quest_en_name = "'.$name . '"')->asArray()->one()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
 }

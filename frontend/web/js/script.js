@@ -18,8 +18,12 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.timeContainer' ,function(){
 
-        //$('#myModal').modal('show');
-        $.cookie('date', $('#quest-date').val());
+        if (!$('#quest-date').val()){
+            $.cookie('date', $(this).attr('id'));
+        } else {
+            $.cookie('date', $('#quest-date').val());
+        }
+
         $.cookie('time', $(this).children('#time-value').text());
         $.cookie('price', $(this).children('#quest-price').text());
         $.cookie('quest-name', $(this).parents('.quest_booking').attr('name'));
@@ -27,7 +31,14 @@ $(document).ready(function() {
         var _self = this;
         checkUserStatus(function(status){
             if (status != 1) {
-                $('#b-date').text($('#quest-date').val());
+                if (!$('#quest-date').val()){
+                    //$.cookie('date', $(this).attr('id'));
+                    $('#b-date').text($(_self).attr('id'));
+                } else {
+                    //$.cookie('date', $('#quest-date').val());
+                    $('#b-date').text($('#quest-date').val());
+                }
+
                 $('#b-time').text($(_self).children('#time-value').text());
                 $('#b-price').text($(_self).children('#quest-price').text());
                 $('#b-quest-name').text($(_self).parents('.quest_booking').attr('name'));
@@ -157,20 +168,17 @@ $(document).ready(function() {
     }
 
     $(document.body).on('click', '#confirm-booking' ,function(){
-
         makeBooking($('#b-time').text(),$('#b-date').text(),$('#b-quest-name').text());
     });
 
     function makeBooking(time,date,quest){
 
-        /*alert (time);
-        alert (date);
-        alert (quest);*/
         $.post( "quest/checktime",
             {
                 time: time,
                 date: date,
-                quest: quest
+                quest: quest,
+                table_type: 'all'
 
             }, function(data) {
                 //alert (data);

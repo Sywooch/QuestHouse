@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\SearchQuests */
+/* @var $searchModel app\models\SearchQuests */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Quests';
@@ -26,12 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'quest_en_name',
             'quest_name',
-            'quest_description:ntext',
-            'quest_price',
-            // 'quest_max_players',
-            // 'quest_logo',
+            'quest_en_name',
+            'quest_creator',
+            'quest_owner_link',
+            // 'quest_description:ntext',
+            // 'quest_min_people',
+            // 'quest_max_people',
+            // 'quest_price',
+            // 'quest_time:datetime',
+            // 'quest_difficulty',
+            // 'quest_rating',
+            // 'quest_city_id',
+            // 'quest_status',
             // 'created_at',
             // 'updated_at',
 

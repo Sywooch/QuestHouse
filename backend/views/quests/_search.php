@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\SearchQuests */
+/* @var $model app\models\SearchQuests */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -17,17 +17,31 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'quest_en_name') ?>
-
     <?= $form->field($model, 'quest_name') ?>
 
-    <?= $form->field($model, 'quest_description') ?>
+    <?= $form->field($model, 'quest_en_name') ?>
 
-    <?= $form->field($model, 'quest_price') ?>
+    <?= $form->field($model, 'quest_creator') ?>
 
-    <?php // echo $form->field($model, 'quest_max_players') ?>
+    <?= $form->field($model, 'quest_owner_link') ?>
 
-    <?php // echo $form->field($model, 'quest_logo') ?>
+    <?php // echo $form->field($model, 'quest_description') ?>
+
+    <?php // echo $form->field($model, 'quest_min_people') ?>
+
+    <?php // echo $form->field($model, 'quest_max_people') ?>
+
+    <?php // echo $form->field($model, 'quest_price') ?>
+
+    <?php // echo $form->field($model, 'quest_time') ?>
+
+    <?php // echo $form->field($model, 'quest_difficulty') ?>
+
+    <?php // echo $form->field($model, 'quest_rating') ?>
+
+    <?php // echo $form->field($model, 'quest_city_id') ?>
+
+    <?php // echo $form->field($model, 'quest_status') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

@@ -22,22 +22,13 @@ use yii\helpers\Url;
 <div style="background: rgba(54, 25, 25, .2); margin: 1px;" >
         <div id="popup-gallery" style="margin: 30px;">
             <div class="row row-col-gap">
-                <div class="col-md-4" style="margin-top: 30px;">
-                    <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                        <img src="img/800x600.png" alt="Image Alternative text" title="Gaviota en el Top"><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                    </a>
-                </div>
-                <div class="col-md-4" style="margin-top: 30px;">
-                    <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                        <img src="img/800x600.png" alt="Image Alternative text" title="Sydney Harbour"><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                    </a>
-                </div>
-                <div class="col-md-4" style="margin-top: 30px;">
-                    <a class="hover-img popup-gallery-image" href="img/800x600.png" data-effect="mfp-zoom-out">
-                        <img src="img/800x600.png" alt="Image Alternative text" title="Street"><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-                    </a>
-                </div>
-
+                <?php foreach($questsArray as $key): ?>
+                    <div class="col-md-4" style="margin-top: 30px;">
+                        <a class="hover-img popup-gallery-image" href="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?>" data-effect="mfp-zoom-out">
+                            <img src="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?> />
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 

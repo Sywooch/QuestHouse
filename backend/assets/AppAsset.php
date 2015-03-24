@@ -26,12 +26,13 @@ class AppAsset extends AssetBundle
 
     ];
     public $js = [
-        'js/html5-trunk.js',
         'js/jquery.min.js',
+        'js/html5-trunk.js',
         'js/bootstrap.js',
         'js/jquery.dataTables.js',
         'js/jquery.sparkline.js',
         'js/custom-tables.js',
+        'js/preview_image.js',
         'js/custom.js'
 
 

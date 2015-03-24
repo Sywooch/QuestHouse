@@ -44,28 +44,24 @@
         echo '<div class="news-list-container">';
 
         foreach ($questTimeModel as $key=>$item):
-            echo '<div id=container class="quest_booking" name='.$model['id'].' >';
+            ?>
+            <div id=container class="quest_booking" name="<?=$model['quest_en_name']?>">
 
-            /*usort($item, function ($item1, $item2) {
-                //return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
-                return floatval($item1['time_value']) - floatval($item2['time_value']);
-            });*/
-
-
+            <?php
 
             for ($j = 0; $j < count($item); $j++): ?>
 
-                <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>' style='padding-top:0; padding-bottom: 0; height: 60px;'>
+                <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>'>
                     <?php if (array_values($item)[$j]['id'] || array_values($item)[$j]['active']==0){
                         ?>
                         <div style="width: 50px; height: 44px; color: #ffffff; margin: auto;">
-                            <p style="padding: 0; color: #000000; size: 12px; text-align: center;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
+                            <p style="padding: 0; color: #000000; text-align: center;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
                         </div>
                     <?php
                     } else {
 
                         ?>
-                        <div class="timeContainer">
+                        <div class="timeContainer" id="<?=array_values($item)[$j]['d'] ?>">
                             <p id="time-value" style="padding: 0; color: #ffffff; text-align: center; margin: 0;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
                             <div id="quest-price" style="width: 50px; color: #ffffff; font-size: 12px; margin: auto;">
                                 <?=array_values($item)[$j]['price']?> UAH

@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Quests;
 
 /**
- * SearchQuests represents the model behind the search form about `backend\models\Quests`.
+ * SearchQuests represents the model behind the search form about `app\models\Quests`.
  */
 class SearchQuests extends Quests
 {
@@ -18,8 +18,8 @@ class SearchQuests extends Quests
     public function rules()
     {
         return [
-            [['id', 'quest_price', 'quest_max_players', 'created_at', 'updated_at'], 'integer'],
-            [['quest_en_name', 'quest_name', 'quest_description', 'quest_logo'], 'safe'],
+            [['id', 'quest_min_people', 'quest_max_people', 'quest_min_price','quest_max_price','quest_picture', 'quest_time', 'quest_difficulty', 'quest_rating', 'quest_city_id', 'quest_status', 'created_at', 'updated_at'], 'integer'],
+            [['quest_name', 'quest_en_name', 'quest_creator', 'quest_owner_link', 'quest_description'], 'safe'],
         ];
     }
 
@@ -57,16 +57,25 @@ class SearchQuests extends Quests
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'quest_price' => $this->quest_price,
-            'quest_max_players' => $this->quest_max_players,
+            'quest_min_people' => $this->quest_min_people,
+            'quest_max_people' => $this->quest_max_people,
+            'quest_picture' => $this->quest_picture,
+            'quest_min_price' => $this->quest_min_price,
+            'quest_max_price' => $this->quest_max_price,
+            'quest_time' => $this->quest_time,
+            'quest_difficulty' => $this->quest_difficulty,
+            'quest_rating' => $this->quest_rating,
+            'quest_city_id' => $this->quest_city_id,
+            'quest_status' => $this->quest_status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'quest_en_name', $this->quest_en_name])
-            ->andFilterWhere(['like', 'quest_name', $this->quest_name])
-            ->andFilterWhere(['like', 'quest_description', $this->quest_description])
-            ->andFilterWhere(['like', 'quest_logo', $this->quest_logo]);
+        $query->andFilterWhere(['like', 'quest_name', $this->quest_name])
+            ->andFilterWhere(['like', 'quest_en_name', $this->quest_en_name])
+            ->andFilterWhere(['like', 'quest_creator', $this->quest_creator])
+            ->andFilterWhere(['like', 'quest_owner_link', $this->quest_owner_link])
+            ->andFilterWhere(['like', 'quest_description', $this->quest_description]);
 
         return $dataProvider;
     }

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Quests */
+/* @var $model app\models\Quests */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Quests', 'url' => ['index']];
@@ -29,12 +29,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'quest_en_name',
             'quest_name',
+            'quest_en_name',
+            'quest_creator',
+            'quest_owner_link',
             'quest_description:ntext',
-            'quest_price',
-            'quest_max_players',
-            'quest_logo',
+            'quest_min_people',
+            'quest_max_people',
+            'quest_picture',
+            'quest_min_price',
+            'quest_min_price',
+            'quest_time:datetime',
+            'quest_difficulty',
+            'quest_rating',
+            'quest_city_id',
+            'quest_status',
             'created_at',
             'updated_at',
         ],

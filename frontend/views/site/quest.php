@@ -73,8 +73,8 @@
 
 </div>
 
-<div id="booking-table">
-    <?=$partial?>
+<div id="booking-table" style="width: 1500px;">
+        <?=$partial?>
 </div>
 
 

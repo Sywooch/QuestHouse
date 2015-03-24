@@ -113,17 +113,16 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $q = new Quest();
-        $menuClass = new Menu();
-        $menu_array = $menuClass->find()->where('is_active = 1')->all();
-        Yii::$app->params['nav_array'] = $menu_array;
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         $questTimes = new QuestsTimes();
+
+        $questsArray = $q->find()->all();
 
         $partialWithData = $this->renderPartial('//partials/_index_form',[
             'questTimeModel' => $questTimes->getTimeOneLineForQuest('all',false),
         ]);
         return $this->render('index', [
-            'partial' => $partialWithData
+            'partial' => $partialWithData,
+            'questsArray' => $questsArray
         ]);
     }
 
@@ -169,15 +168,6 @@ class SiteController extends Controller
     public function actionQuest($name)
     {
         $q = new Quest();
-        $menuClass = new Menu();
-        $menu_array = $menuClass->find()->where('is_active = 1')->all();
-        Yii::$app->params['nav_array'] = $menu_array;
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        /*$questTimes = new QuestsTimes();
-        return $this->render('quest', [
-            'model' => $this->findModel($name),
-            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name))
-        ]);*/
 
         $questTimes = new QuestsTimes();
 
@@ -204,12 +194,7 @@ class SiteController extends Controller
     public function actionQuests()
     {
         $q = new Quest();
-        $menuClass = new Menu();
-        $menu_array = $menuClass->find()->where('is_active = 1')->all();
         $questsArray = $q->find()->all();
-        Yii::$app->params['nav_array'] = $menu_array;
-        Yii::$app->params['quests_direct_link'] = [[],$questsArray,[],[],[]];
-
         return $this->render('quests',[
             'quest_model' => $questsArray
         ]);
@@ -227,10 +212,9 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
-            $menuClass = new Menu();
+
             $q = new Quest();
-            Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-            Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
+
             return $this->render('contact', [
                 'model' => $model,
             ]);

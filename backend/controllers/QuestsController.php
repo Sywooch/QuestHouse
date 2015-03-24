@@ -4,10 +4,12 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Quests;
+use backend\models\QuestsImages;
 use backend\models\SearchQuests;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * QuestsController implements the CRUD actions for Quests model.
@@ -61,12 +63,45 @@ class QuestsController extends Controller
     public function actionCreate()
     {
         $model = new Quests();
+        $questsImagesModel = new QuestsImages();
+        if ($model->load(Yii::$app->request->post()) && $questsImagesModel->load(Yii::$app->request->post())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $questLogoImage = UploadedFile::getInstances($model, 'quest_picture');
+            $questsImageArray = UploadedFile::getInstances($questsImagesModel, 'quests_image_path');
+
+            $model->created_at = time();
+            $model->updated_at = time();
+
+            $questsImagesModel->created_at = time();
+            $questsImagesModel->updated_at = time();
+
+            $questImagesDir = Yii::$app->basePath."/../frontend/web/img/quest-images/".$model->quest_en_name."/";
+
+            $model->quest_picture = $questLogoImage[0]->baseName . '.' . $questLogoImage[0]->extension;
+
+            if(!is_dir($questImagesDir)) {
+                mkdir($questImagesDir);
+            }
+
+            $model->save();
+
+            foreach ($questLogoImage as $file) {
+                $file->saveAs($questImagesDir . $file->baseName . '.' . $file->extension);
+            }
+            foreach ($questsImageArray as $file) {
+                $file->saveAs($questImagesDir . $file->baseName . '.' . $file->extension);
+                $questsImagesModel->id = null;
+                $questsImagesModel->quests_image_path = $file->baseName . '.' . $file->extension;
+                $questsImagesModel->quests_image_quest_id = $model->id;
+                $questsImagesModel->isNewRecord = true;
+                $questsImagesModel->save();
+            }
+
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'questsImagesModel' => $questsImagesModel,
             ]);
         }
     }

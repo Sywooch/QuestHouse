@@ -8,12 +8,21 @@ use Yii;
  * This is the model class for table "quests".
  *
  * @property integer $id
- * @property string $quest_en_name
  * @property string $quest_name
+ * @property string $quest_en_name
+ * @property string $quest_creator
+ * @property string $quest_owner_link
  * @property string $quest_description
- * @property integer $quest_price
- * @property integer $quest_max_players
- * @property string $quest_logo
+ * @property string $quest_picture
+ * @property integer $quest_min_people
+ * @property integer $quest_max_people
+ * @property integer $quest_min_price
+ * @property integer $quest_max_price
+ * @property integer $quest_time
+ * @property integer $quest_difficulty
+ * @property integer $quest_rating
+ * @property integer $quest_city_id
+ * @property integer $quest_status
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -33,11 +42,11 @@ class Quests extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quest_en_name', 'quest_name', 'quest_description', 'quest_price', 'quest_max_players', 'quest_logo', 'created_at', 'updated_at'], 'required'],
+            [['quest_name', 'quest_en_name', 'quest_creator', 'quest_owner_link', 'quest_description', 'quest_picture', 'quest_min_people', 'quest_max_people', 'quest_min_price', 'quest_max_price', 'quest_time', 'quest_difficulty', 'quest_rating', 'quest_city_id', 'created_at', 'updated_at'], 'required'],
             [['quest_description'], 'string'],
-            [['quest_price', 'quest_max_players', 'created_at', 'updated_at'], 'integer'],
-            [['quest_en_name', 'quest_name'], 'string', 'max' => 32],
-            [['quest_logo'], 'string', 'max' => 255]
+            [['quest_min_people', 'quest_max_people', 'quest_min_price', 'quest_max_price', 'quest_time', 'quest_difficulty', 'quest_rating', 'quest_city_id', 'quest_status', 'created_at', 'updated_at'], 'integer'],
+            [['quest_name', 'quest_en_name', 'quest_creator'], 'string', 'max' => 32],
+            [['quest_owner_link', 'quest_picture'], 'string', 'max' => 255]
         ];
     }
 
@@ -48,12 +57,21 @@ class Quests extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'quest_en_name' => 'Quest En Name',
             'quest_name' => 'Quest Name',
+            'quest_en_name' => 'Quest En Name',
+            'quest_creator' => 'Quest Creator',
+            'quest_owner_link' => 'Quest Owner Link',
             'quest_description' => 'Quest Description',
-            'quest_price' => 'Quest Price',
-            'quest_max_players' => 'Quest Max Players',
-            'quest_logo' => 'Quest Logo',
+            'quest_picture' => 'Quest Picture',
+            'quest_min_people' => 'Quest Min People',
+            'quest_max_people' => 'Quest Max People',
+            'quest_min_price' => 'Quest Min Price',
+            'quest_max_price' => 'Quest Max Price',
+            'quest_time' => 'Quest Time',
+            'quest_difficulty' => 'Quest Difficulty',
+            'quest_rating' => 'Quest Rating',
+            'quest_city_id' => 'Quest City ID',
+            'quest_status' => 'Quest Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
