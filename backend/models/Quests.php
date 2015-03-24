@@ -46,7 +46,8 @@ class Quests extends \yii\db\ActiveRecord
             [['quest_description'], 'string'],
             [['quest_min_people', 'quest_max_people', 'quest_min_price', 'quest_max_price', 'quest_time', 'quest_difficulty', 'quest_rating', 'quest_city_id', 'quest_status', 'created_at', 'updated_at'], 'integer'],
             [['quest_name', 'quest_en_name', 'quest_creator'], 'string', 'max' => 32],
-            [['quest_owner_link', 'quest_picture'], 'string', 'max' => 255]
+            [['quest_owner_link'], 'string', 'max' => 255],
+            [['quest_picture'], 'file','maxFiles' => 1]
         ];
     }
 
