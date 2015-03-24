@@ -31,6 +31,7 @@
     <div id="tableholder" style="width: auto; margin-left: 15px;">
         <div id="sidebar" style="float: left; height: auto; width: 100px;">
 
+
             <?php foreach ($questTimeModel as $key=>$item): ?>
                 <div style="color: #ffffff; height: 60px; display: block; position: relative;">
                     <div style="margin-top: 5px;"><?=$key?></div>
