@@ -82,7 +82,7 @@ class TimeReserved extends \yii\db\ActiveRecord
 
     public function getUserBookedQuests($id)
     {
-        return $this->findBySql("SELECT q.quest_name,q.quest_picture,qt.price,time_reserved.date,time_reserved.time_value,time_reserved.id FROM time_reserved
+        return $this->findBySql("SELECT q.quest_creator as creator_id,q.quest_name,q.quest_picture,qt.price,time_reserved.date,time_reserved.time_value,time_reserved.id FROM time_reserved
                                 join quests as q on q.id = quest_id
                                 join quests_times as qt on time_reserved.time_value = qt.time_value
                                 WHERE user_id = ".$id)->asArray()->all();

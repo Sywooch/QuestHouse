@@ -63,9 +63,6 @@ use common\models\User;
             </div>
         <?php } ?>
 
-
-
-
         <div class="row inline-block-row">
             <div class="col-sm-4 col-md-4" style="z-index: 1;">
                        <div id='top-nav' style="margin-top: 18%; width:100%;">

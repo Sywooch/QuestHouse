@@ -18,7 +18,7 @@ use yii\helpers\Url;
 <h2 style="text-align: center; color: #ffffff;">Наши квесты</h2>
 
 <!--<div class="container" style="background: rgba(54, 25, 25, .2);">-->
-<div style="background: rgba(54, 25, 25, .2); margin: 1px;" >
+<div style="background: rgba(54, 25, 25, .2); margin: 1px;">
         <div id="popup-gallery" style="margin: 30px;">
             <div class="row row-col-gap">
                 <?php foreach($questsArray as $key): ?>
@@ -34,7 +34,7 @@ use yii\helpers\Url;
 
     <div class="gap"></div>
 
-    <h2 style="text-align: center; color: #ffffff;">Наши квесты</h2>
+    <h2 style="text-align: center; color: #ffffff;">Расписание</h2>
     <div style="width: 220px; margin:auto;">
         <input class="date-pick form-control" id="quest-date" data-date-format="DD d MM yyyy" type="text" />
     </div>

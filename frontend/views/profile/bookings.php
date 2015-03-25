@@ -9,7 +9,6 @@ use yii\helpers\Url;
 ?>
 
 <ul class="booking-list booking-list-wishlist">
-
     <?php
         for ($i = 0; $i<count($bookedQuests);$i++){ ?>
             <li id ="<?=$bookedQuests[$i]['id']?>">
@@ -24,6 +23,8 @@ use yii\helpers\Url;
                             <h5 class="booking-item-title" style="color :#ffffff;"><?=$bookedQuests[$i]['quest_name']?></h5>
                             <h5 class="booking-item-title" style="color :#ffffff;"><?=$bookedQuests[$i]['date']?></h5>
                             <h5 class="booking-item-title" style="color :#ffffff;"><?=$bookedQuests[$i]['time_value']?></h5>
+                            <h5 class="booking-item-title" style="color :#ffffff;"><?=$place_info['owner_address']?></h5>
+                            <h5 class="booking-item-title" style="color :#ffffff;"><?=$place_info['owner_phone']?></h5>
                         </div>
                         <div class="col-md-3"><span class="booking-item-price" style="color: #ffffff;"><?=$bookedQuests[$i]['price']?> UAH</span>
                             <span class="btn btn-primary" id="removeBooking" style="background-color: #50779b;">Отменить</span>

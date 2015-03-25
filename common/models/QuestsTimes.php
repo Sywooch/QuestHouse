@@ -76,7 +76,7 @@ class QuestsTimes extends \yii\db\ActiveRecord
         join quests as qe
         left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date)
         WHERE
-          (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 3 DAY )
+          (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 6 DAY )
           and qe.id = '$questId' order by qt.time_value, d")->asArray()->all();
 
         foreach($questTimeModel as $key => $item)

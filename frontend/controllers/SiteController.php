@@ -7,6 +7,7 @@ use common\models\QuestsTimes;
 use backend\models\QuestsImages;
 use common\models\User;
 use common\models\SearchMenu;
+use frontend\models\QuestOwners;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -168,12 +169,15 @@ class SiteController extends Controller
         $questTimes = new QuestsTimes();
 
         $questDataModel = $this->findModel($name);
+        $questInfoModel = new QuestOwners();
+
         $partialWithData = $this->renderPartial('//partials/_quest_time',[
             'model' => $questDataModel,
             'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
         ]);
         return $this->render('quest', [
             'partial' => $partialWithData,
+            'place_info' => $questInfoModel->find()->where("id=".$questDataModel['quest_creator'])->asArray()->one(),
             'imagesModel' => $questImages->getQuestImages($questDataModel['id'],$questDataModel['quest_en_name'])
         ]);
 

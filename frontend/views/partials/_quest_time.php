@@ -51,26 +51,29 @@
 
             for ($j = 0; $j < count($item); $j++): ?>
 
-                <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .6); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>'>
+                <!--<div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .2); margin-left: 15px;" id='<?/*=array_values($item)[$j]['id'] */?>'>-->
                     <?php if (array_values($item)[$j]['id'] || array_values($item)[$j]['active']==0){
                         ?>
+                    <div style="border-radius: 8px; width: 7%; float: left; background: rgba(180, 160, 180, .05); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>'>
                         <div style="width: 50px; height: 44px; color: #ffffff; margin: auto;">
                             <p style="padding: 0; color: #000000; text-align: center;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
                         </div>
+                        </div>
                     <?php
                     } else {
-
-                        ?>
+                    ?>
+                    <div style="border-radius: 8px; border: 1px solid rgba(180, 160, 180, .5); width: 7%; float: left; background: rgba(180, 160, 180, .15); margin-left: 15px;" id='<?=array_values($item)[$j]['id'] ?>'>
                         <div class="timeContainer" id="<?=array_values($item)[$j]['d'] ?>">
                             <p id="time-value" style="padding: 0; color: #ffffff; text-align: center; margin: 0;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
                             <div id="quest-price" style="width: 50px; color: #ffffff; font-size: 12px; margin: auto;">
                                 <?=array_values($item)[$j]['price']?> UAH
                             </div>
                         </div>
+                    </div>
                     <?php
                     }
                     ?>
-                </div>
+                <!--</div>-->
             <?php
             endfor;
             echo "</div>";
