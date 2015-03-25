@@ -204,4 +204,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->find()->where(true)->asArray()->all();
     }
+
+    public static function getUserName($id)
+    {
+        return static::find('username')->where('id='.$id)->asArray()->one();
+    }
+
 }

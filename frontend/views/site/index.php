@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Url;
 ?>
-<a href="<?= Url::to(['site/logout'])?>" data-method="post">Logout</a>
 <div class="gap"></div>
 
 <div class="container">

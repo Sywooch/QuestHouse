@@ -187,12 +187,9 @@ class SiteController extends Controller
 
     public function actionProfile()
     {
-        $q = new Quest();
-        $menuClass = new Menu();
-        $menu_array = $menuClass->find()->where('is_active = 1')->all();
-        Yii::$app->params['nav_array'] = $menu_array;
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        return $this->render('profile');
+        //return $this->render('profile');
+        $this->layout=false;
+        return $this->render('game_space');
     }
 
     public function actionQuests()
@@ -246,10 +243,6 @@ class SiteController extends Controller
 
     public function actionGamespace()
     {
-//        $q = new Quest();
-//        $menuClass = new Menu();
-//        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-//        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         $this->layout = false;
         return $this->render('game_space');
     }
@@ -273,10 +266,10 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $this->layout = false;
-        $menuClass = new Menu();
+        /*$menuClass = new Menu();*/
         $q = new Quest();
-        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
+        /*Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
+        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];*/
         $model = new SignupForm();
 
         if (Yii::$app->request->isAjax){

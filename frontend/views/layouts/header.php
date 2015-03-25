@@ -9,6 +9,7 @@
 
 <?php
 use yii\helpers\Url;
+use common\models\User;
 ?>
 <!--<a href="<?/*= Url::to(['site/logout'])*/?>" data-method="post">Logout</a>-->
 
@@ -38,6 +39,32 @@ use yii\helpers\Url;
     </style>
 
     <div class="container-fluid">
+
+
+
+        <?php if (!Yii::$app->user->isGuest){ ?>
+            <div class="top-user-area clearfix" style="z-index: 1;">
+                <ul class="top-user-area-list list list-horizontal list-border">
+                    <li class="top-user-area-avatar">
+                        <a href="<?= Url::to(['profile'])?>">
+                            <img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze" />Hi,
+                        <?=User::getUserName(Yii::$app->user->id)['username']?></a>
+                    </li>
+                    <li><a href="<?= Url::to(['site/logout'])?>" data-method="post">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        <?php } else {?>
+            <div class="top-user-area clearfix" style="z-index: 1;">
+                <ul class="top-user-area-list list list-horizontal list-border">
+                    <li><a href="<?= Url::to(['login'])?>">Login</a></li>
+                    <li><a href="<?= Url::to(['signup'])?>">Register</a></li>
+                </ul>
+            </div>
+        <?php } ?>
+
+
+
 
         <div class="row inline-block-row">
 
