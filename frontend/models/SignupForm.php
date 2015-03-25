@@ -12,6 +12,7 @@ class SignupForm extends Model
 {
     public $username;
     public $email;
+    public $phone;
     public $password;
 
     /**
@@ -30,6 +31,11 @@ class SignupForm extends Model
             ['email', 'email'],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
+            ['phone', 'filter', 'filter' => 'trim'],
+            ['phone', 'required'],
+            //['phone', 'email'],
+            ['phone', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This phone address has already been taken.'],
+
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
         ];
@@ -46,6 +52,7 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
+            $user->phone = $this->phone;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {

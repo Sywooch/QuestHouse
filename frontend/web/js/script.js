@@ -13,7 +13,27 @@ $(document).ready(function() {
                 alert ("update table error");
                 console.log (error);
 
+        });
+    });
+
+    $(document.body).on('click', '#removeBooking' ,function(){
+
+        if (confirm('Действительно удалить бронь ?')) {
+            $.post('profile/remove-user-booking', {
+                reserved:$(this).parents('li').attr('id')
+            }, function(data) {
+
+                if (data){
+                    $('#content_profile').html(data);
+                }
+
+            }).fail(function(error) {
+
+                alert ("update table error");
+                console.log (error);
+
             });
+        }
     });
 
     $(document.body).on('click', '.timeContainer' ,function(){

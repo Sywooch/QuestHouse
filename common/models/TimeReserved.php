@@ -73,10 +73,27 @@ class TimeReserved extends \yii\db\ActiveRecord
         $timeReserved->time_value = $questTime;
         $timeReserved->date = $questDate;
         $timeReserved->quest_id = $questId;
-        $timeReserved->user_id = '1';
+        $timeReserved->user_id = Yii::$app->user->id;
         $timeReserved->created_at = '12345';
         $timeReserved->updated_at = '12345';
         return ($timeReserved->save());
         //else return "error during booking";
+    }
+
+    public function getUserBookedQuests($id)
+    {
+        return $this->findBySql("SELECT q.quest_name,q.quest_picture,qt.price,time_reserved.date,time_reserved.time_value,time_reserved.id FROM time_reserved
+                                join quests as q on q.id = quest_id
+                                join quests_times as qt on time_reserved.time_value = qt.time_value
+                                WHERE user_id = ".$id)->asArray()->all();
+    }
+
+    public function removeBookedTime($id)
+    {
+        $userId = Yii::$app->user->id;
+        if ($this->deleteAll("id=".$id." and user_id=".$userId)) {
+            return true;
+        }
+        else  return false;
     }
 }

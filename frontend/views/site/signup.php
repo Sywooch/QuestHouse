@@ -76,6 +76,9 @@ $this->title = 'Quest House';
                                 <?= $form->field($model, 'email')->input('email',array('placeholder'=>"Enter UserMail", 'autocomplete'=>"off")) ?>
                                 </div>
                             <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                                <?= $form->field($model, 'phone')->input('phone',array('placeholder'=>"Enter Phone", 'autocomplete'=>"off")) ?>
+                            </div>
+                            <div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
                                 <?= $form->field($model, 'password')->passwordInput()->input('password',array('placeholder'=>"Enter Password", 'autocomplete'=>"off")) ?>
                                 </div>
                                                 <div class="form-group">

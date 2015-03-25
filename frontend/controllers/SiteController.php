@@ -143,19 +143,13 @@ class SiteController extends Controller
             else return 'false';
         }
 
-            //$signupModel = new SignupForm();
-
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
 
             return $this->render('login', [
                 'model' => $model,
-                //'signup' => $signupModel
             ]);
-            /*return $this->renderPartial('login', [
-                'model' => $model,
-            ]);*/
         }
     }
 
@@ -183,13 +177,6 @@ class SiteController extends Controller
             'imagesModel' => $questImages->getQuestImages($questDataModel['id'],$questDataModel['quest_en_name'])
         ]);
 
-    }
-
-    public function actionProfile()
-    {
-        //return $this->render('profile');
-        $this->layout=false;
-        return $this->render('game_space');
     }
 
     public function actionQuests()
@@ -235,9 +222,6 @@ class SiteController extends Controller
     public function actionAbout()
     {
         $q = new Quest();
-        $menuClass = new Menu();
-        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
         return $this->render('about');
     }
 
@@ -249,13 +233,7 @@ class SiteController extends Controller
 
     public function actionGames()
     {
-        $q = new Quest();
-        $menuClass = new Menu();
-        Yii::$app->params['nav_array'] = $menuClass->find()->where('is_active = 1')->all();
-        $test = array('1'=>'123123','2'=>'fdsfsdfew');
-        //return $this->render('index',['cust' => $test]);
-        Yii::$app->params['quests_direct_link'] = [[],$q->find()->all(),[],[],[]];
-        return $this->render('games',['cust' => $test]);
+        return $this->render('games');
     }
 
     public function actionIsLoggedIn()
@@ -276,12 +254,15 @@ class SiteController extends Controller
             $model->username = Yii::$app->request->post('username');
             $model->password = Yii::$app->request->post('password');
             $model->email = Yii::$app->request->post('email');
+            $model->phone = Yii::$app->request->post('phone');
 
             if ($model->validate() && $user = $model->signup()) {
                 Yii::$app->getUser()->login($user);
                 return 'true';
+            } else {
+                return $model->validate();
             }
-            else return $model->validate();
+
         }
 
         if ($model->load(Yii::$app->request->post())) {

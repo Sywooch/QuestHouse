@@ -46,9 +46,9 @@ use common\models\User;
             <div class="top-user-area clearfix" style="z-index: 1;">
                 <ul class="top-user-area-list list list-horizontal list-border">
                     <li class="top-user-area-avatar">
-                        <a href="<?= Url::to(['profile'])?>">
-                            <img class="origin round" src="img/40x40.png" alt="Image Alternative text" title="AMaze" />Hi,
-                        <?=User::getUserName(Yii::$app->user->id)['username']?></a>
+                        <a href="<?= Url::to(['profile/bookings'])?>">
+                            <!--<img class="origin round" src="img/40x40.png" alt="Image Alternative text" />-->
+                            Личный кабинет <?=User::getUserName(Yii::$app->user->id)['username']?></a>
                     </li>
                     <li><a href="<?= Url::to(['site/logout'])?>" data-method="post">Logout</a>
                     </li>
@@ -67,26 +67,24 @@ use common\models\User;
 
 
         <div class="row inline-block-row">
-
-                    <div class="col-sm-4 col-md-4" style="z-index: 1;">
-                            <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
+            <div class="col-sm-4 col-md-4" style="z-index: 1;">
+                       <div id='top-nav' style="margin-top: 18%; width:100%;">
                                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
                                     <li><a href="<?= Url::to(['/'])?>">Главная</a></li>
                                     <li><a href="<?= Url::to(['/quests'])?>">Квесты</a></li>
-                                    <li><a href="<?= Url::to(['gamespace'])?>">Антикафе</a></li>
+                                    <li><a href="<?= Url::to(['/gamespace'])?>">Антикафе</a></li>
                                 </ul>
-                            </div>
-                        </div>
-                    <div class="col-sm-4 col-md-4">
-                        <img class="img-responsive" src="http://questhouse.com.ua/images/logo.png"/>
-                    </div>
+                       </div>
+            </div>
             <div class="col-sm-4 col-md-4">
-                <!--<div class="nav">-->
-                <div /*class="nav"*/ id='top-nav' style="margin-top: 18%; width:100%;">
+                <img class="img-responsive" src="http://questhouse.com.ua/images/logo.png"/>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div id='top-nav' style="margin-top: 18%; width:100%;">
                 <ul  id="slimmenu" style="width: 100%; text-align:center; float: right;">
-                        <li><a href="<?= Url::to(['gift'])?>">Сертификат</a></li>
-                        <li><a href="<?= Url::to(['franchize'])?>">Франшиза</a></li>
-                        <li><a href="<?= Url::to(['contact'])?>">Контакты</a></li>
+                        <li><a href="<?= Url::to(['/gift'])?>">Сертификат</a></li>
+                        <li><a href="<?= Url::to(['/franchize'])?>">Франшиза</a></li>
+                        <li><a href="<?= Url::to(['/contact'])?>">Контакты</a></li>
                     </ul>
                 </div>
             </div>

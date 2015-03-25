@@ -153,6 +153,10 @@
                                             <input name="email" class="form-control" type="email" placeholder="Email" />
                                         </div>
                                         <div class="form-group form-group-lg">
+                                            <label>Phone</label>
+                                            <input name="phone" class="form-control" type="phone" placeholder="Phone" />
+                                        </div>
+                                        <div class="form-group form-group-lg">
                                             <label>Password Repeat</label>
                                             <input name="password" class="form-control" type="password" placeholder="Password" />
                                         </div>

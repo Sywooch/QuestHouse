@@ -34,7 +34,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username', 'auth_key', 'password_hash', 'phone','email', 'created_at', 'updated_at'], 'required'],
             [['status', 'created_at', 'updated_at', 'role'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32]
@@ -53,6 +53,7 @@ class User extends \yii\db\ActiveRecord
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
+            'phone' => 'Phone',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',

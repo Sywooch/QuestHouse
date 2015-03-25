@@ -1,3 +1,5 @@
+<div class="gap"></div>
+
 <div id="map-canvas" style="height:400px;"></div>
 
 <div class="gap"></div>
