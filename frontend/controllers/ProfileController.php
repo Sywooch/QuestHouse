@@ -31,11 +31,13 @@ class ProfileController extends \yii\web\Controller
 
     public function actionRemoveUserBooking()
     {
+        $questInfoModel = new QuestOwners();
         $timeReserved = new TimeReserved();
         $bookedQuest = $timeReserved->getUserBookedQuests(\Yii::$app->user->id);
         if ($timeReserved->removeBookedTime(Yii::$app->request->post('reserved'))) {
             return $this->renderPartial('//profile/bookings',[
                 'bookedQuests' => $bookedQuest,
+                'place_info' => $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one()
             ],true,true);
         } else {
             return false;

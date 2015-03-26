@@ -18,8 +18,6 @@ use common\models\User;
                         <ul class="list user-profile-nav">
                             <li><a href="<?=Url::toRoute('profile/bookings')?>"><i class="fa fa-user"></i>Брони</a>
                             </li>
-                            <li><a href="<?=Url::toRoute('profile/settings')?>"><i class="fa fa-user"></i>Настройки</a>
-                            </li>
                         </ul>
                     </aside>
                 </div>
