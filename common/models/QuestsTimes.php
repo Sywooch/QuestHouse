@@ -72,9 +72,9 @@ class QuestsTimes extends \yii\db\ActiveRecord
             UNION ALL SELECT   4 UNION ALL SELECT   5 UNION ALL SELECT   6
             UNION ALL SELECT   7 UNION ALL SELECT   8 UNION ALL SELECT   9
           ) U
-        join quests_times as qt
-        join quests as qe
-        left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date)
+        join quests_times as qt on qt.quest_id = '$questId'
+        join quests as qe on qe.id = '$questId'
+        left join time_reserved as tr on tr.time_value = qt.time_value and tr.date = CAST((SYSDATE()+INTERVAL (H+T+U) DAY) AS date) and tr.quest_id = qe.id
         WHERE
           (SYSDATE()+INTERVAL (H+T+U) DAY) <= (SYSDATE()+INTERVAL 6 DAY )
           and qe.id = '$questId' order by qt.time_value, d")->asArray()->all();

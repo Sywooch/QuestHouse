@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use common\models\QuestsTimes;
 
 /**
  * QuestsController implements the CRUD actions for Quests model.
@@ -64,7 +65,14 @@ class QuestsController extends Controller
     {
         $model = new Quests();
         $questsImagesModel = new QuestsImages();
-        if ($model->load(Yii::$app->request->post()) && $questsImagesModel->load(Yii::$app->request->post())) {
+        $questTimesModel = new QuestsTimes();
+
+        if ($model->load(Yii::$app->request->post())
+            && $questsImagesModel->load(Yii::$app->request->post())
+            && $questTimesModel->load(Yii::$app->request->post())) {
+
+            $timeArray = explode(';',$questTimesModel['time_value']);
+            $pricesArray = explode(';',$questTimesModel['price']);
 
             $questLogoImage = UploadedFile::getInstances($model, 'quest_picture');
             $questsImageArray = UploadedFile::getInstances($questsImagesModel, 'quests_image_path');
@@ -97,11 +105,23 @@ class QuestsController extends Controller
                 $questsImagesModel->save();
             }
 
+            for ($i=0;$i<count($pricesArray);$i++){
+                $questTimesModel->id = null;
+                $questTimesModel->quest_id = $model->id;
+                $questTimesModel->time_value = $timeArray[$i];
+                $questTimesModel->price = $pricesArray[$i];
+                $questTimesModel->isNewRecord = true;
+                $questTimesModel->created_at = time();
+                $questTimesModel->updated_at = time();
+                $questTimesModel->save();
+            }
+
             //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
                 'questsImagesModel' => $questsImagesModel,
+                'questTimesModel' => $questTimesModel
             ]);
         }
     }

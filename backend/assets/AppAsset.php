@@ -33,7 +33,8 @@ class AppAsset extends AssetBundle
         'js/jquery.sparkline.js',
         'js/custom-tables.js',
         'js/preview_image.js',
-        'js/custom.js'
+        //'js/custom.js',
+        'js/timeline.js'
 
 
     ];

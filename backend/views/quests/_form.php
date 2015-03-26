@@ -61,6 +61,25 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'quest_status')->textInput() ?>
 
+
+        <h>TimeLine</h>
+
+
+        <div>
+            <div><div style="display: inline;">From</div><input type="text" style="display: inline;" id = 'timeFrom'/></div>
+            <div><div style="display: inline;">To</div><input type="text" style="display: inline;" id = 'timeTo'/></div>
+            <div><div style="display: inline;">Interval</div><input type="text" style="display: inline;" id = 'timeInterval'/></div>
+            <div><div style="display: inline;">Price</div><input type="text" style="display: inline;" id = 'timePrice'/></div>
+        </div>
+
+        <input type="button" id = 'fillTimeLine' value="Begin"><br><br>
+
+        <!--<input type="text" style="width: 500px" id = 'priceLine'>
+        <input type="text" style="width: 500px" id = 'timeLine'>-->
+        <?= $form->field($questTimesModel, 'price')->textInput(['maxlength' => 255,'id' => 'priceLine']) ?>
+        <?= $form->field($questTimesModel, 'time_value')->textInput(['maxlength' => 255,'id' => 'timeLine']) ?>
+
+
     </div>
     <div style="float: left; display:inline-block; margin-left: 50px;">
         <div class="form-group">
