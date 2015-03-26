@@ -210,7 +210,9 @@ class SiteController extends Controller
 
         $questTimes = new QuestsTimes();
 
-        $questsArray = $q->find()->all();
+        $questsArray = $q->findBySql("select * from  quests
+                        join quest_owners on quests.quest_creator = quest_owners.id
+                        ")->asArray()->all();
 
         $partialWithData = $this->renderPartial('//partials/_index_form',[
             'questTimeModel' => $questTimes->getTimeOneLineForQuest('all',false),

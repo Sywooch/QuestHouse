@@ -34,12 +34,32 @@ use yii\helpers\Url;
         <div class="row row-col-gap">
             <?php foreach($quest_model as $key): ?>
             <div class="col-md-6">
+                <div style="position: absolute; color: #ffffff; left: 5%;top: 5%;">
+                    <p style="font-size: 35px;"><?=$key['quest_name']?></p>
+                </div>
+
+                <div style="position: absolute; color: #ffffff; left: 5%;bottom: 5%;">
+                    <p style="font-size: 25px;"><?=$key['owner_address']?></p>
+                    <p style="font-size: 25px;"><?=$key['owner_phone']?></p>
+                </div>
+
+                <div style="position: absolute; color: #ffffff; right: 5%;bottom: 5%;">
+                    <?php
+                        if ($key['quest_difficulty']>2)
+                            echo '<p style="font-size: 25px;">Сложность: сложно</p>';
+                    ?>
+                    <!--<p style="font-size: 25px;">Сложность <?/*=$key['quest_difficulty']*/?></p>-->
+                    <p style="font-size: 25px;"><?=$key['quest_min_people']?> - <?=$key['quest_min_people']?> человека</p>
+                </div>
+
                 <?php if ($key['quest_status']==1) $url = Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name']);
                             else $url = Yii::$app->urlManager->createUrl('/quests');
                         ?>
                 <a  href="<?=$url?>">
 
-                    <img src="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?>" />
+
+                        <img src="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?>" />
+
                 </a>
             </div>
             <?php endforeach ?>
