@@ -35,10 +35,10 @@ class ProfileController extends \yii\web\Controller
     {
         $questInfoModel = new QuestOwners();
         $timeReserved = new TimeReserved();
-        $place_info = [];
-        $bookedQuest = $timeReserved->getUserBookedQuests(\Yii::$app->user->id);
-        if ($bookedQuest) $place_info = $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one();
         if ($timeReserved->removeBookedTime(Yii::$app->request->post('reserved'))) {
+            $place_info = [];
+            $bookedQuest = $timeReserved->getUserBookedQuests(\Yii::$app->user->id);
+            if ($bookedQuest) $place_info = $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one();
             return $this->renderPartial('//profile/bookings',[
                 'bookedQuests' => $bookedQuest,
                 'place_info' => $place_info

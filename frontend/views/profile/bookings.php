@@ -8,6 +8,10 @@
 use yii\helpers\Url;
 ?>
 
+<?php
+//print_r($bookedQuests);
+//echo count($bookedQuests);
+?>
 <ul class="booking-list booking-list-wishlist">
     <?php
         for ($i = 0; $i<count($bookedQuests);$i++){ ?>
