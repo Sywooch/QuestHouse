@@ -12,9 +12,11 @@ class ProfileController extends \yii\web\Controller
         $timeReservedObject = new TimeReserved();
         $questInfoModel = new QuestOwners();
         $bookedQuest = $timeReservedObject->getUserBookedQuests(\Yii::$app->user->id);
+        $place_info = [];
+        if ($bookedQuest) $place_info = $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one();
         $partial = $this->renderPartial('//profile/bookings',[
             'bookedQuests' => $bookedQuest,
-            'place_info' => $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one()
+            'place_info' => $place_info
         ]);
         return $this->render('profile',[
             'partial' => $partial,
@@ -33,11 +35,13 @@ class ProfileController extends \yii\web\Controller
     {
         $questInfoModel = new QuestOwners();
         $timeReserved = new TimeReserved();
+        $place_info = [];
         $bookedQuest = $timeReserved->getUserBookedQuests(\Yii::$app->user->id);
+        if ($bookedQuest) $place_info = $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one();
         if ($timeReserved->removeBookedTime(Yii::$app->request->post('reserved'))) {
             return $this->renderPartial('//profile/bookings',[
                 'bookedQuests' => $bookedQuest,
-                'place_info' => $questInfoModel->find()->where("id=".$bookedQuest[0]['creator_id'])->asArray()->one()
+                'place_info' => $place_info
             ],true,true);
         } else {
             return false;
