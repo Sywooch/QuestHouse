@@ -1,19 +1,6 @@
 <?php
 use yii\helpers\Url;
 ?>
-<div class="gap"></div>
-
-<div class="container">
-    <div class="post-inner" style="background: rgba(54, 25, 25, .2);">
-        <div style="text-align:center; padding: 10px;">
-            <em style="color: white; font-size: 18px;">
-                Квестхаус - это уникальное игровое пространство и проект типа "Выбраться из команты" в Одессе. У нас вы можете пройти комнаты-квесты, сыграть в мафию и настольные игры, выпить кофе и просто побыть в хорошей компании в нашем антикафе.
-            </em>
-        </div>
-    </div>
-</div>
-
-
 <div class="top-area show-onload">
 
     <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
@@ -28,6 +15,15 @@ use yii\helpers\Url;
 
 </div>
 
+<div class="container">
+    <div class="post-inner" style="background: rgba(54, 25, 25, .2);">
+        <div style="text-align:center; padding: 10px;">
+            <em style="color: white; font-size: 18px;">
+                Квестхаус - это уникальное игровое пространство и проект типа "Выбраться из команты" в Одессе. У нас вы можете пройти комнаты-квесты, сыграть в мафию и настольные игры, выпить кофе и просто побыть в хорошей компании в нашем антикафе.
+            </em>
+        </div>
+    </div>
+</div>
 
 
 <div class="gap"></div>
