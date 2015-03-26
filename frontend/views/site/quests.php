@@ -35,21 +35,21 @@ use yii\helpers\Url;
             <?php foreach($quest_model as $key): ?>
             <div class="col-md-6">
                 <div style="position: absolute; color: #ffffff; left: 5%;top: 5%;">
-                    <p style="font-size: 35px;"><?=$key['quest_name']?></p>
+                    <p style="font-size: 35px; margin: 0;"><?=$key['quest_name']?></p>
                 </div>
 
                 <div style="position: absolute; color: #ffffff; left: 5%;bottom: 5%;">
-                    <p style="font-size: 25px;"><?=$key['owner_address']?></p>
-                    <p style="font-size: 25px;"><?=$key['owner_phone']?></p>
+                    <p style="font-size: 15px; margin: 0;"><?=$key['owner_address']?></p>
+                    <p style="font-size: 15px; margin: 0;"><?=$key['owner_phone']?></p>
                 </div>
 
                 <div style="position: absolute; color: #ffffff; right: 5%;bottom: 5%;">
                     <?php
                         if ($key['quest_difficulty']>2)
-                            echo '<p style="font-size: 25px;">Сложность: сложно</p>';
+                            echo '<p style="font-size: 15px; margin: 0;">Сложность: сложно</p>';
                     ?>
                     <!--<p style="font-size: 25px;">Сложность <?/*=$key['quest_difficulty']*/?></p>-->
-                    <p style="font-size: 25px;"><?=$key['quest_min_people']?> - <?=$key['quest_min_people']?> человека</p>
+                    <p style="font-size: 15px; margin: 0;"><?=$key['quest_min_people']?> - <?=$key['quest_min_people']?> человека</p>
                 </div>
 
                 <?php if ($key['quest_status']==1) $url = Yii::$app->urlManager->createUrl('/quest?name='.$key['quest_en_name']);
