@@ -22,7 +22,8 @@ class QuestController extends Controller
             $date = Yii::$app->request->post('date');
             $quest = Yii::$app->request->post('quest');
             $tableType = false;
-            if (Yii::$app->request->post('table_type')) $tableType = Yii::$app->request->post('table_type');
+
+            if (Yii::$app->request->post('table_type') != "true") $tableType = Yii::$app->request->post('table_type');
 
             $questModel = new Quest();
 
@@ -39,11 +40,7 @@ class QuestController extends Controller
                     if ($this->Booking($time, $newDate, $questId)) {
                         $questTimes = new QuestsTimes();
 
-                        /*$partialWithData = $this->renderPartial('//partials/_quest_time',[
-                            'model' => $this->findModel($name),
-                            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
-                        ]);*/
-                        if ($tableType){
+                        if ($tableType == true){
                             return $this->renderPartial('//partials/_quest_time',[
                                 'model' => $this->findModel($quest),
                                 'questTimeModel' => $questTimes->getTimeLineForQuest($questId),

@@ -13,40 +13,24 @@ use yii\helpers\Url;
     </div>
 </div>
 
-<div class="gap"></div>
 
-<h2 style="text-align: center; color: #ffffff;">Наши квесты</h2>
+<div class="top-area show-onload">
 
-<!--<div class="container" style="background: rgba(54, 25, 25, .2);">-->
-<div style="background: rgba(54, 25, 25, .2); margin: 1px;">
-        <div id="popup-gallery" style="margin: 30px;">
-            <div class="row row-col-gap">
-                <?php foreach($questsArray as $key): ?>
-                    <div class="col-md-4" style="margin-top: 30px;">
-                        <a class="hover-img popup-gallery-image" href="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?>" data-effect="mfp-zoom-out">
-                            <img src="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?> />
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+    <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
+
+        <?php for ($i=0;$i<count($index_files_array);$i++): ?>
+            <div class="bg-holder full text-center text-white">
+                <div class="bg-img" style="background-image:url(img/index-images/<?=$index_files_array[$i]?>)"></div>
             </div>
-        </div>
+        <?php endfor; ?>
 
-
-    <div class="gap"></div>
-
-    <h2 style="text-align: center; color: #ffffff;">Расписание</h2>
-    <div style="width: 220px; margin:auto;">
-        <input class="date-pick form-control" id="quest-date" data-date-format="DD d MM yyyy" type="text" />
     </div>
-
-    <div class="gap"></div>
-    <div id="booking-table">
-        <?=$partial?>
-    </div>
-
-
 
 </div>
+
+
+
+<div class="gap"></div>
 
 
 <div class="gap"></div>

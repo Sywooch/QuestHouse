@@ -18,6 +18,22 @@ jQuery(document).ready(function($) {
         readURL(this);
     });
 
+    $(document.body).on('submit', '#galleryAddForm' ,function(event){
+        var url = "slider/add"; // the script where you handle the form input.
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: $("#modal-register-form").serialize(),
+            success: function(data)
+            {
+                alert (data);
+            }
+        });
+        event.preventDefault();
+
+    });
+
     function readURLMultiple(input) {
         if (input.files && input.files) {
 
@@ -35,4 +51,6 @@ jQuery(document).ready(function($) {
     $("#inputFileMultiple").change(function () {
         readURLMultiple(this);
     });
+
+
 });

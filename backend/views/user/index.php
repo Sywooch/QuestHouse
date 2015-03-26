@@ -23,6 +23,9 @@
                         <th style="width:45%" class="hidden-phone">
                             emails
                         </th>
+                        <th style="width:45%" class="hidden-phone">
+                            phones
+                        </th>
 
                     </tr>
                     </thead>
@@ -38,6 +41,9 @@
                         </td>
                         <td class="hidden-phone">
                             <?=$users[$i]['email']?>
+                        </td>
+                        <td class="hidden-phone">
+                            <?=$users[$i]['phone']?>
                         </td>
                     </tr>
                     <?php

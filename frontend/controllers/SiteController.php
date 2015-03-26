@@ -114,7 +114,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $q = new Quest();
+        /*$q = new Quest();
         $questTimes = new QuestsTimes();
 
         $questsArray = $q->find()->all();
@@ -125,6 +125,21 @@ class SiteController extends Controller
         return $this->render('index', [
             'partial' => $partialWithData,
             'questsArray' => $questsArray
+        ]);*/
+        /*$directory = "img/index-images";
+        $images = glob($directory . "*.jpg");*/
+
+        $dir = "img/index-images";
+        $files = [];
+        $dh  = opendir($dir);
+        while (false !== ($filename = readdir($dh))) {
+            if($filename !== '.' && $filename !== '..') {
+                $files[] = $filename;
+            }
+        }
+
+        return $this->render('index',[
+            'index_files_array' => $files
         ]);
     }
 
@@ -185,10 +200,26 @@ class SiteController extends Controller
 
     public function actionQuests()
     {
-        $q = new Quest();
+        /*$q = new Quest();
         $questsArray = $q->find()->all();
         return $this->render('quests',[
             'quest_model' => $questsArray
+        ]);*/
+
+        $q = new Quest();
+
+        $questTimes = new QuestsTimes();
+
+        $questsArray = $q->find()->all();
+
+        $partialWithData = $this->renderPartial('//partials/_index_form',[
+            'questTimeModel' => $questTimes->getTimeOneLineForQuest('all',false),
+        ]);
+
+        return $this->render('quests', [
+            'partial' => $partialWithData,
+            'quest_model' => $questsArray,
+            'questsArray' => $questsArray
         ]);
     }
 

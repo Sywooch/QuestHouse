@@ -114,34 +114,6 @@ $(document).ready(function() {
     });
 
     ////////////////////////////////////////////////////////////
-    //$("#modal-login-form").submit(function(event) {
-    $(document.body).on('submit', '#modal-login-form' ,function(event){
-        var url = "login"; // the script where you handle the form input.
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: $("#modal-login-form").serialize(), // serializes the form's elements.
-            success: function(data)
-            {
-                if (data!== 'false') {
-                    alert ("успешная авторизация");
-                    $('#b-date').text($.cookie('date'));
-                    $('#b-time').text($.cookie('time'));
-                    $('#b-price').text($.cookie('price'));
-                    $('#b-quest-name').text($.cookie('quest-name'));
-                    $('#login-register-modal').modal('hide').delay( 3000 );
-                    $('#booking-modal').modal('show');
-                } else {
-                    alert ("fail");
-                    /*$('#login-fail').show();
-                    $('#login-success').hide();*/
-                }
-            }
-        });
-        event.preventDefault();
-        //return false; // avoid to execute the actual submit of the form.
-    });
 
 
     //$("#modal-register-form").submit(function() {
@@ -193,12 +165,14 @@ $(document).ready(function() {
 
     function makeBooking(time,date,quest){
 
+        var tableType = false;
+        if ($('.news-list-container').attr('id')) tableType = true;
         $.post( "quest/checktime",
             {
                 time: time,
                 date: date,
                 quest: quest,
-                table_type: 'all'
+                table_type: tableType
 
             }, function(data) {
                 //alert (data);

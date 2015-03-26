@@ -1,4 +1,4 @@
-<div style="width: 99%;">
+<!--<div style="width: 99%;">-->
 
     <style>
         .news-list-container {
@@ -42,16 +42,11 @@
 
 
         <?php
-        echo '<div class="news-list-container">';
+        echo '<div class="news-list-container" id="index-form">';
 
         foreach ($questTimeModel as $key=>$item):
 
             echo '<div id=container class="quest_booking" name="'.$key.'" >';
-
-            /*usort($item, function ($item1, $item2) {
-                return number_format((float)$item1['time_value']) -number_format((float) $item2['time_value']);
-            });*/
-
 
             for ($j = 0; $j < count($item); $j++): ?>
 
@@ -63,7 +58,6 @@
                         </div>
                     <?php
                     } else {
-
                         ?>
                         <div class="timeContainer">
                             <p id="time-value" style="padding: 0; color: #ffffff; text-align: center; margin: 0;"><?=number_format((float)array_values($item)[$j]['time_value'], 2, '.', ''); ?></p>
@@ -82,8 +76,8 @@
         ?>
     </div>
 
-</div>
-</div>
+<!--</div>
+</div>-->
 
 
 

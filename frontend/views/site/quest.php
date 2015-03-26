@@ -26,24 +26,26 @@
 
 
 <div class="top-area show-onload" style="margin-bottom: 25px;">
-    <div style="position: absolute; color: #f5f5f5; z-index: 1; bottom: 5%; left: 5%;">
-        <h2 style="color: #f5f5f5;">Убийство в дублине</h2>
-        <div style="width:350px;"><h5 style="color: #f5f5f5;">Убийство в дублинеУбийство в дублинеУбийство в дублинеУбийство в дублинеУбийство в дублинеУбийство в дублине</h5>
-            </div>
+    <div>
+        <div style="position: absolute; color: #f5f5f5; z-index: 1; bottom: 5%; left: 5%;">
+            <h2 style="color: #f5f5f5;">Убийство в дублине</h2>
+            <div style="width:350px;"><h5 style="color: #f5f5f5;">Убийство в дублинеУбийство в дублинеУбийство в дублинеУбийство в дублинеУбийство в дублинеУбийство в дублине</h5>
+                </div>
 
-    </div>
+        </div>
 
-    <div style="top: 2%; right: 2%; position: absolute; z-index: 1; font-size: 25px; color: #f5f5f5; width: auto;">
-        <p><?=$place_info['owner_address']?></p>
-        <p><?=$place_info['owner_mail']?></p>
-        <p><?=$place_info['owner_phone']?></p>
-    </div>
+        <div style="top: 2%; right: 2%; position: absolute; z-index: 1; font-size: 25px; color: #f5f5f5; width: auto;">
+            <p><?=$place_info['owner_address']?></p>
+            <p><?=$place_info['owner_mail']?></p>
+            <p><?=$place_info['owner_phone']?></p>
+        </div>
 
-    <div style="bottom: 5%; right: 5%; position: absolute; z-index: 1; font-size: 35px; color: #f5f5f5; width: 350px;">
-        <i class="fa fa-user"></i><i class="fa fa-user"></i><i class="fa fa-user" style="opacity: 0.5"></i><i class="fa fa-user" style="opacity: 0.5"></i>
-        <i class="fa fa-clock-o" style="margin-left: 15px; margin-right: 15px;"></i>
-        <p style="display: inline">8+</p>
-        <p style="font-size: 20px;">Сложно 2-4 1 час</p>
+        <div style="bottom: 5%; right: 5%; position: absolute; z-index: 1; font-size: 35px; color: #f5f5f5; width: 350px;">
+            <i class="fa fa-user"></i><i class="fa fa-user"></i><i class="fa fa-user" style="opacity: 0.5"></i><i class="fa fa-user" style="opacity: 0.5"></i>
+            <i class="fa fa-clock-o" style="margin-left: 15px; margin-right: 15px;"></i>
+            <p style="display: inline">8+</p>
+            <p style="font-size: 20px;">Сложно 2-4 1 час</p>
+        </div>
     </div>
 
     <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
@@ -60,10 +62,11 @@
 
 </div>
 
-<div id="booking-table" style="width: 1500px;">
-        <h2 style="text-align: center; color: #ffffff;">Расписание</h2>
-        <?=$partial?>
+<div class="row row-col-gap">
+    <div id="booking-table">
+            <h2 style="text-align: center; color: #ffffff;">Расписание</h2>
+            <?=$partial?>
+    </div>
 </div>
-
 
 <div id="map-canvas" style="margin-top:50px; height: 400px"></div>

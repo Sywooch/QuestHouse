@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'css/styles.css',
         'css/mystyles.css',
         'css/schemes/horizon.css',
+        'css/owl.carousel.css',
 
     ];
     public $js = [

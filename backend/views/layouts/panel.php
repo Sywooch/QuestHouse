@@ -45,5 +45,13 @@ use yii\helpers\Url;
                 <p>Booking</p>
             </a>
         </li>
+        <li>
+            <a href="<?=Url::toRoute('/slider')?>">
+                <div class="icon">
+                    <i class="fa fa-calendar fa-3x"></i>
+                </div>
+                <p>Main Slider</p>
+            </a>
+        </li>
     </ul>
 </div>

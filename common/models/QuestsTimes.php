@@ -32,7 +32,7 @@ class QuestsTimes extends \yii\db\ActiveRecord
         else $tableDate = date("Y-m-d", strtotime($tableDate));
 
         if ($param == 'all'){
-            $questTimeModel = $this->findBySql("SELECT quests.quest_name as qn,tr.id,qt.time_value,qt.price FROM quests
+            $questTimeModel = $this->findBySql("SELECT quests.quest_en_name as qn,tr.id,qt.time_value,qt.price FROM quests
             join quests_times as qt on qt.quest_id = quests.id
             left join time_reserved as tr on tr.time_value = qt.time_value and qt.quest_id = tr.quest_id
             and date(tr.date) = date('$tableDate')
