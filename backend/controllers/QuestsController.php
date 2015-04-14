@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 use common\models\QuestsTimes;
 
 /**
@@ -83,15 +84,15 @@ class QuestsController extends Controller
             $questsImagesModel->created_at = time();
             $questsImagesModel->updated_at = time();
 
-            $questImagesDir = Yii::$app->basePath."/../frontend/web/img/quest-images/".$model->quest_en_name."/";
-
             $model->quest_picture = $questLogoImage[0]->baseName . '.' . $questLogoImage[0]->extension;
+
+            $model->save();
+
+            $questImagesDir = Yii::$app->basePath."/../frontend/web/img/quest-images/".$model->id."/";
 
             if(!is_dir($questImagesDir)) {
                 mkdir($questImagesDir);
             }
-
-            $model->save();
 
             foreach ($questLogoImage as $file) {
                 $file->saveAs($questImagesDir . $file->baseName . '.' . $file->extension);
@@ -116,7 +117,7 @@ class QuestsController extends Controller
                 $questTimesModel->save();
             }
 
-            //return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -134,15 +135,23 @@ class QuestsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $questsImagesModel = new QuestsImages();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $model = $this->findModel($id);
+        $qp = $model->quest_picture;
+        if ($model->load(Yii::$app->request->post())) {
+            $model->quest_picture = $qp;
+            if ($model->save()){
+                print_r(Yii::$app->request->post());
+                return $this->redirect(['view', 'id' => $model->id]);
+
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'questsImagesModel' => $questsImagesModel,
+                'questsImagesModel' => QuestsImages::findOne(['quests_image_quest_id'=>[$id]]),
+                'questsImgArray' => QuestsImages::findAll(['quests_image_quest_id'=>[$id]]),
+                'questsTimesArray' => QuestsTimes::findAll(['quest_id'=>[$id]]),
+                'questTimesModel' => QuestsTimes::findOne(['quest_id'=>[$id]])
             ]);
         }
     }
@@ -155,8 +164,18 @@ class QuestsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $questImagesDir = Yii::$app->basePath."/../frontend/web/img/quest-images/".$id."/";
 
+        $questImage = new QuestsImages();
+        $questImage->deleteAll("quests_image_quest_id = ".$id);
+        $questTime = new QuestsTimes();
+        $questTime->deleteAll("quest_id = ".$id);
+
+        if(is_dir($questImagesDir)) {
+            $fileManager = new FileHelper();
+            $fileManager->removeDirectory($questImagesDir);
+        }
+        $this->findModel($id)->delete();
         return $this->redirect(['index']);
     }
 

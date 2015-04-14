@@ -15,6 +15,8 @@ use yii\helpers\Url;
 
 </div>
 
+<div class="gap"></div>
+
 <div class="container">
     <div class="post-inner" style="background: rgba(54, 25, 25, .2);">
         <div style="text-align:center; padding: 10px;">

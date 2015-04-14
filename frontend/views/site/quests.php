@@ -56,10 +56,7 @@ use yii\helpers\Url;
                             else $url = Yii::$app->urlManager->createUrl('/quests');
                         ?>
                 <a  href="<?=$url?>">
-
-
-                        <img src="<?=Yii::$app->urlManager->createUrl('frontend/web/img/quest-images/').'/'.$key['quest_en_name'].'/'.$key['quest_picture'].'"' ?>" />
-
+                    <img src="<?=Yii::$app->urlManager->createUrl('img/quest-images/').'/'.$key['id'].'/'.$key['quest_picture'].'"' ?>" />
                 </a>
             </div>
             <?php endforeach ?>

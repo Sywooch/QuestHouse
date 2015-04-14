@@ -16,11 +16,6 @@ $this->title = 'Quest House';
     <head>
 
         <meta charset="utf-8">
-        <title>Black Label Admin</title>
-        <meta name="author" content="Srinu Basava">
-        <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
-        <meta name="description" content="Black Label Admin Admin UI">
-        <meta name="keywords" content="Black Label Admin, Admin UI, Admin Dashboard, Srinu Basava">
 
         <meta charset="<?= Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +23,7 @@ $this->title = 'Quest House';
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
 
-        <script>
+        <!--<script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -37,7 +32,7 @@ $this->title = 'Quest House';
             ga('create', 'UA-40301843-2', 'iamsrinu.com');
             ga('send', 'pageview');
 
-        </script>
+        </script>-->
 
     </head>
 

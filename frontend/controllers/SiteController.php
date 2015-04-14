@@ -184,17 +184,22 @@ class SiteController extends Controller
         $questTimes = new QuestsTimes();
 
         $questDataModel = $this->findModel($name);
-        $questInfoModel = new QuestOwners();
 
-        $partialWithData = $this->renderPartial('//partials/_quest_time',[
-            'model' => $questDataModel,
-            'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
-        ]);
-        return $this->render('quest', [
-            'partial' => $partialWithData,
-            'place_info' => $questInfoModel->find()->where("id=".$questDataModel['quest_creator'])->asArray()->one(),
-            'imagesModel' => $questImages->getQuestImages($questDataModel['id'],$questDataModel['quest_en_name'])
-        ]);
+        if ($questDataModel['quest_status'] == 1) {
+            $questInfoModel = new QuestOwners();
+
+            $partialWithData = $this->renderPartial('//partials/_quest_time', [
+                'model' => $questDataModel,
+                'questTimeModel' => $questTimes->getTimeLineForQuest($q->getQuestIdByName($name)),
+            ]);
+            return $this->render('quest', [
+                'partial' => $partialWithData,
+                'place_info' => $questInfoModel->find()->where("id=" . $questDataModel['quest_creator'])->asArray()->one(),
+                'imagesModel' => $questImages->getQuestImages($questDataModel['id'], $questDataModel['quest_en_name'])
+            ]);
+        } else {
+            return $this->redirect(404);
+        }
 
     }
 
@@ -210,7 +215,7 @@ class SiteController extends Controller
 
         $questTimes = new QuestsTimes();
 
-        $questsArray = $q->findBySql("select * from  quests
+        $questsArray = $q->findBySql("select *,quests.id from  quests
                         join quest_owners on quests.quest_creator = quest_owners.id
                         ")->asArray()->all();
 

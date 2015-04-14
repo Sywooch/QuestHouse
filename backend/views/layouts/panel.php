@@ -18,7 +18,7 @@ use yii\helpers\Url;
                 <div class="icon">
                     <i class="fa fa-home fa-3x"></i>
                 </div>
-                <p>Home</p>
+                <p>Главная</p>
             </a>
         </li>
         <li>
@@ -26,7 +26,7 @@ use yii\helpers\Url;
                 <div class="icon">
                     <i class="fa fa-key fa-3x"></i>
                 </div>
-                <p>Quests</p>
+                <p>Квесты</p>
             </a>
         </li>
         <li>
