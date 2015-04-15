@@ -73,8 +73,10 @@ use common\models\User;
                                 </ul>
                        </div>
             </div>
-            <div class="col-sm-4 col-md-4">
-                <img class="img-responsive" src="http://questhouse.com.ua/images/logo.png"/>
+            <div class="col-sm-4 col-md-4" >
+                <a href="<?= Url::to(['/'])?>">
+                    <img class="img-responsive" src="http://questhouse.com.ua/images/logo.png"/>
+                </a>
             </div>
             <div class="col-sm-4 col-md-4">
                 <div id='top-nav' style="margin-top: 18%; width:100%;">
