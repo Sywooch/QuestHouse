@@ -195,7 +195,7 @@ class SiteController extends Controller
             return $this->render('quest', [
                 'partial' => $partialWithData,
                 'place_info' => $questInfoModel->find()->where("id=" . $questDataModel['quest_creator'])->asArray()->one(),
-                'imagesModel' => $questImages->getQuestImages($questDataModel['id'], $questDataModel['quest_en_name'])
+                'imagesModel' => $questImages->getQuestImages($questDataModel['id'], $questDataModel['id'])
             ]);
         } else {
             return $this->redirect(404);
