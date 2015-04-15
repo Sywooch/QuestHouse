@@ -14,11 +14,13 @@ use yii\helpers\Url;
     <?php
         for ($i = 0; $i<count($bookedQuests);$i++){ ?>
             <li id ="<?=$bookedQuests[$i]['id']?>">
-                <a class="booking-item" href="<?=Yii::$app->urlManager->createUrl('/quest?name='.$bookedQuests[$i]['quest_en_name'])?>">
+
                     <div class="row">
                         <div class="col-md-3">
                             <div class="booking-item-img-wrap">
-                                <img src="<?=Yii::$app->urlManager->createUrl('img/quest-images/').'/'.$bookedQuests[$i]['quest_id'].'/'.$bookedQuests[$i]['quest_picture'] ?>" />
+                                <a class="booking-item" href="<?=Yii::$app->urlManager->createUrl('/quest?name='.$bookedQuests[$i]['quest_en_name'])?>">
+                                    <img src="<?=Yii::$app->urlManager->createUrl('img/quest-images/').'/'.$bookedQuests[$i]['quest_id'].'/'.$bookedQuests[$i]['quest_picture'] ?>" />
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-6">
