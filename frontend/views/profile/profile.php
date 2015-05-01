@@ -6,7 +6,7 @@ use common\models\User;
 <div class="gap"></div>
 
 <?php /*echo Yii::$app->user->getIdentity(true) */?>
-
+<div style="margin-top: 15%;"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">

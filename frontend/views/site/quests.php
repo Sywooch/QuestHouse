@@ -25,7 +25,7 @@ use yii\helpers\Url;
 </div>
 <div class="gap-small"></div>-->
 
-
+<div style="margin-top: 15%;"></div>
 <h2 style="text-align: center; color: #ffffff;">Наши квесты</h2>
 
 <!--<div class="container" style="background: rgba(54, 25, 25, .2);">-->

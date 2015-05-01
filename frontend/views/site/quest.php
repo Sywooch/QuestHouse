@@ -34,7 +34,7 @@
 
         </div>
 
-        <div style="top: 2%; right: 2%; position: absolute; z-index: 1; font-size: 25px; color: #f5f5f5; width: auto;">
+        <div style="top: 10%; right: 2%; position: absolute; z-index: 1; font-size: 25px; color: #f5f5f5; width: auto;">
             <p><?=$place_info['owner_address']?></p>
             <p><?=$place_info['owner_mail']?></p>
             <p><?=$place_info['owner_phone']?></p>

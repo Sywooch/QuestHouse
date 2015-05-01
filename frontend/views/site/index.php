@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 ?>
-<div class="top-area show-onload">
+<div class="top-area show-onload" style="box-shadow: 0px 0px 10px #000000;">
 
     <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
 

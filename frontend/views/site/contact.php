@@ -1,4 +1,4 @@
-<div class="gap"></div>
+<div style="margin-top: 20%;"></div>
 
 <div id="map-canvas" style="height:400px;"></div>
 

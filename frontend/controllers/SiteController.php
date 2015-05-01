@@ -152,7 +152,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if (Yii::$app->request->isAjax){
-            $model->username = Yii::$app->request->post('username');
+            $model->email = Yii::$app->request->post('username');
             $model->password = Yii::$app->request->post('password');
 
             if ($model->validate() && $model->login()) return 'true';

@@ -56,7 +56,7 @@ class TimeReserved extends \yii\db\ActiveRecord
 
     public function returnBookedQuests()
     {
-        $questsReservations = $this->findBySql("SELECT time_reserved.*,u.username,q.quest_name FROM time_reserved
+        $questsReservations = $this->findBySql("SELECT time_reserved.*,u.phone,u.username,q.quest_name FROM time_reserved
                                                 join quests q ON q.id = time_reserved.quest_id
                                                 join user u ON u.id = time_reserved.user_id
                                                 order by id")->asArray()->all();

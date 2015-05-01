@@ -10,6 +10,8 @@ use yii\helpers\Url;
 
 <?php
 ?>
+
+
 <ul class="booking-list booking-list-wishlist">
     <?php
         for ($i = 0; $i<count($bookedQuests);$i++){ ?>
@@ -41,3 +43,4 @@ use yii\helpers\Url;
 
 
 </ul>
+</div>

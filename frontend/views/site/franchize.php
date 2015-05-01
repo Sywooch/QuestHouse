@@ -1,4 +1,4 @@
-<div class="gap-small"></div>
+<div style="margin-top: 15%;"></div>
 
 <h1 style="text-align: center; color: #ffffff;">Франчайзинг</h1>
 
